@@ -1,4 +1,7 @@
 'use strict';
+
+const { hashPassword } = require('../helpers/bcrypt');
+
 const {
   Model
 } = require('sequelize');
@@ -42,8 +45,9 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'UserCredit',
     hooks: {
       beforeCreate: (instance, options) => {
-        const bcryptjs = require('bcryptjs');
-        instance.cvv = bcryptjs.hashSync(instance.cvv, 10);
+
+        instance.cvv = hashPassword(instance.cvv);
+
       }
     }
   });
