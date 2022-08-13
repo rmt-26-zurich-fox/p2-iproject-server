@@ -1,6 +1,8 @@
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
+
+const axios = require("axios");
 const recipe = require("./helper/tasty");
 const express = require("express");
 const cors = require("cors");
@@ -20,6 +22,20 @@ let parameter = {
   credit_card: {
     secure: true,
   },
+  item_details: [
+    {
+      id: "a01",
+      price: 7000,
+      quantity: 1,
+      name: "Apple",
+    },
+    {
+      id: "b02",
+      price: 3000,
+      quantity: 1,
+      name: "Orange",
+    },
+  ],
   customer_details: {
     first_name: "gagarin",
     last_name: "pratama",
@@ -74,6 +90,61 @@ app.get("/recipe", (req, res) => {
     .catch(function (error) {
       console.error(error);
     });
+});
+
+app.get("/province", async (req, res) => {
+  try {
+    const response = await axios({
+      method: "get",
+      url: "https://api.rajaongkir.com/starter/province",
+      headers: {
+        key: process.env.RAJAONGKIR_API,
+      },
+    });
+    const province = response.data.rajaongkir.results;
+    res.status(200).json(province);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+app.get("/city", async (req, res) => {
+  try {
+    const response = await axios({
+      method: "get",
+      url: "https://api.rajaongkir.com/starter/city",
+      params: { id: "135", province: "5" }, // <<< contoh pake query params
+      headers: {
+        key: process.env.RAJAONGKIR_API,
+      },
+    });
+    const city = response.data.rajaongkir.results;
+    res.status(200).json(city);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+app.post("/cost", async (req, res) => {
+  try {
+    const response = await axios({
+      method: "post",
+      url: "https://api.rajaongkir.com/starter/cost",
+      data: {
+        origin: "39",
+        destination: "135",
+        weight: 1700,
+        courier: "jne",
+      }, // <<< contoh pake query params
+      headers: {
+        key: process.env.RAJAONGKIR_API,
+      },
+    });
+    const cost = response.data;
+    res.status(200).json(cost);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
 });
 
 app.listen(port, () => {
