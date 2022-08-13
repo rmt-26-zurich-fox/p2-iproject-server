@@ -21,10 +21,10 @@ let parameter = {
     secure: true,
   },
   customer_details: {
-    first_name: "budi",
+    first_name: "gagarin",
     last_name: "pratama",
-    email: "budi.pra@example.com",
-    phone: "08111222333",
+    email: "gagarin.pra@example.com",
+    phone: "081398830217",
   },
 };
 
