@@ -1,6 +1,7 @@
 const { hashSync, compareSync } = require("bcryptjs")
 const { sign, verify} = require('jsonwebtoken')
 const { User, Product, ShoppingCart} = require('../models')
+const {Op} = require('sequelize')
 
 class Controller{
     static async register(req, res, next){
@@ -73,6 +74,22 @@ class Controller{
         const { productId } = req.params
         const { quantity } = req.body
 
+        const product = await Product.findOne({where: {id: productId}})
+        if(!product){
+            throw({message: "Product isn't Found"})
+        }
+        const prodInCart = await ShoppingCart.findOne({
+            where:{
+                [Op.and]: [
+                    {UserId: req.user.id},
+                    {ProductId: product.id}
+                ]
+            }
+        })
+
+        if(prodInCart){
+            throw({message: "You've already added this Product to yout shopping cart"})
+        }
         const cart = await ShoppingCart.create({UserId: req.user.id, ProductId: productId , quantity: quantity})
 
         res.status(201).json({message: "Product is added to your Shopping Cart"})

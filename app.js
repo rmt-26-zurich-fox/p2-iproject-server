@@ -26,11 +26,14 @@ app.use(async(err, req, res, next)=>{
     let code = 500
     let message = 'Internal Server Error'
     console.log(err)
-if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError"){
+if(err.message == "Product isn't Found"){
+        message = "Product isn't Found"
+        code = 404
+}else if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError"){
     message = err.errors[0].message
 }else if( err.message == "Invalid username/password"){
     message = err.message
-}else if( err.name == "JsonWebTokenError"){
+}else if( err.name == "JsonWebTokenError" || err.message == "Invalid Token"){
     message = 'Invalid Token'
 }
     res.status(code).json(message)

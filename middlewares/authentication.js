@@ -13,6 +13,9 @@ const authentication = async(req, res , next) =>{
             const user = await User.findOne({where: {
                 id: decoded.id
             }})
+            if(!user){
+                throw ({message: "Invalid Token"})
+            }
             req.user = {
                 id: user.id,
             }
