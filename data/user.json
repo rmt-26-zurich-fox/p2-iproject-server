@@ -5,13 +5,13 @@
     "password": "rysaldi"
   },
   {
-    "username": "staff",
-    "email": "staff@mail.com",
-    "password": "staff"
+    "username": "customer1",
+    "email": "customer1@mail.com",
+    "password": "customer1"
   },
   {
-    "username": "customer",
-    "email": "customer@mail.com",
-    "password": "customer"
+    "username": "customer2",
+    "email": "customer2@mail.com",
+    "password": "customer2"
   }
 ]

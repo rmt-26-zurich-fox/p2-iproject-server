@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Vila Modern",
+    "location": "Jakarta, Indonesia",
+    "price": 2000000,
+    "review": "",
+    "CategoryId": 1,
+    "UserId": 2
+  },
+  {
+    "name": "Island Paradis",
+    "location": "Bali, Indonesia",
+    "price": 13000000,
+    "review": "",
+    "CategoryId": 3,
+    "UserId": 1
+  },
+  {
+    "name": "Dream House Ocean Front",
+    "location": "Bali, Indonesia",
+    "price": 9000000,
+    "review": "",
+    "CategoryId": 2,
+    "UserId": 1
+  },
+  {
+    "name": "Comforting Middle Forest House",
+    "location": "Bandung, Indonesia",
+    "price": 8000000,
+    "review": "",
+    "CategoryId": 4,
+    "UserId": 1
+  },
+  {
+    "name": "House of Star, Sleeping with Sky View",
+    "location": "Bandung, Indonesia",
+    "price": 4000000,
+    "review": "",
+    "CategoryId": 1,
+    "UserId": 1
+  },
+  {
+    "name": "Tropical Luxury Villa",
+    "location": "Pekanbaru, Indonesia",
+    "price": 5000000,
+    "review": "",
+    "CategoryId": 1,
+    "UserId": 3
+  },
+  {
+    "name": "Luxury Villa at Hill Retreat",
+    "location": "Jawa Timur, Indonesia",
+    "price": 6000000,
+    "review": "",
+    "CategoryId": 1,
+    "UserId": 3
+  },
+  {
+    "name": "Friendly Villa",
+    "location": "Kalimantan, Indonesia",
+    "price": 2000000,
+    "review": "",
+    "CategoryId": 1,
+    "UserId": 3
+  },
+  {
+    "name": "Aqua House",
+    "location": "Bali, Indonesia",
+    "price": 7000000,
+    "review": "",
+    "CategoryId": 2,
+    "UserId": 3
+  }
+]
+

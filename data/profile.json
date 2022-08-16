@@ -2,22 +2,25 @@
   {
     "firstName": "Rysaldi",
     "lastName": "Wijaya",
+    "profilePicture": "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png",
     "phone": "123",
     "role": "Admin",
     "UserId": 1
   },
   {
-    "firstName": "Staff",
-    "lastName": "Staff",
+    "firstName": "Customer1",
+    "lastName": "Customer1",
+    "profilePicture": "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png",
     "phone": "123",
-    "role": "Staff",
+    "role": "Customer1",
     "UserId": 2
   },
   {
-    "firstName": "Customer",
-    "lastName": "Customer",
+    "firstName": "Customer2",
+    "lastName": "Customer2",
+    "profilePicture": "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png",
     "phone": "123",
-    "role": "Customer",
+    "role": "Customer2",
     "UserId": 3
   }
 ]
