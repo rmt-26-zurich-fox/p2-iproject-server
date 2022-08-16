@@ -38,7 +38,7 @@ module.exports = {
       },
       article: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       status: {
         allowNull: false,

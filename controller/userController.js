@@ -15,7 +15,6 @@ class UserController {
                 email : registerAdmin.email
             })
         } catch (error) {
-            console.log(error);
             next(error);
         }
     } 
@@ -46,7 +45,7 @@ class UserController {
             if(!findUser) throw { name: "userNotFound" };
             const idPassValid = comparePassword(password, findUser.password);
             const payload = {
-                id: findUser,
+                id: findUser.id,
                 username: findUser.username,
                 role: findUser.role
             }
