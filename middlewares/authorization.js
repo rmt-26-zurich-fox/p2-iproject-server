@@ -2,14 +2,12 @@ const { User, Course } = require("../models");
 
 const authorization = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    let course = await Course.findByPk(+id);
+    const { courseId } = req.params;
+    let course = await Course.findByPk(+courseId);
     if (!course) {
       throw { name: "NotFound" };
     }
     if (req.user.role === "Teacher") {
-      next();
-    } else if (course.authorId === req.user.id) {
       next();
     } else {
       throw { name: "Forbidden" };
