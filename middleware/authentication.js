@@ -14,7 +14,6 @@ const authentication = async (req, res, next) => {
         req.currentUser = {
             id: currentUser.id,
             name: currentUser.username,
-            role: currentUser.role
         }
         next()
     } catch (error) {
