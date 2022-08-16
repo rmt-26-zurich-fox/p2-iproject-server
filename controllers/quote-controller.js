@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { User, Post} = require('../models')
+const { User, Post, Category} = require('../models')
 
 module.exports = class QuoteController {
 
@@ -17,9 +17,7 @@ module.exports = class QuoteController {
         } catch (error) {
 
             console.log(error)
-            res.status(500).json({
-                message: 'Server Internal Error'
-            })
+            next(error)
             
         }
 
@@ -39,10 +37,46 @@ module.exports = class QuoteController {
         } catch (error) {
 
             console.log(error)
-            res.status(500).json({
-                message: 'Server Internal Error'
-            })
+            next(error)
             
         }
     } 
+
+
+    static async allQuotes(req, res, next){
+
+        try {
+
+            const quote = await Post.findAll({
+                include: Category
+            })
+
+            res.status(200).json(quote)
+            
+        } catch (error) {
+
+            console.log(error)
+            next(error)
+            
+        }
+    }
+
+    static async createQuote(req, res, next){
+
+        const { desc, CategoryId } = req.body
+
+        const UserId = req.user.id
+
+        try {
+
+            const quote = await Post.create({desc, UserId, CategoryId})
+
+            res.status(201).json(quote)
+            
+        } catch (error) {
+            
+            console.log(error)
+            next(error)
+        }
+    }
 }

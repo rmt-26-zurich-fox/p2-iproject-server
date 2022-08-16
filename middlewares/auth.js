@@ -26,6 +26,34 @@ const authentication = async (req, res, next) => {
     } catch (error) {
 
         console.log(error)
+        next(error)
+        
+    }
+}
+
+const authorization = async(req, res, next) => {
+
+    const { id } = req.params
+
+    try {
+        
+        const quote = await Post.findByPk(id)
+
+        if(!quote) throw {name: 'Not Found'}
+
+        if(quote.UserId === req.user.id){
+
+            next()
+
+        }else {
+
+                throw {name: 'Forbidden'}
+        }
+
+    } catch (error) {
+
+        console.log(error)
+        next(error)
         
     }
 }
