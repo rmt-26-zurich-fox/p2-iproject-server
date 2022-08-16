@@ -6,15 +6,18 @@ module.exports = class FavoriteController{
 
         try {
 
+
+
             const favorite = await Favorite.findAll({
+                // where: {UserId: req.user.id},
                 include: [
-                    {
-                        model: User,
-                        attributes: ['id', 'username', 'email', 'role']
-                    },
+                    // {
+                    //     model: User,
+                    //     attributes: ['id', 'username', 'email', 'role']
+                    // },
                     {
                         model: Post,
-                        exclude: ['createdAt', 'updatedAt']
+                        include: User
                     }
                 ]
             })

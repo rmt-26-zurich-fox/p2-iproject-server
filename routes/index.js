@@ -6,9 +6,10 @@ const userRouter = require('./user-router')
 const favoriteRouter = require('./favorite-router')
 
 router.use('/users', userRouter)
-router.use(authentication)
 
 router.use('/quotes', quoteRouter)
+
+router.use(authentication)
 router.use('/favorites', favoriteRouter)
 
 router.use(errorHandler)

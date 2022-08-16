@@ -1,11 +1,12 @@
 const QuoteController = require('../controllers/quote-controller')
+const { authentication } = require('../middlewares/auth')
 
 const quoteRouter = require('express').Router()
 
 quoteRouter.get('/', QuoteController.allQuotes)
-quoteRouter.post('/', QuoteController.createQuote)
-quoteRouter.get('/programming', QuoteController.allProgrammerQuote)
-quoteRouter.get('/anime', QuoteController.allAnimeQuote)
+quoteRouter.post('/', authentication, QuoteController.createQuote)
+quoteRouter.get('/programming', authentication, QuoteController.allProgrammerQuote)
+quoteRouter.get('/anime', authentication, QuoteController.allAnimeQuote)
 
 
 module.exports = quoteRouter
