@@ -38,8 +38,24 @@ class Controller{
             let {reportId} = req.params
             let {imageUrl,name,CategoryId}= req.body
             let data= await Report.update({imageUrl,name,CategoryId},{where:{id:reportId}})
+            if(!data)throw({name: "data not found"})
             res.status(200).json({
                 message: 'Success update Report'
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
+    
+    static async deleteReport(req,res,next){
+        try {
+            let{id}=req.params
+            let data= await Report.destroy({where:{id:id}})
+            if(!data){
+                throw ({name:'data not found'})
+            }
+            res.status(200).json({
+                message: `Success deleted id ${id}`
             })
         } catch (error) {
             next(error)
