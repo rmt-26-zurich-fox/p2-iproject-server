@@ -8,10 +8,10 @@ module.exports = {
       f.createdAt = new Date()
       f.updatedAt = new Date()
     })
-    await queryInterface.bulkInsert("Foods", food)
+    await queryInterface.bulkInsert("Food", food)
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Foods", food)
+    await queryInterface.bulkDelete("Food", food)
   }
 };

@@ -10,4 +10,18 @@ const compare = (password, hashed) => bcrypt.compareSync(password, hashed)
 const createToken = (payload) => jwt.sign(payload, kunci)
 const verifyToken = (token) => jwt.verify(token, kunci)
 
-module.exports = { hash, compare, createToken, verifyToken }
+// Pagination
+const getPagination = (page, size) => {
+    const limit = size ? +size : 3;
+    const offset = (page - 1) * limit
+    return { limit, offset };
+};
+
+const getPagingData = (data, page, limit) => {
+    const { count: totalItems, rows: product } = data;
+    const currentPage = page ? +page : 1;
+    const totalPages = Math.ceil(totalItems / limit);
+    return { totalItems, product, totalPages, currentPage };
+};
+
+module.exports = { hash, compare, createToken, verifyToken, getPagination, getPagingData }
