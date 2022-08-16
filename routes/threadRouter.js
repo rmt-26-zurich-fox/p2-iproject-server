@@ -3,8 +3,28 @@ const ThreadController = require("../controllers/threadController");
 const {
   authorization,
   threadAccessing,
+  underAgeAuthorization,
 } = require("../middlewares/authorization");
-const { authentication, getProfile } = require("../middlewares/authentication");
+const {
+  authentication,
+  getProfile,
+  underAgeVerification,
+} = require("../middlewares/authentication");
+
+router.get(
+  "/",
+  authentication,
+  getProfile,
+  underAgeVerification,
+  ThreadController.getThreadList
+);
+router.get(
+  "/:threadId",
+  authentication,
+  getProfile,
+  underAgeAuthorization,
+  ThreadController.findOneThread
+);
 
 router.post(
   "/create",

@@ -1,3 +1,4 @@
+const getAge = require("../helpers/dateToAge");
 const { Profile, Thread } = require("../models");
 
 async function authorization(err, req, res, next) {
@@ -34,4 +35,22 @@ async function threadAccessing(req, res, next) {
   }
 }
 
-module.exports = { authorization, threadAccessing };
+async function underAgeAuthorization(req, res, next) {
+  try {
+    const { birthDate } = req.user;
+    const { threadId } = req.params;
+    const age = getAge(birthDate);
+    const targetThread = await Thread.findByPk(threadId);
+    if (!targetThread) {
+      throw { name: "threadNotFound" };
+    }
+    if ((targetThread.explicit = true && age < 17)) {
+      throw { name: "explicitThread" };
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { authorization, threadAccessing, underAgeAuthorization };

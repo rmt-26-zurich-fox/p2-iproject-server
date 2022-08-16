@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.ProfileLikeComment,
         foreignKey: "CommentId",
       });
+      Comment.belongsTo(models.Thread, { foreignKey: "ThreadId" });
     }
   }
   Comment.init(

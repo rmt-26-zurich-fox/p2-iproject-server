@@ -1,3 +1,4 @@
+const getAge = require("../helpers/dateToAge");
 const { verifyToken } = require("../helpers/jwt");
 const { User, Profile } = require("../models");
 
@@ -37,9 +38,25 @@ const getProfile = async (req, res, next) => {
       throw { name: "profileNotFound" };
     }
     req.user.profileId = targetProfile.id;
+    req.user.birthDate = targetProfile.birthdate;
     next();
   } catch (error) {
     next(error);
   }
 };
-module.exports = { authentication, getProfile };
+
+const underAgeVerification = async (req, res, next) => {
+  try {
+    const { birthDate } = req.user;
+    const age = getAge(birthDate);
+    if (age > 17) {
+      req.user.underAge = false;
+    } else {
+      req.user.underAge = true;
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = { authentication, getProfile, underAgeVerification };
