@@ -10,7 +10,4 @@ router.post("/register", UserController.registerVisitor);
 // Global
 router.post("/login", UserController.loginUsers);
 
-// Global
-router.post("/login", UserController.loginUsers);
-
 module.exports = router;
