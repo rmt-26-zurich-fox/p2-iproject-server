@@ -7,8 +7,8 @@ if (process.env.NODE_ENV != "production") {
 const router = require("express").Router();
 
 router.post("/register", Register.postRegister);
-router.post("/login"), Login.postLogin;
-
+router.post("/login", Login.postLogin);
+router.post("/google-sign-in", Login.googleLogin);
 
 
 
