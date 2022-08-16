@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Post.belongsTo(models.User, {foreignKey: 'UserId'})
       Post.belongsTo(models.Category, {foreignKey: 'CategoryId'})
+      Post.hasMany(models.Favorite, {
+        foreignKey: 'PostId'
+      })
     }
   }
   Post.init({
