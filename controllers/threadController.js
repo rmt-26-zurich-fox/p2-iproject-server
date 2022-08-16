@@ -82,21 +82,29 @@ class ThreadController {
   }
   static async findOneThread(req, res, next) {
     try {
+      const { underAge } = req.user;
       const { threadId } = req.params;
-      const targetThread = await Thread.findOne({
+      let targetThread = await Thread.findOne({
         where: {
           id: threadId,
         },
         include: [
-          {
-            model: Comment,
-          },
           {
             model: Category,
             attributes: ["name"],
           },
         ],
       });
+      let option2 = {
+        where: {
+          ThreadId: targetThread.id,
+        },
+      };
+      if (underAge === true) {
+        option2.where.explicit = false;
+      }
+      let targetComment = await Comment.findAll(option2);
+      targetThread.dataValues.Comments = targetComment;
       res.status(200).json(targetThread);
     } catch (error) {
       next(error);

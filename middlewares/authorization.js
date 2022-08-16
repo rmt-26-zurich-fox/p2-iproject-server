@@ -44,7 +44,7 @@ async function underAgeAuthorization(req, res, next) {
     if (!targetThread) {
       throw { name: "threadNotFound" };
     }
-    if ((targetThread.explicit = true && age < 17)) {
+    if (targetThread.explicit === true && age < 17) {
       throw { name: "explicitThread" };
     }
     next();
