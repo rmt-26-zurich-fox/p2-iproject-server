@@ -15,7 +15,7 @@ class PopularLocationController {
         }
     }
 
-    static async readPopularLocationById(req, res, next) {
+    static async readPopularWeatherById(req, res, next) {
         try {
             let reg = new RegExp('^[0-9]*$')
             let popularId = req.params.popularId
@@ -26,10 +26,12 @@ class PopularLocationController {
 
             if (!popular) throw { name: 'NotFound' }
 
-            let currentWeather = await axios({
+            let days = req.body.days
+
+            let weather = await axios({
                 method: 'GET',
-                url: 'https://weatherapi-com.p.rapidapi.com/current.json',
-                params: { q: `${popular.name}` },
+                url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
+                params: { q: `${popular.name}`, days: `${days}` },
                 headers: {
                     'X-RapidAPI-Key': '49606f27ffmsh8e7eab91839726ep11ea8cjsn70520c70fe2f',
                     'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
@@ -37,7 +39,7 @@ class PopularLocationController {
             });
 
             res.status(200).json(
-                currentWeather.data
+                weather.data
             )
         } catch (error) {
             next(error)
