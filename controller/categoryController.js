@@ -1,4 +1,7 @@
+const { Category } = require("../models");
+
 class CategoryController {
+
 
 }
 
