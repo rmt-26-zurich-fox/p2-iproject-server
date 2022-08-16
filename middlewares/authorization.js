@@ -1,5 +1,5 @@
 const getAge = require("../helpers/dateToAge");
-const { Profile, Thread } = require("../models");
+const { Profile, Thread, Comment } = require("../models");
 
 async function authorization(req, res, next) {
   try {
@@ -53,4 +53,26 @@ async function underAgeAuthorization(req, res, next) {
   }
 }
 
-module.exports = { authorization, threadAccessing, underAgeAuthorization };
+async function editCommentAuthorization(req, res, next) {
+  try {
+    const { commentId } = req.params;
+    const { profileId } = req.user;
+    const targetComment = await Comment.findByPk(commentId);
+    if (!targetComment) {
+      throw { name: "commentNotFound" };
+    }
+    if (targetComment.ProfileId !== profileId) {
+      throw { name: "unauthorized" };
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = {
+  authorization,
+  threadAccessing,
+  underAgeAuthorization,
+  editCommentAuthorization,
+};

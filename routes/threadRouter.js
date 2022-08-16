@@ -41,6 +41,13 @@ router.post(
   underAgeAuthorization,
   CommentController.createComment
 );
+router.put(
+  "/:threadId/comment/:commentId",
+  authentication,
+  getProfile,
+  underAgeAuthorization,
+  CommentController.createComment
+);
 
 router.post(
   "/create",
