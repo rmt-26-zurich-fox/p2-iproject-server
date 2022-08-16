@@ -4,4 +4,7 @@ const router = require("express").Router();
 
 // Visitor
 
+// Global
+router.post("/login", UserController.loginUsers);
+
 module.exports = router;
