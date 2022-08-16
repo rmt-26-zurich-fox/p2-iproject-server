@@ -9,6 +9,8 @@ router.use('/users', userRouter)
 // Popular Location
 router.use('/popular', popularLocationRouter)
 
+// Middlewares
+
 // Saved Location
 router.use('/saved', savedLocationRouter)
 
