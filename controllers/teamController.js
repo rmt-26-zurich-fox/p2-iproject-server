@@ -1,5 +1,6 @@
 const { Team, TeamImage } = require("../models");
 const axios = require("axios");
+const rapidApiKey = process.env.RAPID_API_KEY;
 
 class TeamController {
   static async getSpecificTeam(req, res, next) {
@@ -24,8 +25,7 @@ class TeamController {
           .toLowerCase()}?lan=en`,
         {
           headers: {
-            "X-RapidAPI-Key":
-              "004fb19f8dmshbb345b8d17adfefp1ac00ejsn0f9611c5a2a4",
+            "X-RapidAPI-Key": rapidApiKey,
             "X-RapidAPI-Host": "wikiapi.p.rapidapi.com",
           },
         }

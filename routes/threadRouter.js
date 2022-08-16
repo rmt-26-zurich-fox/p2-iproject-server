@@ -1,12 +1,14 @@
 const router = require("express").Router();
 const ThreadController = require("../controllers/threadController");
 const CommentController = require("../controllers/commentController");
+const ProfileController = require("../controllers/profileController");
 const {
   authorization,
   threadAccessing,
   underAgeAuthorization,
   editCommentAuthorization,
   deleteCommentAuthorization,
+  dislikeAThreadAuthorization,
 } = require("../middlewares/authorization");
 const {
   authentication,
@@ -42,6 +44,21 @@ router.post(
   getProfile,
   underAgeAuthorization,
   CommentController.createComment
+);
+router.post(
+  "/:threadId/like",
+  authentication,
+  getProfile,
+  underAgeAuthorization,
+  ProfileController.likeAThread
+);
+router.delete(
+  "/:threadId/like/:likeId",
+  authentication,
+  getProfile,
+  underAgeAuthorization,
+  dislikeAThreadAuthorization,
+  ProfileController.dislikeAThread
 );
 router.put(
   "/:threadId/comment/:commentId",
