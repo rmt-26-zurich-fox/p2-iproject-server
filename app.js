@@ -65,32 +65,49 @@ app.get("/payment", async (req, res) => {
 // API TASTY
 
 app.get("/recipe", (req, res) => {
-  const { search } = req.query;
-  recipe(search)
+  const { search, id } = req.query;
+  recipe(search, id)
     .then(function (response) {
-      let recipes = response.data.results.map((x) => {
-        let ingredients = x.sections[0].components.map((y) => {
-          return {
-            id: y.id,
-            ingredient: y.raw_text,
-          };
-        });
+      let ingredients = response.data.sections[0].components.map((y) => {
         return {
-          id: x.id,
-          name: x.name,
-          description: x.description,
-          nutrition: x.nutrition,
-          instructions: x.instructions,
-          image: x.thumbnail_url,
-          ingredients,
+          id: y.id,
+          ingredient: y.raw_text,
         };
       });
-      res.send({ recipes });
+      let recipe = {
+        id: response.data.id,
+        name: response.data.name,
+        description: response.data.description,
+        nutrition: response.data.nutrition,
+        instructions: response.data.instructions,
+        image: response.data.thumbnail_url,
+        ingredients,
+      };
+      // let recipes = response.data.results.map((x) => {
+      //   let ingredients = x.sections[0].components.map((y) => {
+      //     return {
+      //       id: y.id,
+      //       ingredient: y.raw_text,
+      //     };
+      //   });
+      //   return {
+      //     id: x.id,
+      //     name: x.name,
+      //     description: x.description,
+      //     nutrition: x.nutrition,
+      //     instructions: x.instructions,
+      //     image: x.thumbnail_url,
+      //     ingredients,
+      //   };
+      // });
+      res.status(200).json(recipe);
     })
     .catch(function (error) {
       console.error(error);
     });
 });
+
+// API RAJAONGKIR, Kalo gamau bisa dikirim gausah pake
 
 app.get("/province", async (req, res) => {
   try {
@@ -108,18 +125,33 @@ app.get("/province", async (req, res) => {
   }
 });
 
-app.get("/city", async (req, res) => {
+app.get("/city/:provinceId", async (req, res) => {
+  const { provinceId } = req.params;
   try {
+    let opt = {};
+    if (+provinceId) {
+      opt = { province: provinceId };
+    }
+
     const response = await axios({
       method: "get",
       url: "https://api.rajaongkir.com/starter/city",
-      params: { id: "135", province: "5" }, // <<< contoh pake query params
+      params: opt, // <<< contoh pake query params
       headers: {
         key: process.env.RAJAONGKIR_API,
       },
     });
-    const city = response.data.rajaongkir.results;
-    res.status(200).json(city);
+
+    const cities = response.data.rajaongkir.results
+      .filter(
+        (el) =>
+          el.city_name === "Bogor" ||
+          el.province === "DKI Jakarta" ||
+          el.city_name === "Depok"
+      )
+      .filter((el) => el.city_name !== "Kepulauan Seribu");
+
+    res.status(200).json(cities);
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -131,9 +163,9 @@ app.post("/cost", async (req, res) => {
       method: "post",
       url: "https://api.rajaongkir.com/starter/cost",
       data: {
-        origin: "39",
-        destination: "135",
-        weight: 1700,
+        origin: "79",
+        destination: "153",
+        weight: 2000,
         courier: "jne",
       }, // <<< contoh pake query params
       headers: {
