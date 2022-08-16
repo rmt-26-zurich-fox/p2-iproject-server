@@ -13,6 +13,12 @@ class PopularLocationController {
             next(error)
         }
     }
+
+    static async readPopularLocationById(req, res, next) {
+        try {
+        } catch (error) {
+        }
+    }
 }
 
 module.exports = PopularLocationController
