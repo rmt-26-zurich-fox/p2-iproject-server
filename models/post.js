@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     article: {
       allowNull: false,
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       validate: {
         notNull: {
           msg: "Article is required"
