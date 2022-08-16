@@ -14,6 +14,9 @@ class UserController {
             next(error)
         }
     }
+
+    static async loginUsers(req, res, next) {
+    }
 }
 
 module.exports = UserController
