@@ -1,5 +1,12 @@
 const getAge = require("../helpers/dateToAge");
-const { Profile, Thread, Comment, ProfileLikeThread } = require("../models");
+const {
+  Profile,
+  Thread,
+  Comment,
+  ProfileLikeThread,
+  ProfileTeam,
+  Team,
+} = require("../models");
 
 async function authorization(req, res, next) {
   try {
@@ -115,6 +122,27 @@ async function dislikeAThreadAuthorization(req, res, next) {
     next(error);
   }
 }
+async function dislikeATeamAuthorization(req, res, next) {
+  try {
+    const { likeId, teamId } = req.params;
+    const { profileId } = req.user;
+    const targetLike = await ProfileTeam.findByPk(likeId);
+    if (!targetLike) {
+      throw { name: "likeNotFound" };
+    }
+    const targetTeam = await Team.findByPk(teamId);
+    if (!targetTeam) {
+      throw { name: "teamNotFound" };
+    }
+    if (targetLike.ProfileId === profileId) {
+      next();
+    } else {
+      throw { name: "unauthorized" };
+    }
+  } catch (error) {
+    next(error);
+  }
+}
 
 module.exports = {
   authorization,
@@ -123,4 +151,5 @@ module.exports = {
   editCommentAuthorization,
   deleteCommentAuthorization,
   dislikeAThreadAuthorization,
+  dislikeATeamAuthorization,
 };

@@ -13,6 +13,8 @@ const errorHandler = (err, req, res, next) => {
     res.status(400).json({ message: `Email is required` });
   } else if (err.name === "alreadyLikedTheThread") {
     res.status(400).json({ message: `Thread already liked` });
+  } else if (err.name === "alreadyLikedTheTeam") {
+    res.status(400).json({ message: `Team already liked` });
   } else if (err.name === "invalid_email/password") {
     res.status(401).json({ message: `Invalid email/password` });
   } else if (err.name === "notLoggedIn") {
