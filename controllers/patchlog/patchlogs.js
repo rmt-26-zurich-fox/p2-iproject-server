@@ -66,17 +66,13 @@ module.exports = class Patchlogs {
 						}
 					});
 
-				// console.log({
-				// 	diffLength,
-				// 	length: {
-				// 		current: currentPatchnoteDatabase.count,
-				// 		latest: latestPatchlogs.length,
-				// 	},
-				// 	startFrom,
-				// });
-
 				//add data strippedPatchLogs to database
-				await Patchnote.create({ ...strippedPatchlogs });
+				console.log(...strippedPatchlogs);
+				strippedPatchlogs.forEach(data => {
+					Patchnote.create({ ...data })
+						.then(data => console.log(data.dataValues))
+						.catch(error => console.log(error));
+				});
 
 				console.log({
 					length: { current: currentPatchnoteDatabase.count, latest: latestPatchlogs.length },

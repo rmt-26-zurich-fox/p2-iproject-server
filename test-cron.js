@@ -6,7 +6,6 @@ const nodeCron = require("node-cron");
 cron.wraps(nodeCron);
 
 // 0 1 * * * <- 1 hour , 1 minute -> * * * * *
-cron.schedule("Patchlogs check", "0 1 * * *", async function () {
-	// console.log("Sending welcome email to new sign ups every 1 minutes.");
+cron.schedule("Patchlogs check", "* * * * *", async function () {
 	await Patchlogs.fetchPatchnoteLength();
 });
