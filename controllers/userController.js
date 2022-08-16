@@ -16,6 +16,34 @@ class UserController {
     }
 
     static async loginUsers(req, res, next) {
+        try {
+            const { email, password } = req.body
+
+            if (!email || !password) throw { name: "EmailPassEmpty" }
+
+            const findUser = await User.findOne({
+                where: {
+                    email,
+                },
+            })
+
+            if (!findUser) throw { name: 'invalid_email/password' }
+
+            const comparePass = compareHash(password, findUser.password)
+
+            if (!comparePass) throw { name: 'invalid_email/password' }
+
+            const payload = {
+                id: findUser.id,
+            }
+
+            const access_token = createToken(payload)
+            res.status(200).json({
+                access_token: access_token, id: findUser.id, email: findUser.email, location: findUser.location
+            })
+        } catch (error) {
+            next(error)
+        }
     }
 }
 
