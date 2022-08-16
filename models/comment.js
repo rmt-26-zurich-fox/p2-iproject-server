@@ -16,6 +16,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Comment.init({
+    comment: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "comment required"
+        },
+        notNull: {
+          msg: "comment required"
+        }
+      }
+    },
     UserId: DataTypes.INTEGER,
     PostId: DataTypes.INTEGER
   }, {
