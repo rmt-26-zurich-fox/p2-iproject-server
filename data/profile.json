@@ -12,7 +12,7 @@
     "lastName": "Customer1",
     "profilePicture": "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png",
     "phone": "123",
-    "role": "Customer1",
+    "role": "Customer",
     "UserId": 2
   },
   {
@@ -20,7 +20,7 @@
     "lastName": "Customer2",
     "profilePicture": "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png",
     "phone": "123",
-    "role": "Customer2",
+    "role": "Customer",
     "UserId": 3
   }
 ]

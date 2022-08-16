@@ -1,8 +1,32 @@
-const { User } = require("../models");
+const { User, Profile } = require("../models");
 const { compareHash } = require("../helpers/passwordHashing");
 const { createToken } = require("../helpers/tokenHandling");
 
 class Controller {
+  static async register(req, res, next) {
+    try {
+      const { firstName, lastName, phone, username, email, password } = req.body;
+
+      const newUser = await User.create({
+        username,
+        email,
+        password,
+      });
+
+      await Profile.create({
+        firstName,
+        lastName,
+        phone,
+        role: "Customer",
+        UserId: newUser.id,
+      });
+
+      res.status(201).json({message: "Your account successfully created"})
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
