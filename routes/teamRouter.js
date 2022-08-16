@@ -3,6 +3,7 @@ const TeamController = require("../controllers/teamController");
 const { authentication } = require("../middlewares/authentication");
 const { authorization } = require("../middlewares/authorization");
 
+router.get("/test", TeamController.dummy);
 router.get("/:teamId", authentication, TeamController.getSpecificTeam);
 router.get("/", authentication, TeamController.getAllTeams);
 

@@ -67,6 +67,27 @@ class TeamController {
       next(error);
     }
   }
+
+  static async dummy(req, res, next) {
+    try {
+      let result = [];
+      for (let id = 1; id <= 38; id++) {
+        const response = await axios.get(
+          `https://www.balldontlie.io/api/v1/players?per_page=100&page=${id}`
+        );
+        const { data } = response.data;
+        console.log(response.data);
+        data.forEach((element) => {
+          element.TeamId = element.team.id;
+          delete element.team;
+          result.push(element);
+        });
+      }
+      res.status(200).json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = TeamController;
