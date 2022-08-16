@@ -7,4 +7,7 @@ router.post("/register/admin", UserController.registerAdmin);
 // Visitor
 router.post("/register", UserController.registerVisitor);
 
+// Global
+router.post("/login", UserController.loginUsers);
+
 module.exports = router;
