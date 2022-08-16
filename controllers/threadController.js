@@ -44,6 +44,17 @@ class ThreadController {
       next(error);
     }
   }
+  static async deleteThread(req, res, next) {
+    try {
+      const { threadId } = req.params;
+      const deletedThread = await Thread.destroy({
+        where: { id: threadId },
+      });
+      res.status(200).json({ message: `Deleted thread` });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = ThreadController;
