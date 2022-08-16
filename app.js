@@ -9,7 +9,6 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const router = require("./routes");
-const errorHandler = require("./middlewares/errorHandler");
 
 // Change port before deploy
 const port = process.env.PORT || 3000;
