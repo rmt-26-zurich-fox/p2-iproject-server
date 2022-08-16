@@ -69,10 +69,35 @@ async function editCommentAuthorization(req, res, next) {
     next(error);
   }
 }
+async function deleteCommentAuthorization(req, res, next) {
+  try {
+    const { commentId, threadId } = req.params;
+    const { profileId } = req.user;
+    const targetComment = await Comment.findByPk(commentId);
+    if (!targetComment) {
+      throw { name: "commentNotFound" };
+    }
+    const targetThread = await Thread.findByPk(threadId);
+    if (!targetThread) {
+      throw { name: "threadNotFound" };
+    }
+    if (
+      targetThread.ProfileId === profileId ||
+      targetComment.ProfileId === profileId
+    ) {
+      next();
+    } else {
+      throw { name: "unauthorized" };
+    }
+  } catch (error) {
+    next(error);
+  }
+}
 
 module.exports = {
   authorization,
   threadAccessing,
   underAgeAuthorization,
   editCommentAuthorization,
+  deleteCommentAuthorization,
 };

@@ -41,6 +41,19 @@ class CommentController {
       next(error);
     }
   }
+  static async deleteComment(req, res, next) {
+    try {
+      const { commentId } = req.params;
+      const deletedcomment = await Comment.destroy({
+        where: {
+          id: commentId,
+        },
+      });
+      res.status(200).json({ message: "Successfully deleted comment" });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = CommentController;
