@@ -13,6 +13,38 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product.hasMany(models.ShoppingCart)
     }
+    
+    static filterProduct(search, page, size){
+      console.log(page)
+      if(typeof page === "undefined" ){
+        page = 1
+      }
+      if(isNaN(page) || page < 1 || Number.isNaN(page)){
+        page = 1
+      }
+      if(typeof size === "undefined"){
+       size = 9
+      }
+      if(typeof size !== 'number' && size < 0 && size>9){
+          size =  9
+      }
+
+      let options = {
+        order:[['createdAt', 'DESC']],
+        limit: size,
+        offset: (page - 1) * size
+        
+      }
+      if(search){
+        options.where = {
+          name: {
+            [Op.iLike]: `%${search}%`, 
+          }
+        }
+      }
+      console.log(typeof page, page)
+      return {options, currentPage: page}
+    }
   }
   Product.init({
     name: {
