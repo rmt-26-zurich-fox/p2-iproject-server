@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Ice Cake",
+    "price": 125000,
+    "stock": 10,
+    "weight": 2500,
+    "imageUrl": "https://shopee.co.id/Campina-Ice-Cake-Cassata-ice-cream-cake-i.156415086.2347394323"
+  },
+  {
+    "name": "Salamander Cake",
+    "price": 150000,
+    "stock": 5,
+    "weight": 3200,
+    "imageUrl": "https://www.pinterest.com/pin/522558363006608260/"
+  },
+  {
+    "name": "Horse Cake",
+    "price": 350000,
+    "stock": 2,
+    "weight": 4000,
+    "imageUrl": "https://www.pinterest.com/pin/442619469638752837/"
+  }
+]
