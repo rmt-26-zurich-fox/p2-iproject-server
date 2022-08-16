@@ -1,4 +1,4 @@
-const Credentials = require("./config/config");
+const Credentials = require("./config/utils_config");
 const Patchlogs = require("./controllers/patchlog/patchlogs");
 // CRON SETUP
 const cron = require("cronitor")(Credentials.cronitorApi());

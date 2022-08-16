@@ -13,11 +13,6 @@ app.use(express.json());
 const routes = require("./routes/index");
 const errorHandler = require("./middlewares/errorHandler");
 
-//! for testing
-const { Patchnote } = require("./models");
-const { Op } = require("sequelize");
-const sequelize = require("sequelize");
-
 //* init use for routes & error handler
 app.use(routes);
 app.use(errorHandler);

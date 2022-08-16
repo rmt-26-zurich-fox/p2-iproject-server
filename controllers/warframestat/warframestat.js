@@ -1,5 +1,5 @@
 const axios = require("axios");
-const Credentials = require("../../config/config");
+const Credentials = require("../../config/utils_config");
 
 //3rd API warframestat.us
 /**
