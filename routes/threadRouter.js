@@ -4,7 +4,19 @@ const {
   authorization,
   threadAccessing,
 } = require("../middlewares/authorization");
-const { authentication, getProfile } = require("../middlewares/authentication");
+const {
+  authentication,
+  getProfile,
+  underAgeVerification,
+} = require("../middlewares/authentication");
+
+router.get(
+  "/",
+  authentication,
+  getProfile,
+  underAgeVerification,
+  ThreadController.getThreadList
+);
 
 router.post(
   "/create",

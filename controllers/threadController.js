@@ -55,6 +55,26 @@ class ThreadController {
       next(error);
     }
   }
+
+  static async getThreadList(req, res, next) {
+    try {
+      let option = {};
+      const { underAge } = req.user;
+      if (underAge === true) {
+        option.where = {
+          explicit: false,
+        };
+      }
+      let threadList = await Thread.findAll(option);
+      threadList.forEach((el) => {
+        delete el.dataValues.createdAt;
+        delete el.dataValues.updatedAt;
+      });
+      res.status(200).json(threadList);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = ThreadController;
