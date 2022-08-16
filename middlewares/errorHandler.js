@@ -4,11 +4,21 @@ const errorHandler = async (err, req, res, next) => {
     res.status(status).json({ message: msg });
   }
 
+  if (err.name === "Email is required")
+    return errTemplate(400, err.name);
+
+  if (err.name === "Password is required")
+    return errTemplate(400, err.name);
+
   if (err.name === "SequelizeValidationError")
     return errTemplate(400, err.errors[0].message);
 
-  const errData = err.response.data;
-  if (errData) {
+  if (err.name === "Invalid email or password")
+    return errTemplate(401, err.name);
+
+  const errRes = err.response;
+  if (errRes) {
+    const errData = errRes.data;
     const status_code = errData.status_code;
     const status_message = errData.status_message;
     if (status_code === 22) return errTemplate(400, status_message);
