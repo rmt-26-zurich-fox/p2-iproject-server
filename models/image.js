@@ -8,8 +8,30 @@ module.exports = (sequelize, DataTypes) => {
   }
   Image.init(
     {
-      imageUrl: DataTypes.STRING,
-      HouseId: DataTypes.INTEGER,
+      imageUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Image Url cannot be null",
+          },
+          notEmpty: {
+            msg: "Image Url is required",
+          },
+        },
+      },
+      HouseId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "House cannot be null",
+          },
+          notEmpty: {
+            msg: "House is required",
+          },
+        },
+      },
     },
     {
       sequelize,

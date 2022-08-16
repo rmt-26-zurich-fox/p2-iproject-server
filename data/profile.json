@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Rysaldi",
+    "lastName": "Wijaya",
+    "phone": "123",
+    "role": "Admin",
+    "UserId": 1
+  },
+  {
+    "firstName": "Staff",
+    "lastName": "Staff",
+    "phone": "123",
+    "role": "Staff",
+    "UserId": 2
+  },
+  {
+    "firstName": "Customer",
+    "lastName": "Customer",
+    "phone": "123",
+    "role": "Customer",
+    "UserId": 3
+  }
+]

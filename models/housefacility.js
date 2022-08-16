@@ -9,8 +9,30 @@ module.exports = (sequelize, DataTypes) => {
   }
   HouseFacility.init(
     {
-      HouseId: DataTypes.INTEGER,
-      FacilityId: DataTypes.INTEGER,
+      HouseId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "House cannot be null",
+          },
+          notEmpty: {
+            msg: "House is required",
+          },
+        },
+      },
+      FacilityId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Facility cannot be null",
+          },
+          notEmpty: {
+            msg: "Facility is required",
+          },
+        },
+      },
     },
     {
       sequelize,

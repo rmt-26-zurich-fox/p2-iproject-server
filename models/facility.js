@@ -8,7 +8,18 @@ module.exports = (sequelize, DataTypes) => {
   }
   Facility.init(
     {
-      name: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Facility name cannot be null",
+          },
+          notEmpty: {
+            msg: "Facility name is required",
+          },
+        },
+      },
     },
     {
       sequelize,
