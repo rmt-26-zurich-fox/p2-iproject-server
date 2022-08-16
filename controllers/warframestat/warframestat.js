@@ -186,6 +186,18 @@ module.exports = class Warframestat {
 			next(error);
 		}
 	}
+	static async construction(req, res, next) {
+		try {
+			const { platform } = req.params;
+			let { data } = await axios({
+				url: Credentials.warframestats() + `/${platform}/constructionProgress`,
+			});
+
+			res.status(200).json({ response: data });
+		} catch (error) {
+			next(error);
+		}
+	}
 
 	//!deals data fetch
 	//* on here, only deals!
