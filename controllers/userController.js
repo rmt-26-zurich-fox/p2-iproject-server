@@ -48,7 +48,7 @@ class UserController {
         }
     }
 
-    static async googleSignInCustomer(req, res, next) {
+    static async googleSignIn(req, res, next) {
         try {
             const { token_google } = req.headers
 
