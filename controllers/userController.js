@@ -1,7 +1,6 @@
 const { Category, Product, User } = require('../models')
 const { hashPassword, compareHash } = require('../helpers/bcrypt')
 const { createToken, verifyToken } = require('../helpers/jwt')
-const { log } = require('console')
 
 class UserController {
     static async createUsers(req, res, next) {
