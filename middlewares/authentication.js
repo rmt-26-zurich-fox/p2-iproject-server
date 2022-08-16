@@ -13,11 +13,10 @@ let auth = async (req, res, next) => {
             throw({name: `Unauthorized`})
         }
 
-        let foundUser = User.findByPk(+payload.id)
+        let foundUser = await User.findByPk(+payload.id)
         if(!foundUser) {
             throw({name: `Unauthorized`})
         }
-
         req.user = {
             id: foundUser.id
         }

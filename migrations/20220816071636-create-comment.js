@@ -24,7 +24,7 @@ module.exports = {
           key: "id"
         }
       },
-      comment: {
+      thread: {
         type: Sequelize.STRING
       },
       gif: {

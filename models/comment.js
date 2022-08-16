@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    comment: DataTypes.STRING,
+    thread: DataTypes.STRING,
     gif: DataTypes.STRING
   }, {
     sequelize,
