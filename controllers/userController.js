@@ -2,18 +2,27 @@ const {User}= require('../models');
 const {comparePassword} = require('../helpers/bcryptHelper');
 const {createToken}= require('../helpers/jwtHelper');
 const {OAuth2Client} = require('google-auth-library');
+const emailVerifier = require("verifier-node");
 
 class Controller{
     static async register(req, res,next) {
         try {
           const { username, email, password, phoneNumber } =req.body;
-        let data=await User.create({username,email,password,phoneNumber});
-          res.status(201).json({
-            message: "user registered",
-            user:
-            {id: data.id,
-            email: data.email}
-          });
+          let response= await emailVerifier.verify(email,'2b1e810090b21cab8a8753ec6bd1f0919ec90be6ea14ac5d381116f8700ea13cbc8dba7ff7e392b826068e5d306a7d80')
+          console.log(response);
+          if(response.field("status")=== true){
+            let data=await User.create({username,email,password,phoneNumber});
+            res.status(201).json({
+              message: "user registered",
+              user:
+              {id: data.id,
+              email: data.email}
+            });
+          }else{
+            throw({name: response.data.error.message})
+          }
+            // console.log(response.field("status"))
+        
         } catch (error) {
           next(error)
         }

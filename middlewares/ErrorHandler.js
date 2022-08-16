@@ -38,6 +38,10 @@ function ErrorHandler(error,req,res,next){
           res.status(400).json({
               message: 'already have in favourite list'
           })
+        }else if(error.name== "Email address invalid"){
+          res.status(400).json({
+              message: 'Email address invalid'
+          })
         }
         else {
           res.status(500).json({
