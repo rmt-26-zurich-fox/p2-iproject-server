@@ -3,7 +3,6 @@ const {
   Model
 } = require('sequelize');
 const bcrypt = require("bcryptjs");
-const { USE } = require('sequelize/types/index-hints');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
