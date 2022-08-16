@@ -23,6 +23,7 @@ router.get("/:platform/arbitration", Warframestat.arbitration);
 router.get("/:platform/railjackOutpost", Warframestat.railjackOutpost);
 router.get("/:platform/steelpath", Warframestat.steelpath);
 router.get("/:platform/construction", Warframestat.construction);
+router.get("/:platform/simaris", Warframestat.simaris);
 //deals fetch
 router.get("/:platform/dailyDeals", Warframestat.dailyDeals);
 router.get("/:platform/flashSales", Warframestat.flashSales);
