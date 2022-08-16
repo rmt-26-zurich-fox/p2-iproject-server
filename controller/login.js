@@ -51,6 +51,40 @@ class Login {
             next(error);
         }
     }
+
+    static async googleLogin(req, res, next) {
+        try {
+            const { token_google } = req.headers;
+            const key = process.env.CLIENT_ID;
+            const client = new OAuth2Client(key);
+            const ticket = await client.verifyIdToken({
+                idToken: token_google,
+                audience: key,
+            });
+            const payload = ticket.getPayload();
+
+            const [user, created] = await User.findOrCreate({
+                where: {
+                    email: payload.email
+                },
+                defaults: {
+                    email: payload.email,
+                    password: makeRandomPassword(5),
+                },
+                hooks: false,
+                validate: false
+            });
+            const access_token = createToken({
+                id: user.id
+            });
+            res.status(200).json({
+                access_token,
+                email: payload.email,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = Login;
