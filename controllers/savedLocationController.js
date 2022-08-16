@@ -26,6 +26,15 @@ class SavedLocationController {
 
     static async readSavedLocation(req, res, next) {
         try {
+            let saved = await SavedLocation.findAll({
+                order: [['id', 'desc']],
+                where: {
+                    UserId: +req.user.id
+                }
+            })
+            res.status(200).json({
+                saved
+            })
         } catch (error) {
             next(error)
         }
