@@ -6,6 +6,7 @@ const axios = require("axios");
 const recipe = require("./helper/tasty");
 const express = require("express");
 const cors = require("cors");
+const router = require("./router");
 const midtransClient = require("midtrans-client");
 const app = express();
 const port = 3000;
@@ -13,6 +14,8 @@ const port = 3000;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(router);
 
 let parameter = {
   transaction_details: {
