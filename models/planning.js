@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Planning.belongsTo(models.User)
-      Planning.belongsTo(models.Anime)
+      Planning.belongsTo(models.User, {foreignKey: "UserId"})
+      Planning.belongsTo(models.Anime, {foreignKey: "AnimeId"})
     }
   }
   Planning.init({
