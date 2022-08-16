@@ -17,13 +17,8 @@ app.post('/register' , controller1.register)
 app.post('/login', controller1.login)
 app.get('/product', controller1.fetchProduct)
 app.use(authentication)
-app.get('/test', async(req,res,next)=>{
- try {
-    res.status(200).json({test: "tests;lksdnf;akl"})
- } catch (err) {
-    next(err)
- }
-} )
+
+
 
 app.use(async(err, req, res, next)=>{
     let code = 500
