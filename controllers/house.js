@@ -83,6 +83,36 @@ class Controller {
       next(error);
     }
   }
+
+  static async addHouse(req, res, next) {
+    try {
+      const UserId = req.user.id;
+      const { name, location, price, CategoryId, FacilityId } = req.body;
+
+      if (!FacilityId.length) {
+        throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
+      }
+
+      const newHouse = await House.create({
+        name,
+        location,
+        price,
+        CategoryId,
+        UserId,
+      });
+
+      FacilityId.forEach((el) => {
+        HouseFacility.create({
+          HouseId: newHouse.id,
+          FacilityId: el,
+        });
+      });
+
+      res.status(201).json({ message: "New house successfully created" });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = Controller;
