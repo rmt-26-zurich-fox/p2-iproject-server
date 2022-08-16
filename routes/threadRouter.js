@@ -19,5 +19,12 @@ router.put(
   threadAccessing,
   ThreadController.editThread
 );
+router.delete(
+  "/delete/:threadId",
+  authentication,
+  getProfile,
+  threadAccessing,
+  ThreadController.deleteThread
+);
 
 module.exports = router;
