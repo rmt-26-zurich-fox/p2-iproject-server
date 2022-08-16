@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const ThreadController = require("../controllers/threadController");
+const CommentController = require("../controllers/commentController");
 const {
   authorization,
   threadAccessing,
@@ -29,8 +30,16 @@ router.get(
   "/:threadId",
   authentication,
   getProfile,
+  underAgeVerification,
   underAgeAuthorization,
   ThreadController.findOneThread
+);
+router.post(
+  "/:threadId/comment",
+  authentication,
+  getProfile,
+  underAgeAuthorization,
+  CommentController.createComment
 );
 
 router.post(
