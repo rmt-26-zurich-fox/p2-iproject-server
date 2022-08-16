@@ -1,7 +1,7 @@
 const getAge = require("../helpers/dateToAge");
 const { Profile, Thread } = require("../models");
 
-async function authorization(err, req, res, next) {
+async function authorization(req, res, next) {
   try {
     const { profileId } = req.params;
     const { id } = req.user;
