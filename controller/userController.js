@@ -34,7 +34,7 @@ class UserController {
             next(error);
         }
     } 
-    
+
     // Login Users
     static async loginUsers(req, res, next) {
         try {
@@ -55,9 +55,10 @@ class UserController {
                 access_token: token
             });
         } catch (error) {
-            error(next);
+            next(error);
         }
     }
+   
 }
 
 module.exports = UserController;
