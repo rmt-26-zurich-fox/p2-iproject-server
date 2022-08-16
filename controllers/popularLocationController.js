@@ -16,7 +16,21 @@ class PopularLocationController {
 
     static async readPopularLocationById(req, res, next) {
         try {
+            let reg = new RegExp('^[0-9]*$')
+            let popularId = req.params.popularId
+
+            if (reg.test(popularId) == false) throw { name: 'NotFound' }
+
+            let product = await Product.findByPk(+popularId)
+
+            if (!product) throw { name: 'NotFound' }
+
+            res.status(200).json({
+                message: 'Success read product',
+                product
+            })
         } catch (error) {
+            next(error)
         }
     }
 }
