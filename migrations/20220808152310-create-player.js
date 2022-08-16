@@ -10,27 +10,21 @@ module.exports = {
       },
       first_name: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       last_name: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       position: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       height_feet: {
         type: Sequelize.INTEGER,
-        allowNull: false,
       },
       height_inches: {
         type: Sequelize.INTEGER,
-        allowNull: false,
       },
       weight_pounds: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       TeamId: {
         type: Sequelize.INTEGER,
