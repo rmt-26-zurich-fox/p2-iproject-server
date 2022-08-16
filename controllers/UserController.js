@@ -1,5 +1,5 @@
-const { User, Bookmark } = require('../models');
-const axios = require('axios');
+const { OAuth2Client } = require('google-auth-library');
+const { User } = require('../models');
 const { verifypassword } = require('../helpers/password');
 const { generateToken } = require('../helpers/jwt');
 
@@ -13,7 +13,8 @@ class UserController {
                 message: `Success create ${data.email}`
             })
         } catch (error) {
-            res.status(500).json({ message: "Internal server error" })
+            next(error)
+            // res.status(500).json({ message: "Internal server error" })
         }
     }
     static async postLogin(req, res, next) {
@@ -39,13 +40,14 @@ class UserController {
             })
 
         } catch (error) {
-            if (error.name === 'Bad Request') {
-                res.status(401).json({ message: "Please Login" })
-            } else if (error.name === 'InvalidInput') {
-                res.status(403).json({ message: "Invalid email/password" })
-            } else {
-                res.status(500).json({ message: "Internal server error" })
-            }
+            next(error)
+            // if (error.name === 'Bad Request') {
+            //     res.status(401).json({ message: "Please Login" })
+            // } else if (error.name === 'InvalidInput') {
+            //     res.status(403).json({ message: "Invalid email/password" })
+            // } else {
+            //     res.status(500).json({ message: "Internal server error" })
+            // }
         }
     }
     static async loginGoogle(req, res, next) {
@@ -54,7 +56,7 @@ class UserController {
             const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
             const ticket = await client.verifyIdToken({
                 idToken: token,
-                audience: 252191571410 - tsigtbp39rp8th3iglp06apjftqmfc4k.apps.googleusercontent.com,  // Specify the CLIENT_ID of the app that accesses the backend
+                audience: process.env.GOOGLE_CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
                 // Or, if multiple clients access the backend:
                 //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
             });
@@ -75,7 +77,8 @@ class UserController {
             const access_token = generateToken({ id: user.id })
             res.status(200).json({ access_token: access_token })
         } catch (error) {
-            res.status(500).json({ message: "Internal server error" })
+            next(error)
+            // res.status(500).json({ message: "Internal server error" })
 
         }
     }

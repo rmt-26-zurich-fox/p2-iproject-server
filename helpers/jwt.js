@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const secretkey = "KUCING_MABOK"
+const secretkey = process.env.SECRET_KEY
 
 const generateToken = (payload) => jwt.sign(payload, secretkey)
 
