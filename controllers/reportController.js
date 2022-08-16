@@ -13,9 +13,11 @@ class Controller{
 
     static async reportById(req,res,next){
         try {
-            
+            let{id}= req.params
+            let data= await Report.findOne({where:{id:id}})
+            res.status(200).json(data)
         } catch (error) {
-            
+            next(error)
         }
     }
 }
