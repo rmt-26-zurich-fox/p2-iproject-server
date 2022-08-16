@@ -21,13 +21,13 @@ class PopularLocationController {
 
             if (reg.test(popularId) == false) throw { name: 'NotFound' }
 
-            let product = await Product.findByPk(+popularId)
+            let popular = await PopularLocation.findByPk(+popularId)
 
-            if (!product) throw { name: 'NotFound' }
+            if (!popular) throw { name: 'NotFound' }
 
             res.status(200).json({
                 message: 'Success read product',
-                product
+                popular
             })
         } catch (error) {
             next(error)
