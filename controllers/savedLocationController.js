@@ -72,6 +72,24 @@ class SavedLocationController {
 
     static async deleteSavedLocationById(req, res, next) {
         try {
+            let reg = new RegExp('^[0-9]*$')
+            let savedId = req.params.savedId
+
+            if (reg.test(savedId) == false) throw { name: 'NotFound' }
+
+            let saved = await SavedLocation.findByPk(+savedId)
+
+            if (!saved) throw { name: 'NotFound' }
+
+            await SavedLocation.destroy({
+                where: {
+                    id: savedId
+                }
+            })
+
+            res.status(200).json({
+                message: `Saved Location with id ${saved.id} success to delete`
+            })
         } catch (error) {
             next(error)
         }
