@@ -16,9 +16,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   SavedLocation.init({
     name: DataTypes.STRING,
-    country: DataTypes.STRING,
-    latitude: DataTypes.INTEGER,
-    longtitude: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER
   }, {
     sequelize,
