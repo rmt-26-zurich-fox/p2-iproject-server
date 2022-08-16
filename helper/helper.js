@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const kunci = process.env.kunci
+const kunci = 'sharon_tnwjy'
 
 //Password hash
 const hash = (password) => bcrypt.hashSync(password)

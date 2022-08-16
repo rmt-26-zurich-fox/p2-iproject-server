@@ -1,9 +1,9 @@
-const User = require('../controllers/user')
+const { register, login, googleLogin } = require('../controllers/user')
 const router = require('express').Router()
 
 //User
-router.post('/register', User.register)
-router.post('/login', User.login)
-router.post('/google-sign-in', User.googleLogin)
+router.post('/register', register)
+router.post('/login', login)
+router.post('/google-sign-in', googleLogin)
 
 module.exports = router

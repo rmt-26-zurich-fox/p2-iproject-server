@@ -13,7 +13,7 @@ var options = {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     form: {
         'grant_type': 'client_credentials',
-        'scope': 'basic'
+        'scope': 'premier'
     },
     json: true
 };
