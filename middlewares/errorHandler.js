@@ -23,6 +23,8 @@ const errorHandler = (err, req, res, next) => {
     res.status(403).json({ message: "You are not authorized" });
   } else if (err.name === "profileNotFound") {
     res.status(404).json({ message: "Profile not found" });
+  } else if (err.name === "threadNotFound") {
+    res.status(404).json({ message: "Thread not found" });
   } else {
     res.status(500).json({
       message: "Internal server error",
