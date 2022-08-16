@@ -31,6 +31,8 @@ const errorHandler = (err, req, res, next) => {
     res.status(404).json({ message: "Thread not found" });
   } else if (err.name === "commentNotFound") {
     res.status(404).json({ message: "Comment not found" });
+  } else if (err.name === "teamNotFound") {
+    res.status(404).json({ message: "Team not found" });
   } else {
     res.status(500).json({
       message: "Internal server error",

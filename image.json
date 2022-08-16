@@ -1,0 +1,122 @@
+[
+  {
+    "TeamId": 1,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Atlanta_Hawks_logo_transparent.png"
+  },
+  {
+    "TeamId": 2,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Boston_Celtics_logo_logotype_emblem.png"
+  },
+  {
+    "TeamId": 3,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Brooklyn_Nets_logo_logotype.png"
+  },
+  {
+    "TeamId": 4,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2018/01/Charlotte_Hornets_logo_blue.png"
+  },
+  {
+    "TeamId": 5,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Chicago_Bulls_logo_logotype_emblem.png"
+  },
+  {
+    "TeamId": 6,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Cleveland_Cavaliers_logo_logotype_emblem.png"
+  },
+  {
+    "TeamId": 7,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Dallas_Mavericks_logo_logotype.png"
+  },
+  {
+    "TeamId": 8,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Denver_Nuggets_logo_logotype.png"
+  },
+  {
+    "TeamId": 9,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Detroit_Pistons_logo_logotype.png"
+  },
+  {
+    "TeamId": 10,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Golden_State_Warriors_logo_alternative.png"
+  },
+  {
+    "TeamId": 11,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Houston_Rockets_logo_logotype_emblem.png"
+  },
+  {
+    "TeamId": 12,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Indiana_Pacers_logo_logotype.png"
+  },
+  {
+    "TeamId": 13,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2018/03/Los_Angeles_Clippers_logo_colored.png"
+  },
+  {
+    "TeamId": 14,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Los_Angeles_Lakers_logo_logotype_emblem.png"
+  },
+  {
+    "TeamId": 15,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Memphis_Grizzlies_logo_logotype.png"
+  },
+  {
+    "TeamId": 16,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Miami_Heat_logo_2.png"
+  },
+  {
+    "TeamId": 17,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Milwaukee_Bucks_logo_logotype_symbol.png"
+  },
+  {
+    "TeamId": 18,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Minnesota_Timberwolves_logo_logotype.png"
+  },
+  {
+    "TeamId": 19,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/New_Orleans_Pelicans_logo_logotype_emblem.jpg"
+  },
+  {
+    "TeamId": 20,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/New_York_Knicks_logo_logotype_emblem.jpg"
+  },
+  {
+    "TeamId": 21,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Oklahoma_City_Thunder_logo_logotype.png"
+  },
+  {
+    "TeamId": 22,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Orlando_Magic_logo_logotype.png"
+  },
+  {
+    "TeamId": 23,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Philadelphia_76ers_logo_logotype_emblem.jpg"
+  },
+  {
+    "TeamId": 24,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Phoenix_Suns_logo_logotype_emblem.jpg"
+  },
+  {
+    "TeamId": 25,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/Portland_Trail_Blazers_logo_logotype.png"
+  },
+  {
+    "TeamId": 26,
+    "imageUrl": "https://www.underconsideration.com/brandnew/archives/sacramento_kings_logo.png"
+  },
+  {
+    "TeamId": 27,
+    "imageUrl": "http://logos-download.com/wp-content/uploads/2016/04/San_Antonio_Spurs_logo_emblem.jpg"
+  },
+  {
+    "TeamId": 28,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2018/03/Toronto_Raptors_logo_color.png"
+  },
+  {
+    "TeamId": 29,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Utah_Jazz_logo_logotype_emblem_symbol.png"
+  },
+  {
+    "TeamId": 30,
+    "imageUrl": "https://logos-download.com/wp-content/uploads/2016/04/Washington_Wizards_logo_brighter_version.png"
+  }
+]
