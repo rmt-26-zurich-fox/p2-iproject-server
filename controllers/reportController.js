@@ -4,7 +4,7 @@ const{Report,Category}= require('../models');
 class Controller{
     static async getAllReport(req,res,next){
         try {
-            let data= await Report.findAll({where:{UserId: req.user.id, include: {model: Category}}})
+            let data= await Report.findAll({where:{UserId: req.user.id}})
             res.status(200).json(data)
         } catch (error) {
             next(error)
@@ -14,7 +14,7 @@ class Controller{
     static async reportById(req,res,next){
         try {
             let{id}= req.params
-            let data= await Report.findOne({where:{id:id}})
+            let data= await Report.findOne({where:{id:id}, include:{model:Category}})
             res.status(200).json(data)
         } catch (error) {
             next(error)
@@ -25,9 +25,9 @@ class Controller{
         try {
             let{imageUrl,name,CategoryId,UserId}= req.body
             let data= await Report.create({imageUrl,name,CategoryId,UserId: req.user.id})
-            res.status(201).json({
+            res.status(201).json(
                 data
-            })
+            )
         } catch (error) {
             next(error)
         }

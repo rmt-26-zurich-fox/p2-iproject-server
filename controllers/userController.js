@@ -21,22 +21,22 @@ class Controller{
 
     static async login(req, res,next) {
         try {
-            const{username,password}=req.body
+            const{email,password}=req.body
             // console.log(req.body)
-            if(!username || !password ){
+            if(!email || !password ){
               throw ({name:'Username or Password invalid'})
     
             }
             
-            let data= await User.findOne({where:{username:username}})
+            let data= await User.findOne({where:{email:email}})
             let checkPassword= comparePassword(password,data.password)
           // console.log(checkPassword);
     
             if(!data){
-              throw ({name:'Username or Password invalid'})
+              throw ({name:'Email or Password invalid'})
             }
             if(!checkPassword){
-                throw ({name:'Username or Password invalid'})
+                throw ({name:'Email or Password invalid'})
             }
     
               let payLoad= {
@@ -76,7 +76,7 @@ class Controller{
                 hooks:false
             })
             if(!user){
-                throw({name:"Username or Password invalid"})
+                throw({name:"Email or Password invalid"})
             }
             // console.log(user,"INI USER")
             // console.log(created,"INI CREATED")
