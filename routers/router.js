@@ -2,6 +2,7 @@ const router = require('express').Router()
 const userRouter = require('./user')
 const popularLocationRouter = require('./popularLocation')
 const savedLocationRouter = require('./savedLocation')
+const { authentication } = require('../middlewares/authentication')
 
 // User
 router.use('/users', userRouter)
@@ -10,6 +11,7 @@ router.use('/users', userRouter)
 router.use('/popular', popularLocationRouter)
 
 // Middlewares
+router.use(authentication)
 
 // Saved Location
 router.use('/saved', savedLocationRouter)
