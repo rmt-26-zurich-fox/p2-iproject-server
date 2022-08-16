@@ -15,7 +15,9 @@ app.use(express.json())
 
 app.post('/register' , controller1.register)
 app.post('/login', controller1.login)
-app.get('/product', controller1.fetchProduct)
+app.get('/products', controller1.fetchProduct)
+app.get('/products/:id', controller1.fetchProduct)
+app.post('/shoppingcart/:productId', controller1.createShoppingCart)
 
 
 app.use(async(err, req, res, next)=>{

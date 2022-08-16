@@ -67,6 +67,18 @@ class Controller{
             next(err)
         }
     }
+
+   static async createShoppingCart(req, res, next){
+    try {
+        const { productId } = req.params
+        
+        
+
+    } catch (err) {
+        next(err)
+    }
+   }
+
 }
 
 module.exports = Controller
