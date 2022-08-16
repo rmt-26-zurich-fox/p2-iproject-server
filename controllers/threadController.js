@@ -1,4 +1,4 @@
-const { Thread, Comment, ProfileComment } = require("../models");
+const { Thread, Comment, Category } = require("../models");
 const router = require("../routes");
 
 class ThreadController {
@@ -58,7 +58,12 @@ class ThreadController {
 
   static async getThreadList(req, res, next) {
     try {
-      let option = {};
+      let option = {
+        include: {
+          model: Category,
+          attributes: ["name"],
+        },
+      };
       const { underAge } = req.user;
       if (underAge === true) {
         option.where = {
@@ -82,11 +87,39 @@ class ThreadController {
         where: {
           id: threadId,
         },
-        include: {
-          model: Comment,
-        },
+        include: [
+          {
+            model: Comment,
+          },
+          {
+            model: Category,
+            attributes: ["name"],
+          },
+        ],
       });
       res.status(200).json(targetThread);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async findThreadByProfileId(req, res, next) {
+    try {
+      const { profileId } = req.params;
+      let threads = await Thread.findAll({
+        where: {
+          ProfileId: profileId,
+        },
+        include: {
+          model: Category,
+          attributes: ["name"],
+        },
+      });
+      threads.forEach((el) => {
+        delete el.dataValues.createdAt;
+        delete el.dataValues.updatedAt;
+      });
+      res.status(200).json(threads);
     } catch (error) {
       next(error);
     }

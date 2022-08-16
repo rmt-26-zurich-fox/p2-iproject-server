@@ -19,6 +19,13 @@ router.get(
   ThreadController.getThreadList
 );
 router.get(
+  "/user/:profileId",
+  authentication,
+  getProfile,
+  authorization,
+  ThreadController.findThreadByProfileId
+);
+router.get(
   "/:threadId",
   authentication,
   getProfile,
