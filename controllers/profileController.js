@@ -110,6 +110,9 @@ class ProfileController {
           ProfileId: profileId,
         },
       });
+      if (!deletedLike) {
+        throw { name: "likeNotFound" };
+      }
       res.status(200).json({ message: `Disliked the thread` });
     } catch (error) {
       next(error);
@@ -123,8 +126,40 @@ class ProfileController {
       if (!targetTeam) {
         throw { name: "teamNotFound" };
       }
-      const likedATeam = await ProfileTeam.create({});
-      res.status(200).json({ message: `Disliked the thread` });
+      const [like, created] = await ProfileTeam.findOrCreate({
+        where: {
+          ProfileId: profileId,
+          TeamId: teamId,
+        },
+        defaults: {
+          ProfileId: profileId,
+          TeamId: teamId,
+        },
+      });
+      if (!created) {
+        throw { name: "alreadyLikedTheTeam" };
+      }
+      res
+        .status(200)
+        .json({ message: `Succesfully like a team with ${teamId}` });
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async dislikeATeam(req, res, next) {
+    try {
+      const { teamId } = req.params;
+      const { profileId } = req.user;
+      const deletedLike = await ProfileTeam.destroy({
+        where: {
+          TeamId: teamId,
+          ProfileId: profileId,
+        },
+      });
+      if (!deletedLike) {
+        throw { name: "likeNotFound" };
+      }
+      res.status(200).json({ message: `Disliked the team` });
     } catch (error) {
       next(error);
     }

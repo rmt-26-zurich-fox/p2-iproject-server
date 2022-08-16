@@ -1,4 +1,4 @@
-const { Team, TeamImage } = require("../models");
+const { Team, TeamImage, ProfileTeam } = require("../models");
 const axios = require("axios");
 const rapidApiKey = process.env.RAPID_API_KEY;
 
@@ -68,22 +68,22 @@ class TeamController {
     }
   }
 
-  static async dummy(req, res, next) {
+  static async getLikedTeams(req, res, next) {
     try {
-      let result = [];
-      for (let id = 1; id <= 38; id++) {
-        const response = await axios.get(
-          `https://www.balldontlie.io/api/v1/players?per_page=100&page=${id}`
-        );
-        const { data } = response.data;
-        console.log(response.data);
-        data.forEach((element) => {
-          element.TeamId = element.team.id;
-          delete element.team;
-          result.push(element);
-        });
-      }
-      res.status(200).json(result);
+      const { profileId } = req.user;
+      const likedTeams = await ProfileTeam.findAll({
+        where: {
+          ProfileId: profileId,
+        },
+        include: {
+          model: Team,
+          include: {
+            model: TeamImage,
+            attributes: ["imageUrl"],
+          },
+        },
+      });
+      res.status(200).json(likedTeams);
     } catch (error) {
       next(error);
     }
