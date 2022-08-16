@@ -37,9 +37,12 @@ class Controller{
         try {
             let {reportId} = req.params
             let {imageUrl,name,CategoryId}= req.body
-            
+            let data= await Report.update({imageUrl,name,CategoryId},{where:{id:reportId}})
+            res.status(200).json({
+                message: 'Success update Report'
+            })
         } catch (error) {
-            
+            next(error)
         }
     }
 }
