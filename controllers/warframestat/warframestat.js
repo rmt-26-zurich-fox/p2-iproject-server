@@ -8,11 +8,7 @@ const Credentials = require("../../config/config");
  *? 	- query : language= ("de" "es" "fr" "it" "ko" "pl" "pt" "ru" "zh" "en") //! default will be 'en'
  *
  *TODO: get this specific alert
- **   - Construction (Fomorian / Razorback)
- **   - Dark Sectors
  *?   - Global Upgrades (this can be empty)
- *?   - Kuva (not available rn)
- *?   - persistentEnemies (Acolyte ? is this still exists?) //! need to check later
  **   - Simaris
  *?   - void trader (it is maroo's bazaar)
  */
@@ -147,6 +143,10 @@ module.exports = class Warframestat {
 		} catch (error) {
 			next(error);
 		}
+	}
+	static async simaris(req, res, next) {
+		try {
+		} catch (error) {}
 	}
 	//!secondary data fetch
 	//* means the data can be joined with another in one card @ frontEnd later
