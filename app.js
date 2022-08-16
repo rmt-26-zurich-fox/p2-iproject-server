@@ -18,7 +18,10 @@ app.post('/register' , controller1.register)
 app.use(async(err, req, res, next)=>{
     let code = 500
     let message = 'Internal Server Error'
-
+    console.log(err)
+if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError"){
+    message = err.errors[0].message
+}
     res.status(code).json(message)
 })
 
