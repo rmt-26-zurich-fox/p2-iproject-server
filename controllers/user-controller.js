@@ -23,5 +23,45 @@ module.exports = class UserController {
             
         }
     }
+
+    static async userLogin(req, res, next){
+
+        const { email, password } = req.body
+
+        try {
+
+            const user = await User.findOne({
+                where: {
+                    email
+                }
+            })
+
+            if(!user) throw {name: 'Invalid email/password'}
+
+            const compare = comparePassword(password, user.password)
+
+            if(!compare) throw {name: 'Invalid email/password'}
+
+            const payload = {
+
+                id: user.id
+
+            }
+
+            const access_token = createToken(payload)
+
+            res.status(201).json({
+                access_token,
+                username: user.username,
+                role: user.role,
+                email
+            })
+            
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+    }
     
 }
