@@ -54,4 +54,32 @@ module.exports = class FavoriteController{
             next(error)
         }
     }
+
+    static async deleteFavorite(req, res, next){
+
+        const { id } = req.params
+
+        try {
+
+            let favorite = await Favorite.findByPk(id)
+
+            if(!favorite) throw {name: 'Not Found'}
+
+            await Favorite.destroy({
+                where: {
+                    id: favorite.id
+                }
+            })
+
+            res.status(200).json({
+                message: 'success delete favorite'
+            })
+            
+        } catch (error) {
+
+            console.log(error)
+            next(error)
+            
+        }
+    }
 }
