@@ -4,6 +4,7 @@ const { createToken } = require("../helpers/jwt");
 
 class UserController {
 
+    // Register Admin
     static async registerAdmin(req, res, next) {
         try {
             const { username, email, password } = req.body;
@@ -19,6 +20,7 @@ class UserController {
         }
     } 
     
+    // Register Vistor
     static async registerVisitor(req, res, next) {
         try {
             const { username, email, password } = req.body;
@@ -33,6 +35,7 @@ class UserController {
         }
     } 
 
+    // Login Users
     static async loginUsers(req, res, next) {
         try {
             const { email, password } = req.body;
@@ -55,7 +58,7 @@ class UserController {
             next(error);
         }
     }
-    
+   
 }
 
 module.exports = UserController;
