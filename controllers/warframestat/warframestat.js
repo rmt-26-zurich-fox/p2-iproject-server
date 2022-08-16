@@ -146,7 +146,15 @@ module.exports = class Warframestat {
 	}
 	static async simaris(req, res, next) {
 		try {
-		} catch (error) {}
+			const { platform } = req.params;
+			let { data } = await axios({
+				url: Credentials.warframestats() + `/${platform}/simaris`,
+			});
+
+			res.status(200).json({ response: data });
+		} catch (error) {
+			next(error);
+		}
 	}
 	//!secondary data fetch
 	//* means the data can be joined with another in one card @ frontEnd later
