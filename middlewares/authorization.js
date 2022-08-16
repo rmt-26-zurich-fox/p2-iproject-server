@@ -21,9 +21,17 @@ async function threadAccessing(req, res, next) {
   try {
     const { threadId } = req.params;
     const { profileId } = req.user;
+    const targetThread = await Thread.findByPk(threadId);
+    if (!targetThread) {
+      throw { name: "threadNotFound" };
+    }
+    if (targetThread.ProfileId !== profileId) {
+      throw { name: "unauthorized" };
+    }
+    next();
   } catch (error) {
     next(error);
   }
 }
 
-module.exports = authorization;
+module.exports = { authorization, threadAccessing };
