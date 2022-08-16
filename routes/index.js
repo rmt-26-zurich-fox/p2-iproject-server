@@ -7,5 +7,4 @@ router.use("/users", userRouter);
 router.use("/categories", categoryRouter);
 router.use("/posts", postRouter);
 
-
 module.exports = router;
