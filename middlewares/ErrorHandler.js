@@ -7,12 +7,12 @@ function ErrorHandler(error,req,res,next){
         }
         else if(error.name == 'TypeError'){
           res.status(401).json({
-            message: 'Username or Password invalid'
+            message: 'Email or Password invalid'
           })
         }
-        else if(error.name== 'Username or Password invalid'){
+        else if(error.name== 'Email or Password invalid'){
           res.status(401).json({
-              message: 'Username or Password invalid'
+              message: 'Email or Password invalid'
           })
         }
         else if(error.name=='No Token'){
