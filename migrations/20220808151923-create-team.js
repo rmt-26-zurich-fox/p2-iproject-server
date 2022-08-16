@@ -10,79 +10,27 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-        allowNul: false,
+        allowNull: false,
       },
       full_name: {
         type: Sequelize.STRING,
-        allowNul: false,
+        allowNull: false,
       },
       abbreviation: {
         type: Sequelize.STRING,
-        allowNul: false,
+        allowNull: false,
       },
-      location: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      arena: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      team_colors: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      main_sponsor: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      conference: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      division: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      head_coach: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      president: {
+      city: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      general_manager: {
+      conference: {
         type: Sequelize.STRING,
-        allowNul: false,
+        allowNull: false,
       },
-      ownership: {
+      division: {
         type: Sequelize.STRING,
-        allowNul: false,
-      },
-      championships: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      conference_titles: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      division_titles: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      retired_numbers: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      website: {
-        type: Sequelize.STRING,
-        allowNul: false,
-      },
-      img_url: {
-        type: Sequelize.TEXT,
-        allowNul: false,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

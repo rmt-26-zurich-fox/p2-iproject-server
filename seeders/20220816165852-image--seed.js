@@ -1,5 +1,5 @@
 "use strict";
-const axios = require("axios");
+const images = require("../image.json");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -12,22 +12,21 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    const response = await axios.get("https://www.balldontlie.io/api/v1/teams");
-    const { data } = response.data;
-    data.forEach((el) => {
+    images.forEach((el) => {
       el.createdAt = new Date();
       el.updatedAt = new Date();
     });
-    await queryInterface.bulkInsert("Teams", data, {});
+    await queryInterface.bulkInsert("TeamImages", images, {});
   },
 
   async down(queryInterface, Sequelize) {
     /**
-    Add commands to revert seed here.
+     * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("Teams", null, {});
+
+    await queryInterface.bulkDelete("TeamImages", null, {});
   },
 };
