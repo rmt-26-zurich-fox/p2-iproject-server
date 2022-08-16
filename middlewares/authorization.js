@@ -1,5 +1,5 @@
 const getAge = require("../helpers/dateToAge");
-const { Profile, Thread, Comment } = require("../models");
+const { Profile, Thread, Comment, ProfileLikeThread } = require("../models");
 
 async function authorization(req, res, next) {
   try {
@@ -94,10 +94,33 @@ async function deleteCommentAuthorization(req, res, next) {
   }
 }
 
+async function dislikeAThreadAuthorization(req, res, next) {
+  try {
+    const { likeId, threadId } = req.params;
+    const { profileId } = req.user;
+    const targetLike = await ProfileLikeThread.findByPk(likeId);
+    if (!targetLike) {
+      throw { name: "likeNotFound" };
+    }
+    const targetThread = await Thread.findByPk(threadId);
+    if (!targetThread) {
+      throw { name: "threadNotFound" };
+    }
+    if (targetLike.ProfileId === profileId) {
+      next();
+    } else {
+      throw { name: "unauthorized" };
+    }
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   authorization,
   threadAccessing,
   underAgeAuthorization,
   editCommentAuthorization,
   deleteCommentAuthorization,
+  dislikeAThreadAuthorization,
 };

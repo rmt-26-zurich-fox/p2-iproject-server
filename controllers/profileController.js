@@ -1,4 +1,4 @@
-const { Profile } = require("../models");
+const { Profile, ProfileLikeThread, ProfileTeam, Team } = require("../models");
 
 class ProfileController {
   static async createProfile(req, res, next) {
@@ -62,10 +62,69 @@ class ProfileController {
   static async findOneProfile(req, res, next) {
     try {
       const { profileId } = req.params;
-      let targetProfile = await Profile.findByPk(profileId);
+      let targetProfile = await Profile.findOne({
+        where: {
+          id: profileId,
+        },
+        include: {
+          model: ProfileLikeThread,
+        },
+      });
       delete targetProfile.dataValues.createdAt;
       delete targetProfile.dataValues.updatedAt;
       res.status(200).json(targetProfile);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async likeAThread(req, res, next) {
+    try {
+      const { threadId } = req.params;
+      const { profileId } = req.user;
+      const [like, created] = await ProfileLikeThread.findOrCreate({
+        where: {
+          ThreadId: threadId,
+          ProfileId: profileId,
+        },
+        defaults: {
+          ThreadId: threadId,
+          ProfileId: profileId,
+        },
+      });
+      if (!created) {
+        throw { name: "alreadyLikedTheThread" };
+      }
+      res.status(201).json({ message: `Liked a thread with ID ${threadId}` });
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async dislikeAThread(req, res, next) {
+    try {
+      const { threadId } = req.params;
+      const { profileId } = req.user;
+      const deletedLike = await ProfileLikeThread.destroy({
+        where: {
+          ThreadId: threadId,
+          ProfileId: profileId,
+        },
+      });
+      res.status(200).json({ message: `Disliked the thread` });
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async likeATeam(req, res, next) {
+    try {
+      const { teamId } = req.params;
+      const { profileId } = req.user;
+      const targetTeam = await Team.findByPk(teamId);
+      if (!targetTeam) {
+        throw { name: "teamNotFound" };
+      }
+      const likedATeam = await ProfileTeam.create({});
+      res.status(200).json({ message: `Disliked the thread` });
     } catch (error) {
       next(error);
     }

@@ -11,6 +11,8 @@ const errorHandler = (err, req, res, next) => {
     res.status(400).json({ message: `Password is required` });
   } else if (err.name === "emptyEmail") {
     res.status(400).json({ message: `Email is required` });
+  } else if (err.name === "alreadyLikedTheThread") {
+    res.status(400).json({ message: `Thread already liked` });
   } else if (err.name === "invalid_email/password") {
     res.status(401).json({ message: `Invalid email/password` });
   } else if (err.name === "notLoggedIn") {
@@ -31,6 +33,8 @@ const errorHandler = (err, req, res, next) => {
     res.status(404).json({ message: "Thread not found" });
   } else if (err.name === "commentNotFound") {
     res.status(404).json({ message: "Comment not found" });
+  } else if (err.name === "likeNotFound") {
+    res.status(404).json({ message: "Like not found" });
   } else if (err.name === "teamNotFound") {
     res.status(404).json({ message: "Team not found" });
   } else {
