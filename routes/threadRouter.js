@@ -6,6 +6,7 @@ const {
   threadAccessing,
   underAgeAuthorization,
   editCommentAuthorization,
+  deleteCommentAuthorization,
 } = require("../middlewares/authorization");
 const {
   authentication,
@@ -48,6 +49,13 @@ router.put(
   getProfile,
   editCommentAuthorization,
   CommentController.editComment
+);
+router.delete(
+  "/:threadId/comment/:commentId",
+  authentication,
+  getProfile,
+  deleteCommentAuthorization,
+  CommentController.deleteComment
 );
 
 router.post(
