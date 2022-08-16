@@ -7,6 +7,10 @@ const error = (error, req, res, next) => {
         res.status(400).json({
             message: 'Email or password cannot be empty'
         })
+    } else if (error.name == 'already_saved') {
+        res.status(400).json({
+            message: 'This location already saved'
+        })
     } else if (error.name == 'NoToken') {
         res.status(401).json({
             message: 'Please login first'
