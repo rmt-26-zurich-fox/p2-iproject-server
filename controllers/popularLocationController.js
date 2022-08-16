@@ -26,12 +26,10 @@ class PopularLocationController {
 
             if (!popular) throw { name: 'NotFound' }
 
-            let days = req.body.days
-
             let weather = await axios({
                 method: 'GET',
                 url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
-                params: { q: `${popular.name}`, days: `${days}` },
+                params: { q: `${popular.name}`, days: 3 },
                 headers: {
                     'X-RapidAPI-Key': '49606f27ffmsh8e7eab91839726ep11ea8cjsn70520c70fe2f',
                     'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'

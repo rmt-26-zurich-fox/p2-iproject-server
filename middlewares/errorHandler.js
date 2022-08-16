@@ -11,6 +11,10 @@ const error = (error, req, res, next) => {
         res.status(400).json({
             message: 'This location already saved'
         })
+    } else if (error.response.data) {
+        res.status(400).json({
+            message: 'No matching location found'
+        })
     } else if (error.name == 'NoToken') {
         res.status(401).json({
             message: 'Please login first'

@@ -3,7 +3,7 @@ const SavedLocationController = require('../controllers/savedLocationController'
 
 router.post('/', SavedLocationController.createSavedLocation)
 router.get('/', SavedLocationController.readSavedLocation)
-router.get('/:saveId', SavedLocationController.readSavedWeatherById)
+router.get('/:savedId', SavedLocationController.readSavedWeatherById)
 router.delete('/:savedId', SavedLocationController)
 
 module.exports = router
