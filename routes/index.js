@@ -7,6 +7,7 @@ const { authentication } = require("../middlewares/authentication");
 const router = require("express").Router();
 
 router.use("/users", UserRouter);
+router.use("/teams", TeamRouter);
 router.use("/profiles", authentication, ProfileRouter);
 router.use("/threads", ThreadRouter);
 router.use("/comments", CommentRouter);
