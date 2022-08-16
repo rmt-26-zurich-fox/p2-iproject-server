@@ -9,10 +9,7 @@ const Credentials = require("../../config/config");
  *
  *TODO: get this specific alert
  **   - Construction (Fomorian / Razorback)
- **   - Dark Sectors
  *?   - Global Upgrades (this can be empty)
- *?   - Kuva (not available rn)
- *?   - persistentEnemies (Acolyte ? is this still exists?) //! need to check later
  **   - Simaris
  *?   - void trader (it is maroo's bazaar)
  */
@@ -186,7 +183,10 @@ module.exports = class Warframestat {
 			next(error);
 		}
 	}
-
+	static async construction(req, res, next) {
+		try {
+		} catch (error) {}
+	}
 	//!deals data fetch
 	//* on here, only deals!
 	static async dailyDeals(req, res, next) {
