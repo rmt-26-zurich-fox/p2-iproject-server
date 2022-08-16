@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Jakarta",
+        "country": "Indonesia",
+        "latitude": -6.21,
+        "longtitude": 106.85
+    },
+    {
+        "name": "Surabaya",
+        "country": "Indonesia",
+        "latitude": -7.25,
+        "longtitude": 112.75
+    },
+    {
+        "name": "Kyoto",
+        "country": "Japan",
+        "latitude": 35.02,
+        "longtitude": 135.75
+    },
+    {
+        "name": "Tokyo",
+        "country": "Japan",
+        "latitude": 35.69,
+        "longtitude": 139.69
+    },
+    {
+        "name": "Paris",
+        "country": "France",
+        "latitude": 48.87,
+        "longtitude": 2.33
+    },
+    {
+        "name": "New York",
+        "country": "United States of America",
+        "latitude": 40.71,
+        "longtitude": -74.01
+    },
+    {
+        "name": "London",
+        "country": "United Kingdom",
+        "latitude": 51.52,
+        "longtitude": -0.11
+    },
+    {
+        "name": "Bangkok",
+        "country": "Thailand",
+        "latitude": 13.75,
+        "longtitude": 100.52
+    },
+    {
+        "name": "Dubai",
+        "country": "United Arab Emirates",
+        "latitude": 25.25,
+        "longtitude": 55.28
+    },
+    {
+        "name": "Rome",
+        "country": "Italy",
+        "latitude": 41.9,
+        "longtitude": 12.48
+    },
+    {
+        "name": "Istanbul",
+        "country": "Turkey",
+        "latitude": 41.02,
+        "longtitude": 28.96
+    },
+    {
+        "name": "Delhi",
+        "country": "India",
+        "latitude": 28.67,
+        "longtitude": 77.22
+    },
+    {
+        "name": "Moscow",
+        "country": "Russia",
+        "latitude": 55.75,
+        "longtitude": 37.62
+    },
+    {
+        "name": "Beijing",
+        "country": "China",
+        "latitude": 39.93,
+        "longtitude": 116.39
+    },
+    {
+        "name": "Kuala Lumpur",
+        "country": "Malaysia",
+        "latitude": 3.17,
+        "longtitude": 101.7
+    },
+    {
+        "name": "Barcelona",
+        "country": "Spain",
+        "latitude": 41.38,
+        "longtitude": 2.18
+    },
+    {
+        "name": "Amsterdam",
+        "country": "Netherlands",
+        "latitude": 52.37,
+        "longtitude": 4.89
+    },
+    {
+        "name": "Sydney",
+        "country": "Australia",
+        "latitude": -33.88,
+        "longtitude": 151.22
+    },
+    {
+        "name": "Busan",
+        "country": "South Korea",
+        "latitude": 35.1,
+        "longtitude": 129.04
+    },
+    {
+        "name": "Seoul",
+        "country": "South Korea",
+        "latitude": 37.57,
+        "longtitude": 127
+    }
+]
