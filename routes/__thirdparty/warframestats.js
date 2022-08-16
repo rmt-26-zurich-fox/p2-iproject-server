@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const Warframestat = require("../../controllers/warframestat/warframestat");
 
-//3rd API warframestat.us
+//
 /**
+ *! 3rd API warframestat.us
  *! all warframestats.us API have this:
  *? 	- parameter : :platform ("pc" "ps4" "xb1" "swi")
  *? 	- query : language= ("de" "es" "fr" "it" "ko" "pl" "pt" "ru" "zh" "en") //! default will be 'en'
@@ -18,6 +19,7 @@ router.get("/:platform/invasions", Warframestat.invasions);
 router.get("/:platform/syndicates", Warframestat.syndicate);
 router.get("/:platform/nightwave", Warframestat.nightwave);
 router.get("/:platform/sortie", Warframestat.sortie);
+
 //secondary fetch
 router.get("/:platform/arbitration", Warframestat.arbitration);
 router.get("/:platform/railjackOutpost", Warframestat.railjackOutpost);

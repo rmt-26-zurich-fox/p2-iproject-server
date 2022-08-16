@@ -22,25 +22,6 @@ const sequelize = require("sequelize");
 app.use(routes);
 app.use(errorHandler);
 
-// app.get("/", async (req, res) => {
-// 	try {
-// 		let data = await Patchnote.findAll({
-// 			attributes: {
-// 				//* make the date datatype timestamp -> string
-// 				include: [[sequelize.cast(sequelize.col("date"), "varchar"), "date"]],
-// 			},
-// 			//TODO: TEST
-// 			where: sequelize.where(sequelize.cast(sequelize.col("date"), "varchar"), { [Op.iLike]: "%2014%" }),
-// 			// name: { [Op.iLike]: "%hotfix%" },
-// 		});
-
-// 		res.status(200).json({ data });
-// 	} catch (error) {
-// 		console.log(error);
-// 		res.status(500).json({ error });
-// 	}
-// });
-
 //* listen
 app.listen(port, () => {
 	console.log("alive and kickin' at", port);
