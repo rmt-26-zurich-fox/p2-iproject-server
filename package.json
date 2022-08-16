@@ -10,6 +10,8 @@
 		"warframe-patchlogs": "^1.737.0"
 	},
 	"devDependencies": {
+		"cronitor": "^2.3.2",
+		"node-cron": "^3.0.2",
 		"nodemon": "^2.0.19",
 		"sequelize-cli": "^6.4.1"
 	},

@@ -15,7 +15,7 @@ module.exports = class Patchlogs {
  *TODO: BELOW
  *  - HOW TO MAKE A HEARTBEAT PROGRAM ?
  *    --||-> logic should be <-||--
- *    - make a timer (1hrs)
+ *    - make a timer (1hrs) (-can use cronjob- cron is linux based time app)
  *    - if timer is up
  *    - fetch data axios from patchnotes (reverse it, so the oldest will have smallest ID number)
  *    - count it, how many
