@@ -1,6 +1,6 @@
 const { hashSync, compareSync } = require("bcryptjs")
 const { sign, verify} = require('jsonwebtoken')
-const { User } = require('../models')
+const { User, Product} = require('../models')
 
 class Controller{
     static async register(req, res, next){
@@ -31,6 +31,7 @@ class Controller{
     static async login(req,res,next){
         try {
             const { username , password } = req.body
+
             if(!username){
                 throw({message: "Invalid username/password"})
             }else{
@@ -49,6 +50,19 @@ class Controller{
                     }
                 }
             }
+        } catch (err) {
+            next(err)
+        }
+    }
+
+   static async fetchProduct(req, res, next){
+        try {
+            const { search , page , size} = req.query
+
+            let {options, currentPage} = Product.filterProduct(search, page , size)
+            const products = await Product.findAndCountAll(options)
+
+            res.status(200).json({totalPages: Math.ceil(products.count/ options.limit), products, currentPage})
         } catch (err) {
             next(err)
         }

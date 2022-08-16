@@ -15,6 +15,8 @@ app.use(express.json())
 
 app.post('/register' , controller1.register)
 app.post('/login', controller1.login)
+app.get('/product', controller1.fetchProduct)
+
 
 app.use(async(err, req, res, next)=>{
     let code = 500
