@@ -3,8 +3,8 @@ const axios = require('axios')
 class Controller {
     static async getLocation(req, res, next) {
         try {
-            const {page, category} = req.query
-            if(page > 0){
+            const { page, category } = req.query
+            if (page > 0) {
                 page = page * 8
             }
             const { data } = await axios({
@@ -18,7 +18,6 @@ class Controller {
                     return el.kategori === `${category}`
                 })
             }
-            console.log(page)
             for (let i = page; i < data.wisata.length; i++) {
                 if (newData.length < 8) {
                     newData.push(data.wisata[i])
