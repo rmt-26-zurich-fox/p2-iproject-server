@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Burnt Basque",
+    "price": 45000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/lOWtFO3.jpg"
+  },
+  {
+    "name": "Cheesecake",
+    "price": 25000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/TWIQxeC.jpg"
+  },
+  {
+    "name": "Peanut Brownie",
+    "price": 13000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/fwJMzIS.jpg"
+  },
+  {
+    "name": "Berries",
+    "price": 490000,
+    "category": "wholecake",
+    "imageUrl": "https://i.imgur.com/dBWlFc9.jpg"
+  },
+  {
+    "name": "Panacotta Series",
+    "price": 25000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/PG7cRJS.jpg"
+  },
+  {
+    "name": "Choux Series",
+    "price": 19500,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/LkFsZST.jpg"
+  },
+  {
+    "name": "Fruit Tart",
+    "price": 310000,
+    "category": "wholecake",
+    "imageUrl": "https://i.imgur.com/HcGtAQ1.jpg"
+  },
+  {
+    "name": "Tiramisu",
+    "price": 42000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/kUc3ydI.jpg"
+  },
+  {
+    "name": "Mini Cookie",
+    "price": 75000,
+    "category": "cookie",
+    "imageUrl": "https://i.imgur.com/EzaMcS9.jpg"
+  },
+  {
+    "name": "Lapis Surabaya",
+    "price": 150000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/ySEPTME.jpg"
+  },
+  {
+    "name": "Dark Chocolate Rhum Tart",
+    "price": 310000,
+    "category": "wholecake",
+    "imageUrl": "https://i.imgur.com/hOCVXG6.jpg"
+  },
+  {
+    "name": "Almond Croissant",
+    "price": 38000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/HK7sVCw.jpg"
+  },
+  {
+    "name": "Strawberry CheeseCake",
+    "price": 25000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/WHpkcKv.jpg"
+  },
+  {
+    "name": "Croissant Butter Pudding",
+    "price": 35000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/wKtHywX.jpg"
+  },
+  {
+    "name": "Go Mango",
+    "price": 490000,
+    "category": "wholecake",
+    "imageUrl": "https://i.imgur.com/iszkPKa.jpg"
+  },
+  {
+    "name": "Berries V.2",
+    "price": 35000,
+    "category": "wholecake",
+    "imageUrl": "https://i.imgur.com/Iw3z9e6.jpg"
+  },
+  {
+    "name": "Pasioncoco",
+    "price": 42000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/YZPiaoT.jpg"
+  },
+  {
+    "name": "Chocolate Hazelnut",
+    "price": 45000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/bdlR6jj.jpg"
+  },
+  {
+    "name": "Choux Early Grey & Hz",
+    "price": 19500,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/JE6SUQ7.jpg"
+  },
+  {
+    "name": "Pandan Panacotta",
+    "price": 25000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/livzRyz.jpg"
+  },
+  {
+    "name": "Biscoff Cheesecake",
+    "price": 25000,
+    "category": "pastry",
+    "imageUrl": "https://i.imgur.com/B8WgBRO.jpg"
+  }
+]

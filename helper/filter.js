@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 
-const filter = (name, minPrice) => {
+const filter = (name, category) => {
   let option;
   if (!name) {
     option = {};
@@ -8,10 +8,10 @@ const filter = (name, minPrice) => {
     option = { name: { [Op.iLike]: `%${name}%` } };
   }
 
-  if (!minPrice) {
+  if (!category) {
     option = { ...option };
   } else {
-    option = { ...option, price: { [Op.gt]: +minPrice } };
+    option = { ...option, category };
   }
 
   return option;
