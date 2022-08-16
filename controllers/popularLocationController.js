@@ -1,4 +1,5 @@
 const { PopularLocation, SavedLocation, User } = require('../models')
+const axios = require("axios");
 
 class PopularLocationController {
     static async readPopularLocation(req, res, next) {
@@ -25,10 +26,19 @@ class PopularLocationController {
 
             if (!popular) throw { name: 'NotFound' }
 
-            res.status(200).json({
-                message: 'Success read product',
-                popular
-            })
+            let currentWeather = await axios({
+                method: 'GET',
+                url: 'https://weatherapi-com.p.rapidapi.com/current.json',
+                params: { q: `${popular.name}` },
+                headers: {
+                    'X-RapidAPI-Key': '49606f27ffmsh8e7eab91839726ep11ea8cjsn70520c70fe2f',
+                    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+                }
+            });
+
+            res.status(200).json(
+                currentWeather.data
+            )
         } catch (error) {
             next(error)
         }
