@@ -9,12 +9,9 @@ module.exports = class FavoriteController{
 
 
             const favorite = await Favorite.findAll({
-                // where: {UserId: req.user.id},
+                where: {UserId: req.user.id},
                 include: [
-                    // {
-                    //     model: User,
-                    //     attributes: ['id', 'username', 'email', 'role']
-                    // },
+
                     {
                         model: Post,
                         include: User

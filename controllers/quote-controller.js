@@ -52,6 +52,10 @@ module.exports = class QuoteController {
                     {
                         model: User,
                         attributes: ['username']
+                    },
+                    {
+                        model: Category,
+                        attributes: ['id', 'name']
                     }
                 ]
             })
@@ -84,4 +88,6 @@ module.exports = class QuoteController {
             next(error)
         }
     }
+
+    
 }
