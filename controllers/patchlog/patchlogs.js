@@ -1,14 +1,6 @@
 const axios = require("axios");
 const patchlogs = require("warframe-patchlogs");
-const Credentials = require("../../config/config");
-
-module.exports = class Patchlogs {
-	/**
-	 *! 1. Patchlogs will fetch data from our Patchlogs
-	 *! 2. make a heartbeat function to hit 3rd API for checking new update
-	 *
-	 */
-};
+const { Patchnote } = require("../../models");
 
 /**
  *? QUESTION
@@ -26,7 +18,11 @@ module.exports = class Patchlogs {
  *    -
  *
  */
-
+/**
+ *! 1. Patchlogs will fetch data from our Patchlogs
+ *! 2. make a heartbeat function to hit 3rd API for checking new update
+ *
+ */
 module.exports = class Patchlogs {
 	static async showAll(req, res, next) {
 		/** FORMAT
@@ -43,7 +39,52 @@ module.exports = class Patchlogs {
     }
      */
 		try {
-			res.status(200).json({ length: patchlogs.posts.length, data: patchlogs.posts });
+			// res.status(200).json({ length: patchlogs.posts.length, data: patchlogs.posts });
+			const dataRead = await Patchnote.findAll({ attributes: { exclude: ["createdAt", ["updatedAt"]] } });
+			res.status(200).json({ response: dataRead.reverse() });
+		} catch (error) {
+			next(error);
+		}
+	}
+
+	static async fetchPatchnoteLength(req, res, next) {
+		try {
+			// - fetch data axios from patchnotes (reverse it, so the oldest will have smallest ID number)
+			const latestPatchlogs = patchlogs.posts;
+			// - count it, how many
+			const currentPatchnoteDatabase = await Patchnote.findAndCountAll();
+			// - if currentDatabase.length < latestPatchlogs.length
+			if (currentPatchnoteDatabase.count < latestPatchlogs.length) {
+				// - diffLength = latestPatchlogs.length - currentPatchnoteDatabase.length (to produce number)
+				let diffLength = Math.abs(latestPatchlogs.length - currentPatchnoteDatabase.count),
+					//
+					startFrom = latestPatchlogs.length - diffLength,
+					//
+					strippedPatchlogs = latestPatchlogs.reverse().filter((data, index) => {
+						if (index >= startFrom) {
+							return data;
+						}
+					});
+
+				// console.log({
+				// 	diffLength,
+				// 	length: {
+				// 		current: currentPatchnoteDatabase.count,
+				// 		latest: latestPatchlogs.length,
+				// 	},
+				// 	startFrom,
+				// });
+
+				//add data strippedPatchLogs to database
+				await Patchnote.create({ ...strippedPatchlogs });
+
+				console.log({
+					length: { current: currentPatchnoteDatabase.count, latest: latestPatchlogs.length },
+					response: strippedPatchlogs,
+				});
+				return;
+			}
+			console.log({ message: "there is no update" });
 		} catch (error) {
 			next(error);
 		}
