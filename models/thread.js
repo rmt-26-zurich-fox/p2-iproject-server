@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.ProfileLikeThread,
         foreignKey: "ThreadId",
       });
+      Thread.hasMany(models.Comment, { foreignKey: "ThreadId" });
     }
   }
   Thread.init(

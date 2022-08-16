@@ -21,6 +21,10 @@ const errorHandler = (err, req, res, next) => {
     res.status(401).json({ message: "Invalid email/password" });
   } else if (err.name === "unauthorized") {
     res.status(403).json({ message: "You are not authorized" });
+  } else if (err.name === "explicitThread") {
+    res
+      .status(403)
+      .json({ message: "You are not authorized to access explicit thread" });
   } else if (err.name === "profileNotFound") {
     res.status(404).json({ message: "Profile not found" });
   } else if (err.name === "threadNotFound") {

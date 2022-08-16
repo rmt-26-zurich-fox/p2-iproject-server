@@ -1,4 +1,4 @@
-const { Thread } = require("../models");
+const { Thread, Comment, ProfileComment } = require("../models");
 const router = require("../routes");
 
 class ThreadController {
@@ -71,6 +71,22 @@ class ThreadController {
         delete el.dataValues.updatedAt;
       });
       res.status(200).json(threadList);
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async findOneThread(req, res, next) {
+    try {
+      const { threadId } = req.params;
+      const targetThread = await Thread.findOne({
+        where: {
+          id: threadId,
+        },
+        include: {
+          model: Comment,
+        },
+      });
+      res.status(200).json(targetThread);
     } catch (error) {
       next(error);
     }

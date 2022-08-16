@@ -3,6 +3,7 @@ const ThreadController = require("../controllers/threadController");
 const {
   authorization,
   threadAccessing,
+  underAgeAuthorization,
 } = require("../middlewares/authorization");
 const {
   authentication,
@@ -16,6 +17,13 @@ router.get(
   getProfile,
   underAgeVerification,
   ThreadController.getThreadList
+);
+router.get(
+  "/:threadId",
+  authentication,
+  getProfile,
+  underAgeAuthorization,
+  ThreadController.findOneThread
 );
 
 router.post(
