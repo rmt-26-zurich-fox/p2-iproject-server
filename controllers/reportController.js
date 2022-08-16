@@ -20,6 +20,28 @@ class Controller{
             next(error)
         }
     }
+
+    static async addReport(req,res,next){
+        try {
+            let{imageUrl,name,CategoryId,UserId}= req.body
+            let data= await Report.create({imageUrl,name,CategoryId,UserId: req.user.id})
+            res.status(201).json({
+                data
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async updateReport(req,res,next){
+        try {
+            let {reportId} = req.params
+            let {imageUrl,name,CategoryId}= req.body
+            
+        } catch (error) {
+            
+        }
+    }
 }
 
 module.exports= Controller

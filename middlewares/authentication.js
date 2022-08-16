@@ -1,4 +1,4 @@
-const { verifyToken } = require("../helper/jwtHelper")
+const { verifyToken } = require("../helpers/jwtHelper")
 const {User}=require('../models');
 
 const Authentication= async(req,res,next)=>{
@@ -24,3 +24,5 @@ const Authentication= async(req,res,next)=>{
         
     }
 }
+
+module.exports= {Authentication}

@@ -3,8 +3,8 @@ const Controller= require('../controllers/reportController');
 
 router.get('/reports', Controller.getAllReport)
 router.get('/reports/:id', Controller.reportById)
-router.post('/reports')
-router.put('/reports/:reportId')
+router.post('/reports', Controller.addReport)
+router.put('/reports/:reportId', Controller.updateReport)
 
 
 
