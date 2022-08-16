@@ -1,4 +1,5 @@
 const { PopularLocation, SavedLocation, User } = require('../models')
+const axios = require("axios");
 
 class SavedLocationController {
     static async createSavedLocation(req, res, next) {
@@ -37,6 +38,12 @@ class SavedLocationController {
             })
         } catch (error) {
             next(error)
+        }
+    }
+
+    static async readSavedWeatherById(req, res, next) {
+        try {
+        } catch (error) {
         }
     }
 }
