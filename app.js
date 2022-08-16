@@ -8,7 +8,7 @@ const cors = require('cors')
 const port = process.env.PORT ||  3000
 const controller1 = require('./controllers/controller1')
 const controller2 = require('./controllers/controller2')
-
+const authentication = require('./middlewares/authentication')
 app.use(cors())
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
@@ -17,7 +17,9 @@ app.post('/register' , controller1.register)
 app.post('/login', controller1.login)
 app.get('/products', controller1.fetchProduct)
 app.get('/products/:id', controller1.fetchProduct)
+app.use(authentication)
 app.post('/shoppingcart/:productId', controller1.createShoppingCart)
+
 
 
 app.use(async(err, req, res, next)=>{
@@ -28,6 +30,8 @@ if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstr
     message = err.errors[0].message
 }else if( err.message == "Invalid username/password"){
     message = err.message
+}else if( err.name == "JsonWebTokenError"){
+    message = 'Invalid Token'
 }
     res.status(code).json(message)
 })

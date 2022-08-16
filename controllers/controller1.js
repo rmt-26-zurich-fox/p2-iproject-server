@@ -1,6 +1,6 @@
 const { hashSync, compareSync } = require("bcryptjs")
 const { sign, verify} = require('jsonwebtoken')
-const { User, Product} = require('../models')
+const { User, Product, ShoppingCart} = require('../models')
 
 class Controller{
     static async register(req, res, next){
@@ -71,8 +71,11 @@ class Controller{
    static async createShoppingCart(req, res, next){
     try {
         const { productId } = req.params
-        
-        
+        const { quantity } = req.body
+
+        const cart = await ShoppingCart.create({UserId: req.user.id, ProductId: productId , quantity: quantity})
+
+        res.status(201).json({message: "Product is added to your Shopping Cart"})
 
     } catch (err) {
         next(err)
