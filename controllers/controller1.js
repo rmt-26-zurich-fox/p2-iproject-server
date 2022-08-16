@@ -71,7 +71,12 @@ class Controller{
 
     static async shoppingCart(req, res, next){
         try {
-            const cart = await ShoppingCart.findAll({where:{UserId: req.user.id}, order:[['createdAt', 'DESC']]})
+            const cart = await ShoppingCart.findAll({where:{UserId: req.user.id}, include:[
+                {
+                    model: Product,
+                }
+            ],
+            order:[['createdAt', 'DESC']]})
 
             res.status(200).json(cart)
         } catch (err) {
