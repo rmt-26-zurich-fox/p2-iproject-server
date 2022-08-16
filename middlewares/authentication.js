@@ -1,5 +1,5 @@
 const { verifyToken } = require("../helpers/jwt");
-const { User } = require("../models");
+const { User, Profile } = require("../models");
 
 const authentication = async (req, res, next) => {
   try {
@@ -24,4 +24,22 @@ const authentication = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = { authentication };
+
+const getProfile = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+    const targetProfile = await Profile.findOne({
+      where: {
+        UserId: id,
+      },
+    });
+    if (!targetProfile) {
+      throw { name: "profileNotFound" };
+    }
+    req.user.profileId = targetProfile.id;
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = { authentication, getProfile };

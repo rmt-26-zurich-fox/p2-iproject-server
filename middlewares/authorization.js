@@ -1,4 +1,4 @@
-const { Profile } = require("../models");
+const { Profile, Thread } = require("../models");
 
 async function authorization(err, req, res, next) {
   try {
@@ -12,6 +12,15 @@ async function authorization(err, req, res, next) {
       throw { name: "unauthorized" };
     }
     next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function threadAccessing(req, res, next) {
+  try {
+    const { threadId } = req.params;
+    const { profileId } = req.user;
   } catch (error) {
     next(error);
   }
