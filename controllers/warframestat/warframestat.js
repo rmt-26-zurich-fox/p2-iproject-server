@@ -9,7 +9,6 @@ const Credentials = require("../../config/config");
  *
  *TODO: get this specific alert
  *?   - Global Upgrades (this can be empty)
- **   - Simaris
  *?   - void trader (it is maroo's bazaar)
  */
 
@@ -144,18 +143,7 @@ module.exports = class Warframestat {
 			next(error);
 		}
 	}
-	static async simaris(req, res, next) {
-		try {
-			const { platform } = req.params;
-			let { data } = await axios({
-				url: Credentials.warframestats() + `/${platform}/simaris`,
-			});
 
-			res.status(200).json({ response: data });
-		} catch (error) {
-			next(error);
-		}
-	}
 	//!secondary data fetch
 	//* means the data can be joined with another in one card @ frontEnd later
 	static async arbitration(req, res, next) {
@@ -201,6 +189,35 @@ module.exports = class Warframestat {
 				url: Credentials.warframestats() + `/${platform}/constructionProgress`,
 			});
 
+			res.status(200).json({ response: data });
+		} catch (error) {
+			next(error);
+		}
+	}
+	static async simaris(req, res, next) {
+		try {
+			const { platform } = req.params;
+			let { data } = await axios({
+				url: Credentials.warframestats() + `/${platform}/simaris`,
+			});
+
+			res.status(200).json({ response: data });
+		} catch (error) {
+			next(error);
+		}
+	}
+	static async eventBooster(req, res, next) {
+		try {
+			const { platform } = req.params;
+			let { data } = await axios({
+				url: Credentials.warframestats() + `/${platform}/globalUpgrades`,
+			});
+
+			//! it is possible that there is no events
+			if (!data.length) {
+				res.status(200).json({ response: "There is no event booster" });
+				return;
+			}
 			res.status(200).json({ response: data });
 		} catch (error) {
 			next(error);
