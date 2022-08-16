@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
     "sequelize": "^6.21.3",
+    "socket.io": "^4.5.1",
     "vue-socket.io": "^3.0.10"
   },
   "devDependencies": {
