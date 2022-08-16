@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 app.post('/register' , controller1.register)
+app.post('/login', controller1.login)
 
 app.use(async(err, req, res, next)=>{
     let code = 500
@@ -21,6 +22,8 @@ app.use(async(err, req, res, next)=>{
     console.log(err)
 if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError"){
     message = err.errors[0].message
+}else if( err.message == "Invalid username/password"){
+    message = err.message
 }
     res.status(code).json(message)
 })

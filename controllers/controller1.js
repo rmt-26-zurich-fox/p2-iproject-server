@@ -1,4 +1,4 @@
-const { hashSync } = require("bcryptjs")
+const { hashSync, compareSync } = require("bcryptjs")
 const { sign, verify} = require('jsonwebtoken')
 const { User } = require('../models')
 
@@ -28,11 +28,29 @@ class Controller{
         }
     }
 
-    static async login (req,res,next){
+    static async login(req,res,next){
         try {
-            
+            const { username , password } = req.body
+            if(!username){
+                throw({message: "Invalid username/password"})
+            }else{
+                const user = await User.findOne({where:{username:username}})
+                if(!user){
+                    throw({message: "Invalid username/password"})
+                }else {
+                    let verifyPass = compareSync(password , user.password)
+                    if(!verifyPass){
+                    throw({message: "Invalid username/password"})
+                    }else{
+                        let token = sign({id : user.id}, process.env.SECRET_KEY)
+                        res.status(200).json({
+                            access_token: token
+                        })
+                    }
+                }
+            }
         } catch (err) {
-            
+            next(err)
         }
     }
 }
