@@ -1,11 +1,20 @@
 const router= require('express').Router();
+const {getPagingData,getPagination}= require('../middlewares/pagination');
+const { Op } = require('sequelize');
 const{Report,Category}= require('../models');
 
 class Controller{
     static async getAllReport(req,res,next){
         try {
-            let data= await Report.findAll({where:{UserId: req.user.id}})
-            res.status(200).json(data)
+            let{page,size,name}=req.query
+            let where= {UserId: req.user.id}
+            if(name){
+                where.name=  { [Op.iLike]: `%${name}%` }
+            }
+            let {limit,offset}= getPagination(page,size)
+            let data= await Report.findAndCountAll({where:where,limit,offset})
+            let result= getPagingData(data,page,limit)
+            res.status(200).json(result)
         } catch (error) {
             next(error)
         }
