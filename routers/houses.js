@@ -1,8 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const HouseController = require('../controllers/house')
+const HouseController = require("../controllers/house");
 
-router.get('/', HouseController.getHouseData)
-router.get('/:houseId', HouseController.getHouseDetail)
+router.get("/", HouseController.getAllHouses);
+router.get("/categories", HouseController.getAllCategories);
+router.get("/:houseId", HouseController.getHouseDetail);
 
-module.exports = router
+module.exports = router;

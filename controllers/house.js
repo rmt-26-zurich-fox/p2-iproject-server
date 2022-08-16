@@ -1,7 +1,7 @@
 const { House, Image, HouseFacility, Facility, Category } = require("../models");
 
 class Controller {
-  static async getHouseData(req, res, next) {
+  static async getAllHouses(req, res, next) {
     try {
       const houses = await House.findAll({
         attributes: {
@@ -20,7 +20,7 @@ class Controller {
         order: [["name"]],
       });
 
-      res.status(200).json({ houses });
+      res.status(200).json(houses);
     } catch (error) {
       next(error);
     }
@@ -48,14 +48,14 @@ class Controller {
           },
           {
             model: HouseFacility,
-            attributes: ['id'],
+            attributes: ["id"],
             include: [
               {
                 model: Facility,
-                attributes: ['name']
-              }
+                attributes: ["name"],
+              },
             ],
-          }
+          },
         ],
       });
 
@@ -65,6 +65,21 @@ class Controller {
 
       res.status(200).json(house);
     } catch (error) {
+      next(error);
+    }
+  }
+
+  static async getAllCategories(req, res, next) {
+    try {
+      const categories = await Category.findAll({
+        attributes: {
+          exclude: ["updatedAt", "createdAt"],
+        },
+      });
+
+      res.status(200).json(categories);
+    } catch (error) {
+      console.log(error);
       next(error);
     }
   }
