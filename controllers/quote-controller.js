@@ -48,7 +48,12 @@ module.exports = class QuoteController {
         try {
 
             const quote = await Post.findAll({
-                include: Category
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
             })
 
             res.status(200).json(quote)
