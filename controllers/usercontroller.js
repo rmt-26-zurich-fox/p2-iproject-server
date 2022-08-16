@@ -3,6 +3,28 @@ const { createToken } = require("../helpers/jwt");
 const { User } = require("../models");
 
 class UserController {
+  static async userRegister(req, res, next) {
+    try {
+      const { username, email, password, fullName, role, location } = req.body;
+
+      let registerUser = await User.create({
+        username,
+        email,
+        password,
+        fullName,
+        role,
+        location,
+      });
+      res.status(201).json({
+        message: `User has been registered`,
+        id: registerUser.id,
+        email: registerUser.email,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async userLogin(req, res) {
     try {
       const { email, password } = req.body;
