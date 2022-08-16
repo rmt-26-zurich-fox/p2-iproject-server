@@ -15,5 +15,8 @@ router.use(authorizationAdmin);
 // Post Reviews
 router.post("/create", PostController.postReview);
 
+// Edit Post Reviews
+router.put("/edit/:id", PostController.editReview);
+
 
 module.exports = router;
