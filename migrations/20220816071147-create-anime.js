@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false
       },
       synopsis: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       airingStart: {
@@ -26,7 +26,8 @@ module.exports = {
       },
       episodes: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true,
+        defaultValue: 0
       },
       genre: {
         type: Sequelize.STRING,
@@ -34,7 +35,8 @@ module.exports = {
       },
       score: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true,
+        defaultValue: 0
       },
       season: {
         type: Sequelize.STRING,

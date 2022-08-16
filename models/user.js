@@ -3,7 +3,6 @@ const {
   Model
 } = require('sequelize');
 const bcrypt = require("bcryptjs");
-const { USE } = require('sequelize/types/index-hints');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -13,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Anime)
-      User.hasMany(models.Planning)
+      User.hasMany(models.Comment, {foreignKey: "UserId"})
+      User.hasMany(models.Planning, {foreignKey: "UserId"})
     }
   }
   User.init({
