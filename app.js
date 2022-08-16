@@ -18,6 +18,7 @@ app.post('/login', controller1.login)
 app.get('/products', controller1.fetchProduct)
 app.get('/products/:id', controller1.fetchProduct)
 app.use(authentication)
+app.get('/shoppingcarts', controller1.shoppingCart)
 app.post('/shoppingcart/:productId', controller1.createShoppingCart)
 
 
