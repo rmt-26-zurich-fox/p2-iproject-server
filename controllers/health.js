@@ -1,4 +1,6 @@
 const axios = require('axios')
+const apikey = process.env.rapid_apikey
+const apihost = process.env.rapid_host
 
 class Controller {
     static async bmi(req, res, next) {
@@ -12,8 +14,8 @@ class Controller {
                 url: `https://mega-fitness-calculator1.p.rapidapi.com/bmi`,
                 params: { weight, height },
                 headers: {
-                    "X-RapidAPI-Key": "5ed81f92cemsh7e7ae9cefcb2fa5p102f81jsn75940b69943d",
-                    "X-RapidAPI-Host": "mega-fitness-calculator1.p.rapidapi.com"
+                    "X-RapidAPI-Key": apikey,
+                    "X-RapidAPI-Host": apihost
                 }
             })
             res.status(200).json(data.info)
@@ -37,8 +39,8 @@ class Controller {
                 url: `https://mega-fitness-calculator1.p.rapidapi.com/bfp`,
                 params: { weight, height, age, gender: gender.toLowerCase() },
                 headers: {
-                    "X-RapidAPI-Key": "5ed81f92cemsh7e7ae9cefcb2fa5p102f81jsn75940b69943d",
-                    "X-RapidAPI-Host": "mega-fitness-calculator1.p.rapidapi.com"
+                    "X-RapidAPI-Key": apikey,
+                    "X-RapidAPI-Host": apihost
                 }
             })
             res.status(200).json(data.info)
@@ -61,8 +63,8 @@ class Controller {
                 url: `https://mega-fitness-calculator1.p.rapidapi.com/bmr`,
                 params: { weight, height, age, gender: gender.toLowerCase() },
                 headers: {
-                    "X-RapidAPI-Key": "5ed81f92cemsh7e7ae9cefcb2fa5p102f81jsn75940b69943d",
-                    "X-RapidAPI-Host": "mega-fitness-calculator1.p.rapidapi.com"
+                    "X-RapidAPI-Key": apikey,
+                    "X-RapidAPI-Host": apihost
                 }
             })
             data.info.carbs = (data.info.bmr * 0.6) / 4
