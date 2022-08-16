@@ -3,7 +3,6 @@ if (process.env.NODE_ENV != "production") {
 }
 
 const axios = require("axios");
-const recipe = require("./helper/tasty");
 const express = require("express");
 const cors = require("cors");
 const router = require("./router");
@@ -63,51 +62,6 @@ app.get("/payment", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error });
   }
-});
-
-// API TASTY
-
-app.get("/recipe", (req, res) => {
-  const { search, id } = req.query;
-  recipe(search, id)
-    .then(function (response) {
-      let ingredients = response.data.sections[0].components.map((y) => {
-        return {
-          id: y.id,
-          ingredient: y.raw_text,
-        };
-      });
-      let recipe = {
-        id: response.data.id,
-        name: response.data.name,
-        description: response.data.description,
-        nutrition: response.data.nutrition,
-        instructions: response.data.instructions,
-        image: response.data.thumbnail_url,
-        ingredients,
-      };
-      // let recipes = response.data.results.map((x) => {
-      //   let ingredients = x.sections[0].components.map((y) => {
-      //     return {
-      //       id: y.id,
-      //       ingredient: y.raw_text,
-      //     };
-      //   });
-      //   return {
-      //     id: x.id,
-      //     name: x.name,
-      //     description: x.description,
-      //     nutrition: x.nutrition,
-      //     instructions: x.instructions,
-      //     image: x.thumbnail_url,
-      //     ingredients,
-      //   };
-      // });
-      res.status(200).json(recipe);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
 });
 
 // API RAJAONGKIR, Kalo gamau bisa dikirim gausah pake
