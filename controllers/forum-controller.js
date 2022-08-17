@@ -20,7 +20,7 @@ class ForumController {
           attributes: ["id", "userName", "email", "imageUrl"],
         },
       });
-      res.status(201).json(thread);
+      res.status(200).json(thread);
     } catch (error) {
       console.log(error);
       next(error);
@@ -36,9 +36,11 @@ class ForumController {
           attributes: ["id", "userName", "email", "imageUrl"],
         },
       });
-      res.status(201).json(thread);
+      if (!thread) {
+        throw { name: "not found" };
+      }
+      res.status(200).json(thread);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -54,7 +56,6 @@ class ForumController {
       });
       res.status(201).json({ message: "Reply posted" });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -72,9 +73,8 @@ class ForumController {
           attributes: ["id", "userName", "email", "imageUrl"],
         },
       });
-      res.status(201).json(thread);
+      res.status(200).json(thread);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

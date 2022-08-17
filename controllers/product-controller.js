@@ -141,18 +141,14 @@ class ProductController {
           email,
         },
       };
-      console.log(parameter.transaction_details.order_id);
       let snap = new midtransClient.Snap({
-        // Set to true if you want Production Environment (accept real transaction).
         isProduction: false,
         serverKey: process.env.MIDTRANS_KEY,
       });
       const transaction = await snap.createTransaction(parameter);
-      // transaction token
       let transactionToken = transaction.token;
       res.status(200).json({ trans_token: transactionToken });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

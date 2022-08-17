@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 class ApiController {
-  static async getRecipe(req, res) {
+  static async getRecipe(req, res, next) {
     let { page, search } = req.query;
     // try {
     //   if (!page) {
@@ -40,11 +40,11 @@ class ApiController {
     //   });
     //   res.status(200).json(recipes);
     // } catch (error) {
-    //   console.log(error);
+    //   next(error);
     // }
   }
 
-  static async getRecipeById(req, res) {
+  static async getRecipeById(req, res, next) {
     const { recipeId } = req.params;
     // try {
     //   const response = await axios({
@@ -74,7 +74,7 @@ class ApiController {
     //   };
     //   res.status(200).json(recipe);
     // } catch (error) {
-    //   console.log(error);
+    //   next(error);
     // }
   }
 }
