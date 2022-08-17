@@ -32,9 +32,8 @@ class Controller {
     try {
       const { id } = req.params;
       const { status } = req.body;
+      const findBookmark = req.bookmark;
 
-      const findBookmark = await Bookmark.findByPk(id, { include: [Movie] });
-      if (!findBookmark) throw { name: "Not found" };
       if (findBookmark.status === status)
         throw { name: "Status is already like that" };
 
@@ -56,9 +55,7 @@ class Controller {
   static async deleteBookmark(req, res, next) {
     try {
       const { id } = req.params;
-
-      const findBookmark = await Bookmark.findByPk(id, { include: [Movie] });
-      if (!findBookmark) throw { name: "Not found" };
+      const findBookmark = req.bookmark;
 
       await Bookmark.destroy({ where: { id } });
 
@@ -75,9 +72,9 @@ class Controller {
       const readBookmark = await Bookmark.findAll({ include: [Movie] });
 
       const result = {};
-      readBookmark.forEach(el => {
-        result[el.status] = result[el.status] || []
-        result[el.status].push(el)
+      readBookmark.forEach((el) => {
+        result[el.status] = result[el.status] || [];
+        result[el.status].push(el);
       });
 
       res.status(200).json(result);

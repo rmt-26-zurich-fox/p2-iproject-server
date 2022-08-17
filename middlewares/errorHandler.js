@@ -31,6 +31,9 @@ const errorHandler = async (err, req, res, next) => {
   if (err.name === "JsonWebTokenError")
     return errTemplate(401, "Invalid token");
 
+  if (err.name === "Forbidden")
+    return errTemplate(403, err.name);
+
   if (err.name === "Not found")
     return errTemplate(404, err.name);
 
