@@ -100,9 +100,31 @@ const registerCredit = async (req, res, next) => {
   }
 }
 
+const myProfile = async (req, res, next) => {
+  try {
+
+    const { id } = req.user;
+
+    const response = await User.findByPk(+id);
+
+    res.status(200).json({
+      id: response.id,
+      email: response.email,
+      firstName: response.firstName,
+      lastName: response.lastName,
+      phoneNumber: response.phoneNumber,
+      birthDate: response.birthDate,
+    });
+
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   register,
   login,
   googleSignIn,
+  myProfile,
   registerCredit
 }
