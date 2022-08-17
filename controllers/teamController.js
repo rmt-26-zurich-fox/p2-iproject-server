@@ -18,36 +18,60 @@ class TeamController {
       if (!targetTeam) {
         throw { name: "teamNotFound" };
       }
-      const wikiResponse = await axios.get(
-        `https://wikiapi.p.rapidapi.com/api/v1/wiki/sports/nba/team/info/${targetTeam.full_name
-          .split(" ")
-          .join("_")
-          .toLowerCase()}?lan=en`,
-        {
-          headers: {
-            "X-RapidAPI-Key": rapidApiKey,
-            "X-RapidAPI-Host": "wikiapi.p.rapidapi.com",
-          },
-        }
-      );
-      delete targetTeam.dataValues.createdAt;
-      delete targetTeam.dataValues.updatedAt;
-      targetTeam.dataValues.location = wikiResponse.data.location;
-      targetTeam.dataValues.arena = wikiResponse.data.arena;
-      targetTeam.dataValues.team_colors = wikiResponse.data.team_colors;
-      targetTeam.dataValues.main_sponsor = wikiResponse.data.main_sponsor;
-      targetTeam.dataValues.conference = wikiResponse.data.conference;
-      targetTeam.dataValues.division = wikiResponse.data.division;
-      targetTeam.dataValues.head_coach = wikiResponse.data.head_coach;
-      targetTeam.dataValues.president = wikiResponse.data.president;
-      targetTeam.dataValues.general_manager = wikiResponse.data.general_manager;
-      targetTeam.dataValues.ownership = wikiResponse.data.ownership;
-      targetTeam.dataValues.championships = wikiResponse.data.championships;
-      targetTeam.dataValues.conference_titles =
-        wikiResponse.data.conference_titles;
-      targetTeam.dataValues.division_titles = wikiResponse.data.division_titles;
-      targetTeam.dataValues.retired_numbers = wikiResponse.data.retired_numbers;
-      targetTeam.dataValues.website = wikiResponse.data.website;
+      if (targetTeam.name === "Clippers") {
+        delete targetTeam.dataValues.createdAt;
+        delete targetTeam.dataValues.updatedAt;
+        targetTeam.dataValues.location = "Los Angeles, California";
+        targetTeam.dataValues.arena = "Cypto.com Arena";
+        targetTeam.dataValues.team_colors =
+          "	Red, royal blue, black, silver, white";
+        targetTeam.dataValues.main_sponsor = "Honey";
+        targetTeam.dataValues.conference = "Western";
+        targetTeam.dataValues.division = "Pacific";
+        targetTeam.dataValues.head_coach = "Tyronn Lue";
+        targetTeam.dataValues.president = "Lawrence Frank";
+        targetTeam.dataValues.general_manager = "Michael Winger";
+        targetTeam.dataValues.ownership = "Steve Ballmer";
+        targetTeam.dataValues.championships = "0";
+        targetTeam.dataValues.conference_titles = "0";
+        targetTeam.dataValues.division_titles = "2 (2013, 2014";
+        targetTeam.dataValues.retired_numbers = "-";
+        targetTeam.dataValues.website = "www.nba.com/clippers";
+      } else {
+        const wikiResponse = await axios.get(
+          `https://wikiapi.p.rapidapi.com/api/v1/wiki/sports/nba/team/info/${targetTeam.full_name
+            .split(" ")
+            .join("_")
+            .toLowerCase()}?lan=en`,
+          {
+            headers: {
+              "X-RapidAPI-Key": rapidApiKey,
+              "X-RapidAPI-Host": "wikiapi.p.rapidapi.com",
+            },
+          }
+        );
+        delete targetTeam.dataValues.createdAt;
+        delete targetTeam.dataValues.updatedAt;
+        targetTeam.dataValues.location = wikiResponse.data.location;
+        targetTeam.dataValues.arena = wikiResponse.data.arena;
+        targetTeam.dataValues.team_colors = wikiResponse.data.team_colors;
+        targetTeam.dataValues.main_sponsor = wikiResponse.data.main_sponsor;
+        targetTeam.dataValues.conference = wikiResponse.data.conference;
+        targetTeam.dataValues.division = wikiResponse.data.division;
+        targetTeam.dataValues.head_coach = wikiResponse.data.head_coach;
+        targetTeam.dataValues.president = wikiResponse.data.president;
+        targetTeam.dataValues.general_manager =
+          wikiResponse.data.general_manager;
+        targetTeam.dataValues.ownership = wikiResponse.data.ownership;
+        targetTeam.dataValues.championships = wikiResponse.data.championships;
+        targetTeam.dataValues.conference_titles =
+          wikiResponse.data.conference_titles;
+        targetTeam.dataValues.division_titles =
+          wikiResponse.data.division_titles;
+        targetTeam.dataValues.retired_numbers =
+          wikiResponse.data.retired_numbers;
+        targetTeam.dataValues.website = wikiResponse.data.website;
+      }
       res.status(200).json(targetTeam);
     } catch (error) {
       next(error);
