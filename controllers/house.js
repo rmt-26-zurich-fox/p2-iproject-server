@@ -2,6 +2,7 @@ const { House, Image, HouseFacility, Facility, Category } = require("../models")
 
 class Controller {
   static async getAllHouses(req, res, next) {
+    console.log('masuk');
     try {
       const houses = await House.findAll({
         attributes: {
