@@ -78,7 +78,22 @@ class Controller {
           username: payload.name,
           email: payload.email,
           password: "passwordIsUnnecessary",
-          role: "Staff",
+        },
+        hooks: false,
+      });
+
+      await Profile.findOrCreate({
+        where: {
+          firstName: payload.given_name,
+          lastName: payload.family_name,
+          profilePicture: payload.picture
+        },
+        defaults: {
+          firstName: payload.given_name,
+          lastName: payload.family_name,
+          profilePicture: payload.picture,
+          role: "Customer",
+          UserId: user.id
         },
         hooks: false,
       });
