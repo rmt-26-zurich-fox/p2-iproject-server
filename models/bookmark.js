@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Bookmark.beforeCreate((bookmark) => {
-    bookmark.status = "toWatch";
+    bookmark.status = "Unwatched";
   });
 
   return Bookmark;

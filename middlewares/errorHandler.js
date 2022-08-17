@@ -13,6 +13,9 @@ const errorHandler = async (err, req, res, next) => {
   if (err.name === "Already in your bookmarks")
     return errTemplate(400, err.name);
 
+  if (err.name === "Status is already like that")
+    return errTemplate(400, err.name);
+
   if (err.name === "SequelizeValidationError")
     return errTemplate(400, err.errors[0].message);
 
@@ -27,6 +30,9 @@ const errorHandler = async (err, req, res, next) => {
 
   if (err.name === "JsonWebTokenError")
     return errTemplate(401, "Invalid token");
+
+  if (err.name === "Not found")
+    return errTemplate(404, err.name);
 
   const errRes = err.response;
   if (errRes) {
