@@ -4,7 +4,7 @@ const { verifyToken } = require("../helpers/tokenHandling");
 async function authentication(req, res, next) {
   try {
     const { access_token } = req.headers;
-    console.log(access_token);
+
     if (!access_token) {
       throw { name: "NoToken" };
     }

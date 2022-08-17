@@ -63,6 +63,7 @@ class Controller {
   static async loginGoogle(req, res, next) {
     try {
       const { token_google } = req.headers;
+
       const client = new OAuth2Client(process.env.google_client_id);
       const ticket = await client.verifyIdToken({
         idToken: token_google,

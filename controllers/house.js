@@ -1,5 +1,6 @@
 const { User, House, Image, HouseFacility, Facility, Category } = require("../models");
 const { Op } = require("sequelize");
+const axios = require("axios");
 
 class Controller {
   static async getAllHouses(req, res, next) {
@@ -89,7 +90,6 @@ class Controller {
 
       res.status(200).json(categories);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -99,11 +99,11 @@ class Controller {
       const UserId = req.user.id;
       const { name, location, price, CategoryId, FacilityId } = req.body;
       const imageUrl = req.imageUrl;
-      const facilities = FacilityId.split(",");
-
-      if (!facilities.length) {
+      if (!FacilityId) {
         throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
       }
+
+      const facilities = FacilityId.split(",");
 
       const newHouse = await House.create({
         name,
@@ -127,7 +127,6 @@ class Controller {
 
       res.status(201).json({ message: "New house successfully created" });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
