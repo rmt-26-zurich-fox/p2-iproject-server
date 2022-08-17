@@ -1,0 +1,950 @@
+[
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cy1G.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cAwx.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cPpL.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1c67T.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cmG0.5.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cRpK.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1c8CF.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cg76.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cbGz.4.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cYcS.5.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cZ29.6.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cK6X.7.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cVK8.8.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cpeD.1.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1cJ74.2.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gTlf.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ce6P.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gMV1.3.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Ascent"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gRQr.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gg8m.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gc5f.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gbu1.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1g3fP.5.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1gWIW.6.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18LRf.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18hTm.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18Ij1.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18DFP.4.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18akp.5.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18iUr.6.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18Pjx.1.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18mtc.2.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18jsT.3.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18wzL.4.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18NFG.5.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18tWa.6.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18RmX.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18Koh.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O188O9.3.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18WW8.4.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18VhM.5.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Bind"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O184mP.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18BZ1.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18pyC.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18vHq.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18nOp.5.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O18eof.6.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RMhm.7.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RQbr.8.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RF1L.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RrHc.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RlAT.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RSXa.1.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RdhJ.2.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Rqby.3.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1R1Zx.4.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RiKX.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RU1K.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Rhw9.3.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1R5X8.4.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Breeze"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RNA4.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1R67D.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RmGY.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RPpC.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Ry2q.5.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RCKP.6.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RRvT.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Rg7W.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1R8C0.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RJDS.1.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1R4v6.2.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RnCz.3.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Rpey.4.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1RHcJ.5.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WMV9.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wo08.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WrMM.3.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WXgh.4.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WTrX.5.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WuDY.6.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Fracture"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wa51.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WdVp.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W7gf.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WsrP.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W5Nc.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W9fL.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WhJ0.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W0dT.4.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WUEW.5.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WyxS.1.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WAJz.2.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W68a.3.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WPMJ.4.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WtIy.5.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WEd6.6.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WxPF.7.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W3fK.8.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wbu9.9.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wc9X.10.png",
+        "site" : "C",
+        "type" : "Attacker",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WZxY.1.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WKnD.2.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WWLM.3.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WRQh.4.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wg88.5.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wfd4.6.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WJR1.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wv9P.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wpup.3.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1W4Qf.4.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Wzkq.5.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zokc.1.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZTtT.2.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZlFL.3.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1WenW.4.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZQq0.5.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zr9G.6.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZuRx.7.png",
+        "site" : "C",
+        "type" : "Defender",
+        "map" : "Haven"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZDFK.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zst6.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZazF.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zqqz.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZS4S.5.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZIj9.6.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZLWX.7.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZhT8.8.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZiUh.9.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZjsD.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Z54Y.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zmt4.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZEYm.1.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZxBr.2.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZCUf.3.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZAo1.4.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZtWP.5.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZYsW.6.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZcHT.7.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zby0.8.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZWWG.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZRmL.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Z8Oc.3.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZKox.4.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Icebox"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zn1F.1.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZvH6.2.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZHaS.3.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Zpyz.4.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZkBy.5.png",
+        "site" : "A",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZeXX.1.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KQbh.2.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KMh8.3.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Z4mK.4.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1ZBZ9.5.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KTGM.6.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KXaY.7.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KlAD.8.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KrH4.9.png",
+        "site" : "B",
+        "type" : "Attacker",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1Khwc.a.png",
+        "site" : "A",
+        "type" : "Defender",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1K5XG.1.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Pearl"
+    },
+    {
+        "imageUrl" : "https://i.im.ge/2022/08/16/O1KiKL.2.png",
+        "site" : "B",
+        "type" : "Defender",
+        "map" : "Pearl"
+    }
+]
