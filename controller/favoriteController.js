@@ -1,4 +1,5 @@
 const { User, Favorite } = require('../models')
+const { Op } = require('sequelize')
 const axios = require('axios')
 
 class Controller {
@@ -33,9 +34,23 @@ class Controller {
         try {
             const { userId } = req.user
             const favourite = await Favorite.findAll({
-                where: { userId }
+                where: {
+                    userId
+                }
             })
             res.status(200).json(favourite)
+        } catch (error) {
+            console.log(error, "<<<<<")
+            next(error)
+        }
+    }
+
+    static async deleteFavourite(req, res, next) {
+        try {
+            const { id } = req.body
+            console.log(id)
+            const favourite = await Favorite.destroy({where: {id}})
+            res.status(200).json({message: 'Success delete data'})
         } catch (error) {
             next(error)
         }

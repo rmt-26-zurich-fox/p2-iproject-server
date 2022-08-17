@@ -37,4 +37,6 @@ router.post('/favourite/:id', favoriteController.createFavourite)
 
 router.get('/favourite', favoriteController.getFavourite)
 
+router.delete('/favourite', favoriteController.deleteFavourite)
+
 module.exports = router
