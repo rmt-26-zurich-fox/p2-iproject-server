@@ -1,4 +1,11 @@
-const { Thread, Comment, Category } = require("../models");
+const {
+  Thread,
+  Comment,
+  Category,
+  Profile,
+  ProfileComment,
+  User,
+} = require("../models");
 const router = require("../routes");
 
 class ThreadController {
@@ -59,10 +66,16 @@ class ThreadController {
   static async getThreadList(req, res, next) {
     try {
       let option = {
-        include: {
-          model: Category,
-          attributes: ["name"],
-        },
+        include: [
+          {
+            model: Category,
+            attributes: ["name"],
+          },
+          {
+            model: Profile,
+            attributes: ["firstName", "lastName"],
+          },
+        ],
       };
       const { underAge } = req.user;
       if (underAge === true) {
@@ -93,13 +106,24 @@ class ThreadController {
             model: Category,
             attributes: ["name"],
           },
+          {
+            model: Profile,
+            attributes: ["firstName", "lastName"],
+          },
         ],
       });
       let option2 = {
         where: {
           ThreadId: targetThread.id,
         },
+        include: [
+          {
+            model: Profile,
+            attributes: ["firstName", "lastName"],
+          },
+        ],
       };
+
       if (underAge === true) {
         option2.where.explicit = false;
       }

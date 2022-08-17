@@ -14,19 +14,20 @@ module.exports = (sequelize, DataTypes) => {
         through: models.ProfileTeam,
         foreignKey: "ProfileId",
       });
-      Profile.belongsToMany(models.Comment, {
-        through: models.ProfileComment,
-        foreignKey: "ProfileId",
-      });
+      // Profile.belongsToMany(models.Comment, {
+      //   through: models.ProfileComment,
+      //   foreignKey: "ProfileId",
+      // });
       Profile.belongsToMany(models.Thread, {
         through: models.ProfileLikeThread,
         foreignKey: "ProfileId",
       });
-      Profile.belongsToMany(models.Comment, {
-        through: models.ProfileLikeComment,
-        foreignKey: "ProfileId",
-      });
+      // Profile.belongsToMany(models.Comment, {
+      //   through: models.ProfileLikeComment,
+      //   foreignKey: "ProfileId",
+      // });
       Profile.hasMany(models.Thread, { foreignKey: "ProfileId" });
+      Profile.hasMany(models.Comment, { foreignKey: "ProfileId" });
     }
   }
   Profile.init(

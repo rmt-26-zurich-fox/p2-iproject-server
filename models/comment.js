@@ -9,15 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Comment.belongsToMany(models.Profile, {
-        through: models.ProfileComment,
-        foreignKey: "CommentId",
-      });
-      Comment.belongsToMany(models.Profile, {
-        through: models.ProfileLikeComment,
-        foreignKey: "CommentId",
-      });
+      // Comment.belongsToMany(models.Profile, {
+      //   through: models.ProfileComment,
+      //   foreignKey: "CommentId",
+      // });
+      // Comment.belongsToMany(models.Profile, {
+      //   through: models.ProfileLikeComment,
+      //   foreignKey: "CommentId",
+      // });
       Comment.belongsTo(models.Thread, { foreignKey: "ThreadId" });
+      Comment.belongsTo(models.Profile, { foreignKey: "ProfileId" });
     }
   }
   Comment.init(
