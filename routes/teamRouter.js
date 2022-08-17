@@ -12,6 +12,7 @@ router.get("/:teamId/players", PlayerController.getPlayersByTeamId);
 router.get("/:teamId", authentication, TeamController.getSpecificTeam);
 router.post("/:teamId/like", getProfile, ProfileController.likeATeam);
 router.get("/users/:profileId", getProfile, TeamController.getLikedTeams);
+router.get("/:teamId/news", getProfile, TeamController.getNews);
 router.delete(
   "/:teamId/like/:likeId",
   getProfile,
