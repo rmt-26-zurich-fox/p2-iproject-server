@@ -430,3 +430,19 @@ _Response (500 - Internal Server Error)_
   "message": "Internal server error"
 }
 ```
+
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden"
+}
+```
+
+_Response (401 - Unathorized)_
+
+```json
+{
+  "message": "Invalid Token"
+}
+```
