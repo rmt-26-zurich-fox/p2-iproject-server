@@ -62,11 +62,25 @@ class Controller {
 
       await Bookmark.destroy({ where: { id } });
 
-      res
-        .status(200)
-        .json({
-          message: `${findBookmark.Movie.title} has been remove from your bookmark`,
-        });
+      res.status(200).json({
+        message: `${findBookmark.Movie.title} has been remove from your bookmark`,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async readBookmark(req, res, next) {
+    try {
+      const readBookmark = await Bookmark.findAll({ include: [Movie] });
+
+      const result = {};
+      readBookmark.forEach(el => {
+        result[el.status] = result[el.status] || []
+        result[el.status].push(el)
+      });
+
+      res.status(200).json(result);
     } catch (error) {
       next(error);
     }
