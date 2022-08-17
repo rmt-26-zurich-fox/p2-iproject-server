@@ -14,7 +14,7 @@ router.get("/categories", HouseController.getAllCategories);
 router.get("/facilities", HouseController.getAllFacilities);
 router.get("/details/:houseId", HouseController.getHouseDetail);
 router.use(authentication)
-router.post("/", upload.single('imageUrl', 1), imageUpload, HouseController.addHouse);
+router.post("/", upload.single('imageUrl'), imageUpload, HouseController.addHouse);
 
 
 module.exports = router;
