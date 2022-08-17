@@ -1,0 +1,66 @@
+[
+    {
+        "username": "tcarwithen0",
+        "email": "jkipling0@thetimes.co.uk",
+        "password": "Lg4irPSyYX",
+        "role": "admin",
+        "phoneNumber": "609-790-7128",
+        "address": "5258 American Ash Plaza"
+    },
+    {
+        "username": "cbudgen1",
+        "email": "tleads1@technorati.com",
+        "password": "i2BEDOL",
+        "role": "admin",
+        "phoneNumber": "766-769-5681",
+        "address": "87273 John Wall Pass"
+    },
+    {
+        "username": "elinton2",
+        "email": "wdudbridge2@1688.com",
+        "password": "VkDu69",
+        "role": "customer",
+        "phoneNumber": "544-168-4631",
+        "address": "9 Spenser Road"
+    },
+    {
+        "username": "cdargue3",
+        "email": "cfransson3@bravesites.com",
+        "password": "c7DfToX0Iav",
+        "role": "customer",
+        "phoneNumber": "445-919-8684",
+        "address": "0 Orin Hill"
+    },
+    {
+        "username": "rhuc4",
+        "email": "gtemperton4@canalblog.com",
+        "password": "qoNkoRUbS8c",
+        "role": "customer",
+        "phoneNumber": "984-407-7274",
+        "address": "55536 Karstens Avenue"
+    },
+    {
+        "username": "cdoust5",
+        "email": "rdrewery5@upenn.edu",
+        "password": "10Np4kNpNJr8",
+        "role": "customer",
+        "phoneNumber": "596-691-3267",
+        "address": "424 Duke Way"
+    },
+    {
+        "username": "admintest",
+        "email": "admintest@email.com",
+        "password": "test123",
+        "role": "admin",
+        "phoneNumber": "596-123-3267",
+        "address": "424 admin Way"
+    },
+    {
+        "username": "customertest",
+        "email": "customertest@mail.com",
+        "password": "test1234",
+        "role": "customer",
+        "phoneNumber": "596-1234-3267",
+        "address": "424 customer Way"
+    }
+] 
