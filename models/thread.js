@@ -20,12 +20,56 @@ module.exports = (sequelize, DataTypes) => {
   }
   Thread.init(
     {
-      title: DataTypes.STRING,
-      description: DataTypes.TEXT,
-      explicit: DataTypes.BOOLEAN,
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: `Thread's title cannot be empty`,
+          },
+          notNull: {
+            msg: `Thread's title cannot be empty`,
+          },
+        },
+      },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: `Thread's description cannot be empty`,
+          },
+          notNull: {
+            msg: `Thread's description cannot be empty`,
+          },
+        },
+      },
+      explicit: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: `Thread's explicit information cannot be empty`,
+          },
+          notNull: {
+            msg: `Thread's explicit information cannot be empty`,
+          },
+        },
+      },
       ProfileId: DataTypes.INTEGER,
       closed: DataTypes.BOOLEAN,
-      CategoryId: DataTypes.INTEGER,
+      CategoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: `Thread's category cannot be empty`,
+          },
+          notNull: {
+            msg: `Thread's category cannot be empty`,
+          },
+        },
+      },
     },
     {
       sequelize,
