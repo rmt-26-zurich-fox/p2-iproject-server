@@ -1,6 +1,7 @@
 const { User } = require("../models");
 const { compareHash, createToken } = require("../helpers/helpers");
 const axios = require("axios");
+const { OAuth2Client } = require("google-auth-library");
 
 class UserController {
   static async createUser(req, res, next) {
@@ -17,8 +18,7 @@ class UserController {
           1
         )}`
       );
-      console.log(verifyPhone.data);
-      console.log(verifyPhone.data.location, verifyPhone.data.valid);
+
       if (
         verifyPhone.data.location !== "Indonesia" ||
         !verifyPhone.data.valid
@@ -26,7 +26,7 @@ class UserController {
         throw { name: `not a valid phonenumber` };
       }
       let urlRole = "Customer";
-      if (password === "Admin") {
+      if (password === "MenjadiAdmin") {
         urlRole = "Admin";
       }
       let newUser = await User.create({
@@ -71,6 +71,48 @@ class UserController {
         role: findUser.role,
         email: findUser.email,
       });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async loginGoogle(req, res, next) {
+    try {
+      let urlRole = "Customer";
+
+      const { token_google } = req.headers;
+      const client = new OAuth2Client(
+        "428051293432-sosih62k33db4bg4co1gfv7qeejdh6re.apps.googleusercontent.com"
+      );
+      const ticket = await client.verifyIdToken({
+        idToken: token_google,
+        audience:
+          "428051293432-sosih62k33db4bg4co1gfv7qeejdh6re.apps.googleusercontent.com",
+      });
+      const payload = ticket.getPayload();
+      // If request specified a G Suite domain:
+      const [user, created] = await User.findOrCreate({
+        where: {
+          email: payload.email,
+        },
+        defaults: {
+          email: payload.email,
+          password: "google_account",
+          role: urlRole,
+          phoneNumber: "088000000",
+          name: payload.name,
+        },
+        hooks: false,
+      });
+      const access_token = createToken({
+        id: user.id,
+        role: user.role,
+        email: user.email,
+      });
+
+      res
+        .status(200)
+        .json({ access_token, role: user.role, email: user.email });
     } catch (error) {
       next(error);
     }
