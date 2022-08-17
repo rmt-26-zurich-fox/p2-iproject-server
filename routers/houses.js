@@ -11,6 +11,7 @@ const authentication = require('../middlewares/authentication');
 
 router.get("/", HouseController.getAllHouses);
 router.get("/categories", HouseController.getAllCategories);
+router.get("/facilities", HouseController.getAllFacilities);
 router.get("/details/:houseId", HouseController.getHouseDetail);
 router.use(authentication)
 router.post("/", upload.single('imageUrl', 1), imageUpload, HouseController.addHouse);

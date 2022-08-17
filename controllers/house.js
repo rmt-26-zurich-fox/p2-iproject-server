@@ -20,7 +20,7 @@ class Controller {
           {
             model: Category,
             attributes: ["id", "name"],
-            where: option
+            where: option,
           },
         ],
       });
@@ -99,7 +99,6 @@ class Controller {
       const UserId = req.user.id;
       const { name, location, price, CategoryId, FacilityId } = req.body;
       const imageUrl = req.imageUrl;
-      console.log(imageUrl);
 
       if (!FacilityId.length) {
         throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
@@ -128,6 +127,20 @@ class Controller {
       res.status(201).json({ message: "New house successfully created" });
     } catch (error) {
       console.log(error);
+      next(error);
+    }
+  }
+
+  static async getAllFacilities(req, res, next) {
+    try {
+      const facilities = await Facility.findAll({
+        attributes: {
+          exclude: ["updatedAt", "createdAt"],
+        },
+      });
+
+      res.status(200).json(facilities);
+    } catch (error) {
       next(error);
     }
   }
