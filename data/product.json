@@ -1,0 +1,83 @@
+[
+    
+    {"name": "Es Kopi Gula Aren",
+    "description": "Perpaduan espresso, susu, dan gula aren untuk melengkapi harimu.",
+    "price":19000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZKUTTNFCBJERT/detail/menueditor_item_8b40b72d70604f82a5ced870fa1c160f_1632546311834810509.webp"
+    },
+    {"name": "Es Kopi Maniak",
+    "description": "Perpaduan espresso dan susu kocok menghasilkan sensasi rasa creamy.",
+    "price":19000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZKUTTNEVEEKLA/detail/menueditor_item_e2194b62f990481b8441af5e5fe75df9_1632546547459261737.webp"
+    },
+    {"name": "Es Kopi Matcha",
+    "description": "Perpaduan espresso, susu, dan matcha untuk melengkapi harimu.",
+    "price":19000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZKUTTNFJRBKLJ/detail/menueditor_item_dac5276445444410ae784e8d41a4e058_1632546681605375269.webp"
+    },
+    {"name": "Es Kopi Coklat",
+    "description": "Perpaduan espresso, susu, dan coklat untuk menemani harimu.",
+    "price":17000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZKUTTNEWELWSA/detail/menueditor_item_4535d3377fa2401da454d7984d949444_1632546716742673708.webp"
+    },
+    {"name": "Hot Americano",
+    "description": "Perpaduan espresso dengan air panas.",
+    "price":12500,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZKUTTNFUCBANT/detail/menueditor_item_5ca76f5306da4a84a76cc3a9f544061c_1632547685295758494.webp"
+    },
+    {"name": "Hot Kopi Coklat",
+    "description": "Perpaduan espresso dari Kiri Blend, coklat, dan susu panas yang creamy",
+    "price": 17000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/IDITE2020091103232177702/detail/menueditor_item_2604b2ff9898427284cec64d3060d1dd_1632547595559835807.webp"
+    },
+    {"name": "Si Ucok Taro",
+    "description": "Susu kocok segar dengan rasa taro yang menghasilkan rasa manis dan creamy",
+    "price":19000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZNVVN53DAAZLN/detail/menueditor_item_d46263fbab4540ce8ded147f1ae3e0c1_1632553997744243603.webp"
+    },
+    {"name": "Si Ucok Vanilla",
+    "description": "Perpaduan es krim vanilla dan susu yang menghasilkan rasa manis dan creamy",
+    "price":19000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZNVVN52VBTERA/detail/menueditor_item_e8c203b3d1b94adabf335178ef143c00_1632547800282763974.webp"
+    },
+    {"name": "Independence Donut",
+    "description": "Donat dengan tekstur yang lembut dipadukan dengan glaze vanilla dan redvelvet yang melimpah (Seasonal menu)",
+    "price":8000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/IDITE2022081600035152295/detail/menueditor_item_e79391c562394aa19b26a0a2c44037f9_1660608188837108477.webp"
+    },
+    {"name": "Vanilla Cheese Donut",
+    "description": "Donat dengan tekstur yang lembut dipadukan dengan glaze vanilla dan keju yang melimpah.",
+    "price": 8000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/IDITE2021071902104477670/detail/menueditor_item_ceccb5a7ea48420c992668d10df8bfa0_1628237243606555415.webp"
+    },
+    {"name": "Cookies and Cream Donut",
+    "description": "Donat dengan tekstur yang lembut dipadukan cream yang manis dan cookies oreo yang nikmat",
+    "price": 8000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/IDITE2021071902100172396/detail/menueditor_item_590ba45c38644385b8a9bb2e45caedbe_1627523732603038111.webp"
+    },
+    {"name": "Chocochip Chocolate Donut",
+    "description": "Donat dengan tekstur yang lembut dipadukan dengan glaze coklat dan butiran chocochip yang nikmat.",
+    "price": 8000,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/6-CZKUTTNENCDKJE-CZNVVN6BNYCGN2/detail/menueditor_item_5fabdd71bab04d139630f028985ffec5_1632557093407921395.webp"
+    },
+    {"name": "Cinnamon Sugar Donut",
+    "description": "Donat dengan tekstur yang lembut yang dilumuri dengan bubuk cinnamon dan gula.",
+    "price":7500,
+    "stock": 50,
+    "imageUrl": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/IDITE2021071902091629141/detail/menueditor_item_7517a0582c9047dba3b50195b104cd4d_1632556565694459210.webp"
+    }
+
+
+]
