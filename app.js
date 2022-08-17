@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV != "production" ) {
+if (process.env.NODE_ENV != "production") {
     require('dotenv').config(); // Development
 }
 
@@ -11,13 +11,37 @@ const app = express();
 const router = require("./routes");
 const errorHandler = require("./middlewares/errorHandler");
 
+// Import multer / Config Multer
+const multer = require("multer");
+const storage = multer.diskStorage({
+    destination(req, file, cb) {
+        cb(null, "images");
+    },
+    filename(req, file, cb) {
+        cb(null, new Date().getTime() + "-" + file.originalname);
+    }
+});
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image/jpeg") {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+}
+
 // Change port before deploy
 const port = process.env.PORT || 3000;
 
 // Middleware req.body
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+    extended: true
+}));
 app.use(express.json());
+
+// Get Image after upload (Multer)
+app.use(multer({storage: storage, fileFilter: fileFilter}).single("imageUrl"));
+app.use("/images", express.static("images"));
 
 // Routes
 app.use(router);

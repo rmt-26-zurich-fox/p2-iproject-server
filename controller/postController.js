@@ -65,13 +65,16 @@ class PostController {
     // Post Review
     static async postReview(req, res, next) {
         try {
+            if (!req.file) throw {
+                name: "notFound"
+            }
             const UserId = req.user.id;
             const {
                 name,
-                imageUrl,
                 article,
                 category
             } = req.body;
+            const imageUrl = req.file.path;
             const postArticle = await Post.create({
                 UserId,
                 CategoryId: category,
