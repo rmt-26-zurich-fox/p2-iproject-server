@@ -23,6 +23,8 @@ List of available endpoints:
 - `GET /customers/orders/cart`
 - `DELETE /customers/orders/delete/:id`
 - `GET /customers/orders/list`
+- `POST /midtrans/snap-token`
+- `PATCH /midtrans/change-cart-to-payed`
 
 &nbsp;
 
@@ -998,6 +1000,82 @@ _Response (403 - Forbidden)_
 {
   "message": "Forbidden",
   "error": "string"
+}
+```
+
+&nbsp;
+
+## 20. POST /midtrans/snap-token
+
+Description:
+
+- Make midtrans token using cost
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+- body:
+
+```json
+{
+  "totalCostNeedToPay": "integer"
+}
+```
+
+_Response (201 - Created)_
+
+```json
+{
+  "message": "Success Create Token Transaction Midtrans",
+  "transaction": {
+    "token": "string",
+    "redirect_url": "string"
+  }
+}
+```
+
+&nbsp;
+
+## 21. PATCH /midtrans/change-cart-to-payed
+
+Description:
+
+- Change status order from cart to payed
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+  "message": "Paying successful!"
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "Bad Request",
+  "error" : [
+    "string",
+    ...
+  ]
 }
 ```
 
