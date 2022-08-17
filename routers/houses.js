@@ -7,9 +7,13 @@ const storage = multer.memoryStorage();
 const upload = multer ({ storage });
 const imageUpload = require('../middlewares/imageUploadHandler')
 
+const authentication = require('../middlewares/authentication');
+
 router.get("/", HouseController.getAllHouses);
-router.post("/", upload.single('imageUrl', 1), imageUpload, HouseController.addHouse);
 router.get("/categories", HouseController.getAllCategories);
-router.get("/:houseId", HouseController.getHouseDetail);
+router.get("/details/:houseId", HouseController.getHouseDetail);
+router.use(authentication)
+router.post("/", upload.single('imageUrl', 1), imageUpload, HouseController.addHouse);
+
 
 module.exports = router;

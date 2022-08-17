@@ -1,9 +1,12 @@
 const { User, House, Image, HouseFacility, Facility, Category } = require("../models");
+const { Op } = require("sequelize");
 
 class Controller {
   static async getAllHouses(req, res, next) {
-    console.log("masuk");
     try {
+      const { category } = req.query;
+      let option = category ? { name: { [Op.iLike]: `%${category}%` } } : null;
+
       const houses = await House.findAll({
         attributes: {
           exclude: ["createdAt", "updatedAt"],
@@ -17,6 +20,7 @@ class Controller {
           {
             model: Category,
             attributes: ["id", "name"],
+            where: option
           },
         ],
       });
@@ -97,9 +101,9 @@ class Controller {
       const imageUrl = req.imageUrl;
       console.log(imageUrl);
 
-      // if (!FacilityId.length) {
-      //   throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
-      // }
+      if (!FacilityId.length) {
+        throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
+      }
 
       const newHouse = await House.create({
         name,
@@ -109,12 +113,12 @@ class Controller {
         UserId,
       });
 
-      // FacilityId.forEach((el) => {
-      //   HouseFacility.create({
-      //     HouseId: newHouse.id,
-      //     FacilityId: el,
-      //   });
-      // });
+      FacilityId.forEach((el) => {
+        HouseFacility.create({
+          HouseId: newHouse.id,
+          FacilityId: el,
+        });
+      });
 
       await Image.create({
         HouseId: newHouse.id,
