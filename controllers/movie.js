@@ -84,7 +84,7 @@ class Controller {
         }
       );
       data.results = data.results.filter(el => el.type === "Trailer")
-      res.status(200).json(data);
+      res.status(200).json(data.results[0]);
     } catch (error) {
       next(error);
     }
