@@ -4,6 +4,7 @@ const routerLogin = require('./login');
 const routerProfile = require('./profile');
 const routerAdmin = require('./admin');
 const routerCustomer = require('./customer');
+const routerMidtrans = require('./midtrans');
 const errorHandler = require('../middlewares/errorHandler');
 const { isLoggedIn } = require('../middlewares/authentication');
 const { authorizeByAdmin, authorizeByAdminOrCustomer } = require('../middlewares/authorization');
@@ -16,6 +17,9 @@ router.use("/login", routerLogin);
 
 //Middleware Authentication Login
 router.use(isLoggedIn);
+
+// Midtrans Pay
+router.use("/midtrans", routerMidtrans);
 
 //Only Admin and User can edit Profile
 router.use("/profiles", authorizeByAdminOrCustomer, routerProfile); //PUT Profile standart
