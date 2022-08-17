@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { getPagination, getPagingData } = require('../helpers/pagination')
 const { User, Post, Category} = require('../models')
 
 module.exports = class QuoteController {
@@ -45,9 +46,13 @@ module.exports = class QuoteController {
 
     static async allQuotes(req, res, next){
 
+        const { page, size } = req.query
+
         try {
 
-            const quote = await Post.findAll({
+            const { limit, offset } = getPagination(page, size)
+
+            const data = await Post.findAndCountAll({
                 include: [
                     {
                         model: User,
@@ -57,8 +62,11 @@ module.exports = class QuoteController {
                         model: Category,
                         attributes: ['id', 'name']
                     }
-                ]
+                ],
+                limit, offset
             })
+
+            const quote = getPagingData(data, page, limit)
 
             res.status(200).json(quote)
             
@@ -111,15 +119,15 @@ module.exports = class QuoteController {
 
     static async tesDiscord(req, res, next){
 
-        const token = 'TOKEN'
+        // const token = uaTAxcxHwNnX1wH1wQwjHhA0kHC9HSxoT9WoaOow process.env.X_API_KEY
 
         try {
 
             const { data } = await axios({
                 method: 'get',
-                url: 'https://discord.com/api/v9/users',
+                url: 'https://quizapi.io/api/v1/questions?limit=1',
                 headers: {
-                    Authorization: `Bot ${token}`
+                    "X-Api-Key": process.env.X_API_KEY
                 }
             })
 
@@ -129,6 +137,7 @@ module.exports = class QuoteController {
         } catch (error) {
 
             console.log(error)
+            next(error)
             
         }
 
