@@ -1,13 +1,28 @@
+const { getPagination, getPagingData } = require("../helpers/pagination");
 const { Course } = require("../models");
 
 class CoursesController {
   static async fetchCourses(req, res, next) {
     try {
-      const course = await Course.findAll();
+      const { page = 0, search } = req.query;
+      const { limit, offset } = getPagination(page);
 
+      const options = {
+        limit,
+        offset,
+      };
+
+      if (search) {
+        options.where = {
+          ...options.where,
+          title: { [Op.iLike]: `%${search}%` },
+        };
+      }
+
+      const data = await Course.findAndCountAll(options);
+      const response = getPagingData(data, page, limit);
       res.status(200).json({
-        message: `Successfully fetched course data`,
-        course,
+        response,
       });
     } catch (error) {
       next(error);
