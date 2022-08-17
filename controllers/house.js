@@ -99,8 +99,9 @@ class Controller {
       const UserId = req.user.id;
       const { name, location, price, CategoryId, FacilityId } = req.body;
       const imageUrl = req.imageUrl;
+      const facilities = FacilityId.split(",");
 
-      if (!FacilityId.length) {
+      if (!facilities.length) {
         throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
       }
 
@@ -112,7 +113,7 @@ class Controller {
         UserId,
       });
 
-      FacilityId.forEach((el) => {
+      facilities.forEach((el) => {
         HouseFacility.create({
           HouseId: newHouse.id,
           FacilityId: el,
