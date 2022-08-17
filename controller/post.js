@@ -81,7 +81,7 @@ class PostController {
     static async deletePost(req, res, next) {
         try {
             const { id } = req.params;
-            const deletePost = await Post.destory({
+            const deletePost = await Post.destroy({
                 where: {
                     id: id
                 }
@@ -102,10 +102,10 @@ class PostController {
             if (!findPost) {
                 throw { name: "PostNotFound" };
             }
-            const createComment = await Comment.craete({
+            const createComment = await Comment.create({
                 comment,
                 PostId: id,
-                Userid: req.user.id
+                UserId: req.user.id
             });
             res.status(201).json({
                 message: "succes add comment"
@@ -125,7 +125,7 @@ class PostController {
             const findLike = await Like.findOne({
                 where: {
                     PostId: id,
-                    Userid: req.user.id
+                    UserId: req.user.id
                 }
             });
             if (findLike) {
@@ -153,16 +153,16 @@ class PostController {
             const findLike = await Like.findOne({
                 where: {
                     PostId: id,
-                    Userid: req.user.id
+                    UserId: req.user.id
                 }
             });
             if (!findLike) {
                 throw { name: "youDontLikeThisPostYet" };
             }
-            const unlikePost = await Like.destory({
+            const unlikePost = await Like.destroy({
                 where: {
-                    Postid: id,
-                    Userid: req.user.id
+                    PostId: id,
+                    UserId: req.user.id
                 }
             });
             res.status(200).json({
@@ -176,6 +176,7 @@ class PostController {
     static async deleteComment(req, res, next) {
         try {
             const { id, commentId } = req.params;
+            console.log(id, commentId);
             const findPost = await Post.findByPk(id);
             if (!findPost) {
                 throw { name: "postNotFound" };
@@ -184,13 +185,13 @@ class PostController {
             if (!findComment) {
                 throw { name: "CommentNotFound" };
             }
-            const deleteComment = await Comment.destory({
+            const deleteComment = await Comment.destroy({
                 where: {
                     id: commentId
                 }
             });
             res.status(200).json({
-                message: "success delte comment"
+                message: "success delete comment"
             });
         } catch (error) {
             console.log(error);

@@ -10,13 +10,13 @@ async function authorizationLike(req, res, next) {
         const findLike = await Like.findOne({
             where: {
                 PostId: id,
-                Userid: req.user.id
+                UserId: req.user.id
             }
         });
         if (!findLike) {
             throw { name: "youDontLikeThisPostYet" };
         }
-        if (findLike.Userid !== req.user.id) {
+        if (findLike.UserId !== req.user.id) {
             throw { name: "Forbidden" };
         }
         next();

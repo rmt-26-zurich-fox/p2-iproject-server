@@ -46,6 +46,7 @@ class Login {
             res.status(200).json({
                 access_token: accessToken,
                 email: findUser.email,
+                id: findUser.id
             });
         } catch (error) {
             next(error);
