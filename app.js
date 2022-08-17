@@ -18,10 +18,6 @@ app.use(express.json());
 app.use(router);
 app.use(errorHandler);
 
-// API MIDTRANS
-
-app.get("/payment", async (req, res) => {});
-
 // API RAJAONGKIR, Kalo gamau bisa dikirim gausah pake
 
 app.get("/province", async (req, res) => {

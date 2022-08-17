@@ -1,7 +1,6 @@
 const { Cake, Cart } = require("../models");
 const midtransClient = require("midtrans-client");
 const filter = require("../helper/filter");
-const axios = require("axios");
 
 class ProductController {
   static async getProduct(req, res, next) {
