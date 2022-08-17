@@ -1,6 +1,7 @@
 const { User, UserCredit, Leaderboard, Subscription } = require("../models");
 const { comparePassword, hashPassword } = require("../helpers/bcrypt");
 const { signToken } = require("../helpers/jwt");
+const { OAuth2Client } = require("google-auth-library");
 
 const register = async (req, res, next) => {
   try {
@@ -71,9 +72,33 @@ const googleSignIn = async (req, res, next) => {
   try {
     const { google_token } = req.headers;
 
+    const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+
+    const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+
+		const ticket = await client.verifyIdToken({
+				idToken: google_token,
+				audience: GOOGLE_CLIENT_ID,
+		});
+
+		const payload = ticket.getPayload();
+
+    const [user, create] = await User.findOrCreate({
+			where: {
+				email: payload.email,
+			},
+			defaults: {
+        email: payload.email,
+				firstName: payload.name,
+				password: "google_sign_in",
+			},
+			hooks: false
+		});
+
     res.status(200).json({
-      message: "OK"
-    })
+      access_token
+    });
+
   } catch (err) {
     next(err);
   }
@@ -83,7 +108,7 @@ const registerCredit = async (req, res, next) => {
   try {
     const { id } = req.user;
     const { creditNumber, expiryDate, cvv } = req.body;
-    console.log(req.body);
+
     const response = await UserCredit.create({
       id,
       creditNumber,

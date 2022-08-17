@@ -4,6 +4,7 @@ const { authentication } = require("../middlewares/authentication");
 
 router.post("/register", UserController.register);
 router.post("/login", UserController.login);
+router.post("/google-sign-in", UserController.googleSignIn);
 router.use(authentication);
 router.get("/profile", UserController.myProfile);
 router.post("/profile", UserController.updateMyProfile);
