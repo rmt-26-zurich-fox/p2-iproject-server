@@ -45,9 +45,11 @@ class Controller{
                 serverKey : 'SB-Mid-server-V_dK50teqwrq_s7FnS_DHHo6'
             });
 
+            let getRandom= Math.random()
+            console.log(getRandom);
             let parameter = {
                 "transaction_details": {
-                    "order_id": `${name}-${CategoryId}-BUY`,
+                    "order_id": `${getRandom}-BUY`,
                     "gross_amount": 10000
                 },
                 "credit_card":{
