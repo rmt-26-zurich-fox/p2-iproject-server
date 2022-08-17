@@ -28,18 +28,38 @@ class CartController {
           { where: { UserId: UserId, ProductId: ProductId } }
         );
         res.status(201).json({ message: "success update cart", updatedCart });
-
       } else {
         updatedCart = await Cart.create({ UserId, ProductId });
-        res.status(201).json({ message: "success create new cart", updatedCart });
+        res
+          .status(201)
+          .json({ message: "success create new cart", updatedCart });
       }
-
-      
     } catch (error) {
       console.log(error);
       next(error);
     }
     // res.send('dari cart controller');
+  }
+
+  static async getCart(req, res, next) {
+    try {
+      let UserId = req.user.id;
+      let cart = await Cart.findAll({
+        where: { UserId },
+        attributes: {
+          exclude: ["createdAt", "updatedAt"],
+        },
+        include: {
+          model: Product,
+          attributes: {
+            exclude: ["createdAt", "updatedAt"],
+          },
+        },
+      });
+      res.status(200).json({ message: "success read carts", cart });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
