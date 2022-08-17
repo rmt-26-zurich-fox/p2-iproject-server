@@ -32,7 +32,7 @@ class Controller{
             const{email,password}=req.body
             // console.log(req.body)
             if(!email || !password ){
-              throw ({name:'Username or Password invalid'})
+              throw ({name:'Email or Password invalid'})
     
             }
             

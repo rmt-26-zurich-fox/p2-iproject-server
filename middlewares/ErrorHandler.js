@@ -1,5 +1,5 @@
 function ErrorHandler(error,req,res,next){
-    console.log(error)
+    // console.log(error)
       if (error.name === "SequelizeValidationError" || error.name == "SequelizeUniqueConstraintError") {
           res.status(400).json({
             message: error.errors[0].message
