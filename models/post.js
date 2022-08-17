@@ -17,20 +17,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Post.init({
-    content: {
+    content: DataTypes.TEXT,
+    caption: DataTypes.TEXT,
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "User Id required"
+        },
+        notNull: {
+          msg: "User Id required"
+        }
+      }
+    },
+    imgUrl: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         notEmpty: {
-          msg: "content required"
+          msg: "image url required"
         },
         notNull: {
-          msg: "content required"
+          msg: "image url required"
         }
       }
-    },
-    UserId: DataTypes.INTEGER,
-    imgUrl: DataTypes.STRING
+    }
   }, {
     sequelize,
     modelName: 'Post',

@@ -35,6 +35,7 @@ class PostController {
                 post: post
             });
         } catch (error) {
+            console.log(error);
             next(error);
         }
     }
