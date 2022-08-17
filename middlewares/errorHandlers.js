@@ -22,9 +22,9 @@ function errorHandlers(error, req, res, next) {
     res.status(403).json({
       message: "You don't have an access",
     });
-  } else if (error.name === "NotFound") {
+  } else if (error.name === "SequelizeForeignKeyConstraintError") {
     res.status(404).json({
-      message: "Product/ Category is Not Found",
+      message: "Product is Not Found",
     });
   } else {
     res.status(500).json({

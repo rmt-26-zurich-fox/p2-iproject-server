@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        min: 1,
+        defaultValue: 1,
         validate: {
           notNull: {
             msg: "Quantity of product cannot be null",
