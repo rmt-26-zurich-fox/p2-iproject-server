@@ -11,29 +11,25 @@ const error = (error, req, res, next) => {
         res.status(400).json({
             message: 'This location already saved'
         })
-    } else if (error.response.data) {
-        res.status(400).json({
-            message: 'No matching location found'
+    } else if (error.name == 'invalid_email/password') {
+        res.status(401).json({
+            message: 'Invalid email or password'
         })
     } else if (error.name == 'NoToken') {
         res.status(401).json({
             message: 'Please login first'
         })
-    } else if (error.name == 'invalid_email/password') {
-        res.status(401).json({
-            message: 'Invalid email or password'
-        })
     } else if (error.name == 'Unauthorized' || error.name == 'JsonWebTokenError') {
         res.status(401).json({
             message: 'Invalid token'
         })
-    } else if (error.name == 'Forbidden') {
-        res.status(403).json({
-            message: 'Access Denied'
-        })
     } else if (error.name == 'NotFound') {
         res.status(404).json({
             message: 'Data not found'
+        })
+    } else if (error.response.data) {
+        res.status(404).json({
+            message: 'No matching location found'
         })
     } else {
         res.status(500).json({
