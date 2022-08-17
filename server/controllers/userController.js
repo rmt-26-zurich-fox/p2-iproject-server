@@ -14,6 +14,7 @@ class UserController {
         phoneNumber,
         address,
         role,
+        status: 'Active'
       });
       res.status(201).json({
         message: "Register success",

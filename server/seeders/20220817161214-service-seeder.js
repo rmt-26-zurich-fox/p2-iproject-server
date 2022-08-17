@@ -1,6 +1,5 @@
 "use strict";
-const user = require("../data/users.json");
-
+const service = require("../data/service.json");
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -12,11 +11,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    user.forEach((el) => {
+    service.forEach((el) => {
       el.createdAt = new Date();
       el.updatedAt = new Date();
     });
-    await queryInterface.bulkInsert("Users", user, {});
+    await queryInterface.bulkInsert("Services", service, {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -26,6 +25,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("Users", null, {});
+     await queryInterface.bulkDelete('Services', null, {});
   },
 };

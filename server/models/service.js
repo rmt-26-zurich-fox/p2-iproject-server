@@ -17,16 +17,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: { msg: `service name can't be empty` },
-          notEmpty: { msg: `service name can't be empty` },
+          notNull: { msg: `Service name can't be empty` },
+          notEmpty: { msg: `Service name can't be empty` },
         },
       },
       price: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-          notNull: { msg: ` price can't be empty` },
-          notEmpty: { msg: `price can't be empty` },
+          notNull: { msg: `Price can't be empty` },
+          notEmpty: { msg: `Price can't be empty` },
         },
       },
       UserId: {

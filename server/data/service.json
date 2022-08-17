@@ -1,0 +1,5 @@
+[
+  { "name": "Tire checking", "price": 50000, "UserId": 2 },
+  { "name": "Changing lamp", "price": 150000, "UserId": 3 },
+  { "name": "Battery charging", "price": 200000, "UserId": 4 }
+]

@@ -25,25 +25,29 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-          notNull: { msg: ` price can't be empty` },
-          notEmpty: { msg: `price can't be empty` },
+          notNull: { msg: `Price can't be empty` },
+          notEmpty: { msg: `Price can't be empty` },
         },
       },
       detail: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: { msg: ` detail can't be empty` },
-          notEmpty: { msg: `detail can't be empty` },
+          notNull: { msg: `Detail can't be empty` },
+          notEmpty: { msg: `Detail can't be empty` },
+        },
+      },
+      imageUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: `Image url can't be empty` },
+          notEmpty: { msg: `Image url can't be empty` },
         },
       },
       UserId: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          notNull: { msg: ` detail can't be empty` },
-          notEmpty: { msg: `detail can't be empty` },
-        },
       },
     },
     {
