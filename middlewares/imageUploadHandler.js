@@ -15,11 +15,11 @@ const imageUpload = async (req, res, next) => {
 
       if (fileType[0] !== "image") {
         throw { name: "File needs to be an image" };
-      } 
+      }
     }
 
-      form.append("file", req.file.buffer.toString("base64"));
-      form.append("fileName", req.file.originalname);
+    form.append("file", req.file.buffer.toString("base64"));
+    form.append("fileName", req.file.originalname);
 
     await axios({
       url: "https://upload.imagekit.io/api/v1/files/upload",
