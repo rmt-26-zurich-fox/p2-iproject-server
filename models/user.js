@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       User.belongsTo(models.UserCredit, { foreignKey: 'id' });
+      User.belongsTo(models.Subscription, { foreignKey: "UserId" });
     }
   }
   User.init({
