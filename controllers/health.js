@@ -20,6 +20,7 @@ class Controller {
             })
             res.status(200).json(data.info)
         } catch (error) {
+            console.log(error);
             next(error)
         }
     }

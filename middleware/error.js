@@ -14,7 +14,7 @@ const errorHandler = (error, req, res, next) => {
     else if (error.name === "invalid_password") res.status(401).json({ message: "Invalid password" })
     else if (error.name === "invalid_status") res.status(401).json({ message: "Invalid status" })
     else if (error.name === "same_status") res.status(401).json({ message: "Same status!" })
-    else if (error.name === "duplicate_wishlist") res.status(401).json({ message: "Wishlist already added!" })
+    else if (error.name === "duplicate_wishlist") res.status(401).json({ message: "Craving already added!" })
     else if (error === "notFound") res.status(404).json({ message: "Product not found" })
     else res.status(500).json({ message: "Internal server error" })
 }
