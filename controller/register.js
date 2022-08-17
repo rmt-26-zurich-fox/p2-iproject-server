@@ -3,7 +3,7 @@ const { User } = require("../models");
 class Register {
     static async postRegister(req, res, next) {
         try {
-            let { email, password } = req.body;
+            let { email, username, password } = req.body;
             email = email.toLowerCase();
             const findUser = await User.findOne({ where: { email } });
             if (findUser) {
@@ -11,6 +11,7 @@ class Register {
             }
             const data = await User.create({
                 email,
+                username,
                 password,
             });
             res.status(201).json({
