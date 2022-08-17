@@ -3,9 +3,10 @@ const { Bookmark, Movie } = require("../models");
 async function authorization(req, res, next) {
   try {
     const UserId = req.user.id;
-    const BookmarkId = req.params.id;
+    const MovieId = req.params.id;
 
-    const findBookmark = await Bookmark.findByPk(BookmarkId, {
+    const findBookmark = await Bookmark.findOne({
+      where: { UserId, MovieId },
       include: [Movie],
     });
     if (!findBookmark) throw { name: "Not found" };

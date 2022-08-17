@@ -11,7 +11,7 @@ class Controller {
             api_key: "05190277617ad5aa6569afc189bf57d3",
             query: keyword,
             page: 1,
-            include_adult: true,
+            include_adult: false,
           },
         }
       );

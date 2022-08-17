@@ -30,7 +30,8 @@ class Controller {
 
   static async updateBookmark(req, res, next) {
     try {
-      const { id } = req.params;
+      const UserId = req.user.id;
+      const MovieId = req.params.id;
       const { status } = req.body;
       const findBookmark = req.bookmark;
 
@@ -40,7 +41,7 @@ class Controller {
       await Bookmark.update(
         { status },
         {
-          where: { id },
+          where: { UserId, MovieId },
         }
       );
 
@@ -54,10 +55,11 @@ class Controller {
 
   static async deleteBookmark(req, res, next) {
     try {
-      const { id } = req.params;
+      const UserId = req.user.id;
+      const MovieId = req.params.id;
       const findBookmark = req.bookmark;
 
-      await Bookmark.destroy({ where: { id } });
+      await Bookmark.destroy({ where: { UserId, MovieId } });
 
       res.status(200).json({
         message: `${findBookmark.Movie.title} has been remove from your bookmark`,
@@ -69,12 +71,22 @@ class Controller {
 
   static async readBookmark(req, res, next) {
     try {
-      const readBookmark = await Bookmark.findAll({ include: [Movie] });
+      const readBookmark = await Bookmark.findAll({
+        include: [
+          {
+            model: Movie,
+            attributes: {
+              include: [["imgUrl", "poster_path"]],
+              exclude: ["imgUrl"],
+            },
+          },
+        ],
+      });
 
       const result = {};
       readBookmark.forEach((el) => {
         result[el.status] = result[el.status] || [];
-        result[el.status].push(el);
+        result[el.status].push(el.Movie);
       });
 
       res.status(200).json(result);

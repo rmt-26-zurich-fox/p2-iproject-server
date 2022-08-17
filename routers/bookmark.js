@@ -6,5 +6,4 @@ router.post("/", Controller.addBookmark);
 router.get("/", Controller.readBookmark);
 router.patch("/:id", authorization, Controller.updateBookmark);
 router.delete("/:id", authorization, Controller.deleteBookmark);
-
 module.exports = router;
