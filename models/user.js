@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -15,46 +13,43 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Transaction, { foreignKey: "UserId" });
     }
   }
-  User.init({
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: {
-        msg: "Email must be unique",
-      },
-      validate: {
-        notNull: {
-          msg: "Email cannot be null",
+  User.init(
+    {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: {
+          msg: "Email must be unique",
         },
-        notEmpty: {
-          msg: "Email is required",
-        },
-        isEmail: {
-          msg: "Invalid email format",
-        },
-      },
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: "Password cannot be null",
-        },
-        notEmpty: {
-          msg: "Password is required",
-        },
-        len: {
-          args: [5, 25],
-          msg: {
-            msg: "input password minimum is 5 characters",
+        validate: {
+          notNull: {
+            msg: "Email cannot be null",
+          },
+          notEmpty: {
+            msg: "Email is required",
+          },
+          isEmail: {
+            msg: "Invalid email format",
           },
         },
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Password cannot be null",
+          },
+          notEmpty: {
+            msg: "Password is required",
+          },
+        },
+      },
+    },
+    {
+      sequelize,
+      modelName: "User",
     }
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
+  );
   return User;
 };
