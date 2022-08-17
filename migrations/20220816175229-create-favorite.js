@@ -26,6 +26,10 @@ module.exports = {
       longitude: {
         type: Sequelize.STRING
       },
+      locationId: {
+        type: Sequelize.INTEGER,
+        allowNull:false
+      },
       userId: {
         type: Sequelize.INTEGER,
         allowNull:false,

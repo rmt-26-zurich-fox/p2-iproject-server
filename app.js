@@ -21,7 +21,7 @@ app.use((err, req, res, next) => {
     res.status(401).json({message: "email/password invalid "})
   }else if(err.name === "noToken"){   
     res.status(401).json({message: "Please Login"})
-  }else if(err.name == "duplicat"){
+  }else if(err.name === "duplicat"){
     res.status(401).json({message: "Food Already Exist in favorite"})
   }else if(err.name === "Forbidden"){
     res.status(403).json({ message: "Forbidden" })

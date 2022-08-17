@@ -3,7 +3,8 @@ const axios = require('axios')
 class Controller {
     static async getLocation(req, res, next) {
         try {
-            const { page, category } = req.query
+            let { page, category } = req.query
+            page = +page
             if (page > 0) {
                 page = page * 8
             }
@@ -26,8 +27,11 @@ class Controller {
             res.status(200).json({ data: newData, page: Math.ceil(data.wisata.length / 8) })
         } catch (error) {
             console.log(error)
+            console.log(error)
         }
     }
+
+    
 }
 
 module.exports = Controller

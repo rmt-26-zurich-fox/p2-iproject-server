@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     kategori: DataTypes.STRING,
     latitude: DataTypes.STRING,
     longitude: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    locationId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Favorite',
