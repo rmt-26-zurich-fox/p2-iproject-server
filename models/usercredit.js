@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         msg: 'Credit number must be unique'
       },
       validate: {
-        notNull: { msg: 'Number is required' },
-        notEmpty: { msg: 'Number is required' },
+        notNull: { msg: 'Credit number is required' },
+        notEmpty: { msg: 'Credit number is required' },
       }
     },
     expiryDate: {

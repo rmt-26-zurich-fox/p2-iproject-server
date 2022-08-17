@@ -42,7 +42,10 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'First name is required' },
       }
     },
-    lastName: DataTypes.STRING,
+    lastName: {
+      type: DataTypes.STRING,
+      defaultValue: ""
+    },
     phoneNumber: {
       type: DataTypes.STRING,
       unique: {

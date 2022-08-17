@@ -23,6 +23,7 @@ module.exports = {
       },
       lastName: {
         type: Sequelize.STRING,
+        defaultValue: ""
       },
       phoneNumber: {
         type: Sequelize.STRING,
