@@ -20,7 +20,7 @@ module.exports = {
         onDelete: 'cascade',
         onUpdate: 'cascade'
       },
-      deliveryStatus: {
+      paymentStatus: {
         type: Sequelize.BOOLEAN
       },
       totalPrice: {

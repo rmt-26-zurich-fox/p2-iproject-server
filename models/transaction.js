@@ -28,16 +28,16 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      deliveryStatus: {
+      paymentStatus: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
         validate: {
           notNull: {
-            msg: "Delivery Status of product cannot be null",
+            msg: "Payment Status of product cannot be null",
           },
           notEmpty: {
-            msg: "Delivery Status of product is required",
+            msg: "Payment Status of product is required",
           },
         },
       },

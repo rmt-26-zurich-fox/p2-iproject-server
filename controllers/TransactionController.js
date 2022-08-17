@@ -50,10 +50,41 @@ class TransactionController {
           totalPrice: total,
           products: productArray,
         });
-        res.status(201).json(newTransaction);
+        await Cart.destroy({ where: { UserId } });
+        res
+          .status(201)
+          .json({ message: "transaction success", newTransaction });
       }
 
       //   res.status(200).json(findCart)
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+
+  static async getTransaction(req, res, next) {
+    try {
+      let UserId = req.user.id;
+      let transactions = await Transaction.findAll({ where: { UserId } });
+      res
+        .status(200)
+        .json({ message: "success read all transactions", transactions });
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+
+  static async payment(req, res, next) {
+    try {
+      let UserId = req.user.id;
+      let { id } = req.params;
+
+      let payment = await Transaction.update({ paymentStatus: true }, { where: { id } });
+      res
+      .status(200)
+      .json({ message: "transaction success", payment });
     } catch (error) {
       console.log(error);
       next(error);
