@@ -17,12 +17,13 @@ router.get('/products/:id', productController.getOneProduct)
 
 
 router.use(authentication)
-router.post('/cart/:productId', productController.addtoCart)
-router.get('/cart', productController.getCart)
 router.post('/products/add',authorization, productController.createProduct)
-router.delete('/products/:productId/delete', authorization, productController.deleteProduct)
-router.delete('/cart/:cartId', productController.deleteItemFromCart)
+router.get('/cart', productController.getCart)
 router.delete('/cart/', productController.emptyCart)
+router.get('/cart/total', productController.getTotalPrice)
+router.delete('/products/:productId/delete', authorization, productController.deleteProduct)
+router.post('/cart/:productId', productController.addtoCart)
+router.delete('/cart/:cartId', productController.deleteItemFromCart)
 
 
 

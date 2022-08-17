@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "db" : "npx sequelize-cli db:drop && npx sequelize-cli db:create",
-    "migrate" : "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "migration" : "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
