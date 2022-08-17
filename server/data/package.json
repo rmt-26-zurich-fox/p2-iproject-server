@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Reguler",
+    "price": 6000,
+    "deadlineDay": 3
+  },
+  {
+    "name": "Express",
+    "price": 9000,
+    "deadlineDay": 1
+  }
+]
