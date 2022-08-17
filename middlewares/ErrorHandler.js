@@ -51,8 +51,7 @@ function ErrorHandler(error,req,res,next){
         else {
           res.status(500).json({
             message: "Internal server error",
-          });
+          })
         }
   }
-  
   module.exports= {ErrorHandler}
