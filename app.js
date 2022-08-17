@@ -22,14 +22,20 @@ const io = require('socket.io')(http, {
   
       socket.on('my message', (msg) => {
           console.log('message: ' + msg);
+          io.emit('my broadcast', msg)
         });
-    });
-    io.on('connection', (socket) => {
-      socket.on('my message', (msg) => {
         
-        io.emit('my broadcast', `${msg}`);
-      });
     });
+    // io.on('connection', (socket) => {
+
+    //   socket.o
+
+    //   // socket.on('my message', (msg) => {
+    //   //   io.emit('my broadcast', `${msg}`, socket.id);
+    //   //   // socket.broadcast.emit('my message', msg)       
+        
+    //   // });
+    // });
 
 
 app.use(cors())
