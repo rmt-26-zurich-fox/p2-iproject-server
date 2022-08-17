@@ -89,6 +89,7 @@ class Controller {
     try {
       const UserId = req.user.id;
       const { name, location, price, CategoryId, FacilityId } = req.body;
+      const imageUrl = req.imageUrl
 
       if (!FacilityId.length) {
         throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
@@ -108,6 +109,11 @@ class Controller {
           FacilityId: el,
         });
       });
+
+      await Image.create({
+        HouseId: newHouse.id,
+        imageUrl,
+      })
 
       res.status(201).json({ message: "New house successfully created" });
     } catch (error) {
