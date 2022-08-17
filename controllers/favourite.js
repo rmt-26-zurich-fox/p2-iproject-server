@@ -29,6 +29,20 @@ class Controller {
             next(error)
         }
     }
+
+    static async deleteFav(req, res, next) {
+        try {
+            const { favouriteId } = req.params
+            let reg = new RegExp('^[0-9]*$');
+            if (reg.test(favouriteId) == false || favouriteId <= 0) throw `notFound`
+            const deleteFavourite = await Favourite.destroy({ where: { id: favouriteId } })
+            console.log(deleteFavourite);
+            if (deleteFavourite === 0) throw `notFound`
+            res.status(200).json({ message: `Craving has been deleted` })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = Controller
