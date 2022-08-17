@@ -123,9 +123,7 @@ class TeamController {
         },
       });
       let result = await axios.get(
-        `https://api.currentsapi.services/v1/search?apiKey=${currentApiKey}&page_size=15&keywords=${teamTarget.full_name
-          .split(" ")
-          .join("%")}`
+        `https://api.currentsapi.services/v1/search?apiKey=${currentApiKey}&page_size=15&keywords=${teamTarget.full_name}`
       );
       const { data } = result;
       res.status(200).json(data.news);

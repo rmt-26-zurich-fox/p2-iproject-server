@@ -45,9 +45,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("add-user", function (user) {
-    console.log(user);
     users.push({ id: socket.id, name: user });
-    console.log(users);
     io.emit("update-users", users);
   });
 
