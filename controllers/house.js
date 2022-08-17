@@ -1,4 +1,4 @@
-const { User, House, Image, HouseFacility, Facility, Category } = require("../models");
+const { User, Profile, House, Image, HouseFacility, Facility, Category } = require("../models");
 const { Op } = require("sequelize");
 const axios = require("axios");
 
@@ -143,6 +143,45 @@ class Controller {
     } catch (error) {
       next(error);
     }
+  }
+
+  static async midtransHandle(req, res, next) {
+    const midtransClient = require("midtrans-client");
+    // Create Snap API instance
+    let snap = new midtransClient.Snap({
+      // Set to true if you want Production Environment (accept real transaction).
+      isProduction: false,
+      serverKey: process.env.midtrans_client_id,
+    });
+
+    const { amount } = req.body;
+    const order = new Date().getTime();
+    console.log(amount);
+    console.log(order);
+    const UserId = req.user.id;
+    const user = User.findByPk(UserId);
+    const profile = Profile.findOne({ where: { UserId } });
+
+    let parameter = {
+      transaction_details: {
+        order_id: order,
+        gross_amount: amount,
+      },
+      credit_card: {
+        secure: true,
+      },
+      customer_details: {
+        first_name: profile.firstName,
+        last_name: profile.lastName,
+        email: user.email,
+        phone: profile.phone,
+      },
+    };
+
+    snap.createTransaction(parameter).then((transaction) => {
+      // transaction token
+      let transactionToken = transaction.token;
+    });
   }
 }
 
