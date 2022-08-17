@@ -7,7 +7,7 @@ const express = require("express");
 const cors = require("cors");
 const router = require("./router");
 const errorHandler = require("./middleware/error-handler");
-const midtransClient = require("midtrans-client");
+
 const app = express();
 const port = 3000;
 
@@ -18,53 +18,9 @@ app.use(express.json());
 app.use(router);
 app.use(errorHandler);
 
-let parameter = {
-  transaction_details: {
-    order_id: `YOUR-ORDERID-${new Date().valueOf()}`,
-    gross_amount: 10000,
-  },
-  credit_card: {
-    secure: true,
-  },
-  item_details: [
-    {
-      id: "a01",
-      price: 7000,
-      quantity: 1,
-      name: "Apple",
-    },
-    {
-      id: "b02",
-      price: 3000,
-      quantity: 1,
-      name: "Orange",
-    },
-  ],
-  customer_details: {
-    first_name: "gagarin",
-    last_name: "pratama",
-    email: "gagarin.pra@example.com",
-    phone: "081398830217",
-  },
-};
-
 // API MIDTRANS
 
-app.get("/payment", async (req, res) => {
-  let snap = new midtransClient.Snap({
-    // Set to true if you want Production Environment (accept real transaction).
-    isProduction: false,
-    serverKey: process.env.MIDTRANS_KEY,
-  });
-  try {
-    const transaction = await snap.createTransaction(parameter);
-    // transaction token
-    let transactionToken = transaction.token;
-    res.status(200).json({ trans_token: transactionToken });
-  } catch (error) {
-    res.status(500).json({ error });
-  }
-});
+app.get("/payment", async (req, res) => {});
 
 // API RAJAONGKIR, Kalo gamau bisa dikirim gausah pake
 

@@ -1,32 +1,34 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("ThreadReplies", {
+    await queryInterface.createTable("Carts", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      content: {
-        type: Sequelize.TEXT,
+      CakeId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Cakes",
+          key: "id",
+        },
       },
       UserId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Users", // 'Actors' would also work
+          model: "Users",
           key: "id",
         },
       },
-      ThreadTitleId: {
+      amount: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "ThreadTitles", // 'Actors' would also work
-          key: "id",
-        },
+      },
+      price: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -39,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("ThreadReplies");
+    await queryInterface.dropTable("Carts");
   },
 };
