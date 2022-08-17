@@ -17,6 +17,18 @@ class StudentController {
     }
   }
 
+  static async fetchShoppingCart(req, res, next) {
+    try {
+      let data = await ShoppingCart.findAll({
+        where: { UserId: req.user.id },
+        include: Course,
+      });
+      res.status(200).json({ data });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async addToCourseList(req, res, next) {
     try {
       let data = await ShoppingCart.findAll({ where: { UserId: req.user.id } });
