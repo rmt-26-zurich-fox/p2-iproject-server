@@ -34,10 +34,14 @@ if(err.message == "Product isn't Found"){
         code = 404
 }else if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError"){
     message = err.errors[0].message
+    code = 400
 }else if( err.message == "Invalid username/password"){
     message = err.message
+    code = 401
 }else if( err.name == "JsonWebTokenError" || err.message == "Invalid Token"){
     message = 'Invalid Token'
+    code = 401
+
 }
     res.status(code).json(message)
 })
