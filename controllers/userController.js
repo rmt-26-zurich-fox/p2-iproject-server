@@ -1,6 +1,7 @@
-const e = require("cors");
+
 const { compareHash, createToken } = require("../helpers/helper");
 const { User, Cart, Product } = require("../models");
+
 
 class userController {
   static async adminRegister(req, res) {
@@ -102,7 +103,7 @@ class userController {
       });
 
       if (!findCustomer) {
-        throw { name: "invalid email/password!" };
+        throw { name: "No account found" };
       }
 
       const comparePassword = compareHash(password, findCustomer.password);
@@ -127,15 +128,18 @@ class userController {
         },
       });
     } catch (error) {
+      console.log(error);
       if (error.name === "SequelizeValidationError") {
         res.status(400).json(error.errors[0].message);
-      } else if (error.name === "invalid") {
-        res.status(401).json({ message: "Invalid email/password" });
+      } else if (error.name === "No account found") {
+        res.status(401).json({ message: "No account found" });
       } else {
         res.status(500).json({ message: "Internal server error" });
       }
     }
   }
+
+
 }
 
 module.exports = userController;

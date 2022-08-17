@@ -1,4 +1,4 @@
-const e = require("cors");
+
 const { Product, Cart } = require("../models");
 
 class productController {
@@ -20,11 +20,12 @@ class productController {
   }
   static async getOneProduct(req, res) {
     try {
-      const { id } = req.params;
-      const oneProduct = await Product.findByPk(id);
+      const { productId } = req.params;
+      const oneProduct = await Product.findByPk(productId);
       if (oneProduct) res.status(200).json(oneProduct);
       else throw { name: "not found" };
     } catch (error) {
+      console.log(error);
       if (error.name === "not found") {
         res.status(404).json({ message: "Product not found" });
       } else {
