@@ -35,7 +35,8 @@ class Controller {
 
       const findBookmark = await Bookmark.findByPk(id, { include: [Movie] });
       if (!findBookmark) throw { name: "Not found" };
-      if (findBookmark.status === status) throw { name: "Status is already like that" };
+      if (findBookmark.status === status)
+        throw { name: "Status is already like that" };
 
       await Bookmark.update(
         { status },
@@ -44,10 +45,27 @@ class Controller {
         }
       );
 
+      res.status(200).json({
+        message: `${findBookmark.Movie.title} has been update from ${findBookmark.status} to ${status}`,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async deleteBookmark(req, res, next) {
+    try {
+      const { id } = req.params;
+
+      const findBookmark = await Bookmark.findByPk(id, { include: [Movie] });
+      if (!findBookmark) throw { name: "Not found" };
+
+      await Bookmark.destroy({ where: { id } });
+
       res
         .status(200)
         .json({
-          message: `${findBookmark.Movie.title} has been update from ${findBookmark.status} to ${status}`,
+          message: `${findBookmark.Movie.title} has been remove from your bookmark`,
         });
     } catch (error) {
       next(error);
