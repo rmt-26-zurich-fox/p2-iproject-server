@@ -1,6 +1,7 @@
 const { Team, TeamImage, ProfileTeam } = require("../models");
 const axios = require("axios");
 const rapidApiKey = process.env.RAPID_API_KEY;
+const currentApiKey = process.env.CURRENT_API;
 
 class TeamController {
   static async getSpecificTeam(req, res, next) {
@@ -108,6 +109,26 @@ class TeamController {
         },
       });
       res.status(200).json(likedTeams);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async getNews(req, res, next) {
+    try {
+      const { teamId } = req.params;
+      const teamTarget = await Team.findOne({
+        where: {
+          id: teamId,
+        },
+      });
+      let result = await axios.get(
+        `https://api.currentsapi.services/v1/search?apiKey=${currentApiKey}&page_size=15&keywords=${teamTarget.full_name
+          .split(" ")
+          .join("%")}`
+      );
+      const { data } = result;
+      res.status(200).json(data.news);
     } catch (error) {
       next(error);
     }
