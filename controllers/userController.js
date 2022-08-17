@@ -1,6 +1,7 @@
 
 const { compareHash, createToken } = require("../helpers/helper");
 const { User, Cart, Product } = require("../models");
+const {OAuth2Client} = require("google-auth-library");
 
 
 class userController {
@@ -136,6 +137,45 @@ class userController {
       } else {
         res.status(500).json({ message: "Internal server error" });
       }
+    }
+  }
+
+  static async googleLoginCustomer(req, res, next) {
+    try {
+      const { google_token } = req.body;
+      const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+      const ticket = await client.verifyIdToken({
+        idToken: google_token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
+
+      const payload = ticket.getPayload();
+
+      const [user, created] = await User.findOrCreate({
+        where: {
+          email: payload.email,
+        },
+        defaults: {
+          email: payload.email,
+          password: "passwordFromGoogle",
+          role: "customer",
+        },
+      });
+
+      const access_token = createToken({
+        id: user.id,
+      });
+      res.status(200).json({
+        access_token,
+        user: {
+          email: user.email,
+          role: user.role,
+          id: user.id,
+        },
+      });
+    } catch (error) {
+      console.log(error);
     }
   }
 
