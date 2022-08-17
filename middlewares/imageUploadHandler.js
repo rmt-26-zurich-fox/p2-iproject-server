@@ -6,7 +6,6 @@ const imageUpload = async (req, res, next) => {
     const FormData = require("form-data");
     const axios = require("axios");
     const privateKey = process.env.imagekit_api_key;
-
     const form = new FormData();
 
     if (!req.file) {
@@ -16,13 +15,11 @@ const imageUpload = async (req, res, next) => {
 
       if (fileType[0] !== "image") {
         throw { name: "File needs to be an image" };
-      } else if (req.file.size > 255000) {
-        throw { name: "Maximum file size is more than 255 Kb" };
-      }
+      } 
     }
 
-    form.append("file", req.file.buffer.toString("base64"));
-    form.append("fileName", req.file.originalname);
+      form.append("file", req.file.buffer.toString("base64"));
+      form.append("fileName", req.file.originalname);
 
     await axios({
       url: "https://upload.imagekit.io/api/v1/files/upload",

@@ -1,8 +1,8 @@
-const { House, Image, HouseFacility, Facility, Category } = require("../models");
+const { User, House, Image, HouseFacility, Facility, Category } = require("../models");
 
 class Controller {
   static async getAllHouses(req, res, next) {
-    console.log('masuk');
+    console.log("masuk");
     try {
       const houses = await House.findAll({
         attributes: {
@@ -12,13 +12,13 @@ class Controller {
           {
             model: Image,
             attributes: ["id", "imageUrl"],
+            order: [["id", "DESC"]],
           },
           {
             model: Category,
             attributes: ["id", "name"],
           },
         ],
-        order: [["name"]],
       });
 
       res.status(200).json(houses);
@@ -40,8 +40,13 @@ class Controller {
         },
         include: [
           {
+            model: User,
+            attributes: ["id", "username"],
+          },
+          {
             model: Image,
             attributes: ["id", "imageUrl"],
+            order: [["id", "ASC"]],
           },
           {
             model: Category,
@@ -89,11 +94,12 @@ class Controller {
     try {
       const UserId = req.user.id;
       const { name, location, price, CategoryId, FacilityId } = req.body;
-      const imageUrl = req.imageUrl
+      const imageUrl = req.imageUrl;
+      console.log(imageUrl);
 
-      if (!FacilityId.length) {
-        throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
-      }
+      // if (!FacilityId.length) {
+      //   throw { name: "SequelizeValidationError", errors: [{ message: "Facility is required" }] };
+      // }
 
       const newHouse = await House.create({
         name,
@@ -103,20 +109,21 @@ class Controller {
         UserId,
       });
 
-      FacilityId.forEach((el) => {
-        HouseFacility.create({
-          HouseId: newHouse.id,
-          FacilityId: el,
-        });
-      });
+      // FacilityId.forEach((el) => {
+      //   HouseFacility.create({
+      //     HouseId: newHouse.id,
+      //     FacilityId: el,
+      //   });
+      // });
 
       await Image.create({
         HouseId: newHouse.id,
         imageUrl,
-      })
+      });
 
       res.status(201).json({ message: "New house successfully created" });
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
