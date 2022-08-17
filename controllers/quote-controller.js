@@ -117,17 +117,18 @@ module.exports = class QuoteController {
 
     }
 
-    static async tesDiscord(req, res, next){
+    static async getWord(req, res, next){
 
-        // const token = uaTAxcxHwNnX1wH1wQwjHhA0kHC9HSxoT9WoaOow process.env.X_API_KEY
+        const { word } = req.query
 
         try {
 
             const { data } = await axios({
                 method: 'get',
-                url: 'https://quizapi.io/api/v1/questions?limit=1',
+                url: 'https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/' + word,
                 headers: {
-                    "X-Api-Key": process.env.X_API_KEY
+                    "app_id": '2387683c',
+                    "app_key": '567a0b3a665800cb11758724e2c5bc23'
                 }
             })
 

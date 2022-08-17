@@ -8,7 +8,7 @@ quoteRouter.post('/', authentication, QuoteController.createQuote)
 quoteRouter.get('/programming', authentication, QuoteController.allProgrammerQuote)
 quoteRouter.get('/anime', authentication, QuoteController.allAnimeQuote)
 quoteRouter.get('/qotd', QuoteController.quoteOfTheDay)
-quoteRouter.get('/quiz', QuoteController.tesDiscord)
+quoteRouter.get('/word', QuoteController.getWord)
 
 
 module.exports = quoteRouter
