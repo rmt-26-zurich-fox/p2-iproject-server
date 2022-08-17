@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class ThreadReply extends Model {
     /**
@@ -10,16 +8,20 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      ThreadReply.belongsTo(models.User);
+      ThreadReply.belongsTo(models.ThreadTitle);
     }
   }
-  ThreadReply.init({
-    content: DataTypes.TEXT,
-    UserId: DataTypes.INTEGER,
-    ThreadTitleId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'ThreadReply',
-  });
+  ThreadReply.init(
+    {
+      content: DataTypes.TEXT,
+      UserId: DataTypes.INTEGER,
+      ThreadTitleId: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "ThreadReply",
+    }
+  );
   return ThreadReply;
 };

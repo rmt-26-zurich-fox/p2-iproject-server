@@ -2,6 +2,7 @@
 const { hash } = require("../helper/bcrypt");
 
 const { Model } = require("sequelize");
+const threadtitle = require("./threadtitle");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(models.Cart);
+      User.hasMany(models.ThreadTitle);
+      User.hasMany(models.ThreadReply);
     }
   }
   User.init(

@@ -1,7 +1,7 @@
 const { comparePassword } = require("../helper/bcrypt");
 const { token } = require("../helper/token");
 const { User } = require("../models");
-// const { OAuth2Client } = require("google-auth-library");
+const { OAuth2Client } = require("google-auth-library");
 
 class UserController {
   static async register(req, res, next) {
@@ -53,36 +53,37 @@ class UserController {
     }
   }
 
-  // static async loginByGoogle(req, res, next) {
-  //   const { google_token } = req.headers;
+  static async loginByGoogle(req, res, next) {
+    console.log("masuk");
+    const { google_token } = req.headers;
 
-  //   try {
-  //     const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-  //     const ticket = await client.verifyIdToken({
-  //       idToken: google_token,
-  //       audience: process.env.GOOGLE_CLIENT_ID,
-  //     });
-  //     const payload = ticket.getPayload();
+    try {
+      const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+      const ticket = await client.verifyIdToken({
+        idToken: google_token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
+      const payload = ticket.getPayload();
 
-  //     const [user, created] = await User.findOrCreate({
-  //       where: { email: payload.email },
-  //       defaults: {
-  //         email: payload.email,
-  //         password: "google",
-  //         role: "staff",
-  //       },
-  //       hooks: false,
-  //     });
+      const [user, created] = await User.findOrCreate({
+        where: { email: payload.email },
+        defaults: {
+          userName: payload.email,
+          email: payload.email,
+          password: "google",
+        },
+        hooks: false,
+      });
 
-  //     const userToken = token({
-  //       id: user.id,
-  //     });
+      const userToken = token({
+        id: user.id,
+      });
 
-  //     res.status(200).json({ access_token: userToken });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // }
+      res.status(200).json({ access_token: userToken });
+    } catch (error) {
+      next(error);
+    }
+  }
 
   static async getUser(req, res, next) {
     try {
