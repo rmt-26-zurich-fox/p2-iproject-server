@@ -6,6 +6,7 @@ const axios = require("axios");
 const express = require("express");
 const cors = require("cors");
 const router = require("./router");
+const errorHandler = require("./middleware/error-handler");
 const midtransClient = require("midtrans-client");
 const app = express();
 const port = 3000;
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(router);
+app.use(errorHandler);
 
 let parameter = {
   transaction_details: {

@@ -21,7 +21,7 @@ class UserController {
         },
       });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -48,7 +48,7 @@ class UserController {
       });
       res.status(200).json({ access_token: userToken });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
