@@ -1,5 +1,6 @@
 const {
-    Post
+    Post,
+    Category
 } = require("../models");
 
 class PostController {
@@ -7,18 +8,53 @@ class PostController {
     // Get Review Data
     static async getReviewData(req, res, next) {
         try {
-            let review = await Post.findAll({
-                where: {
-                    status: "Active"
-                },
-                order: [["createdAt", "desc"]]
+            const {
+                page = 1, categoryId, id, search
+            } = req.query;
+            let limit = 3;
+            let offset = page == 1 ? 0 : limit * (page - 1);
+            let whereCondition = {
+                status: "Active"
+            }
+            if (categoryId) {
+                whereCondition.genreId = genreId
+            }
+            if (id) {
+                whereCondition.id = id
+            }
+            if (search) {
+                whereCondition.title = {
+                    [Op.iLike]: `%${search}%`
+                }
+            }
+            let options = {
+                where: whereCondition,
+                limit,
+                offset,
+            }
+            let {
+                count,
+                rows
+            } = await Post.findAndCountAll({
+                include: Category,
+                order: [
+                    ["createdAt", "desc"]
+                ],
+                distict: true,
+                ...options
             });
-            review.map(el => {
-                return el
-            });
-            res.status(200).json(review);
+            if (!rows.length) {
+                throw {
+                    name: "notFound"
+                }
+            }
+            const response = {
+                page: +page,
+                totalPage: Math.ceil(count / limit),
+                reviews: rows
+            };
+            res.status(200).json(response);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
