@@ -158,7 +158,7 @@ class Controller{
         })
 
         if(prodInCart){
-            throw({message: "You've already added this Product to yout shopping cart"})
+            throw({message: "You've already added this Product to your shopping cart before"})
         }
         const cart = await ShoppingCart.create({UserId: req.user.id, ProductId: productId , quantity: quantity})
 

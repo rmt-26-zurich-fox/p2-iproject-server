@@ -42,8 +42,8 @@ if(err.message == "Product isn't Found"){
     message = 'Invalid Token'
     code = 401
 
-}else if(err.message == "You've already added this Product to yout shopping cart"){
-    message = "You've already added this Product to yout shopping cart"
+}else if(err.message == "You've already added this Product to your shopping cart before"){
+    message = "You've already added this Product to your shopping cart before"
     code = 400
 
 }
