@@ -8,6 +8,7 @@ async (req, res, next) => {
       // console.log(access_token);
       if (!access_token) {
         let access_token=req.body.headers.access_token
+        
         if(!access_token){
           throw { name: "token error" };
         }
