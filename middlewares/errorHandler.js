@@ -7,7 +7,7 @@ const errorHandler = (err, req, res, next) => {
     });
   } else if (err.name === "SequelizeDatabaseError"){
       res.status(400).json({
-        message,
+        message: err
       });
   } else if (err.name === "SequelizeForeignKeyConstraintError"){
     res.status(400).json({
@@ -20,6 +20,10 @@ const errorHandler = (err, req, res, next) => {
       message: err.errors.map(el => {
         return el.message
       })
+    });
+  } else if (err.name === "Invalid credentials"){
+    res.status(400).json({
+      message: err.name
     });
   } else if (err.name === "Cannot change to same status") {
     res.status(400).json({

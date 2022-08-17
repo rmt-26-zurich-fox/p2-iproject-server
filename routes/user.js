@@ -6,6 +6,9 @@ router.post("/register", UserController.register);
 router.post("/login", UserController.login);
 router.use(authentication);
 router.get("/profile", UserController.myProfile);
+router.post("/profile", UserController.updateMyProfile);
+router.post("/leaderboards", UserController.updateMyLeaderboard);
+router.post("/credit", UserController.updateMyCredit);
 router.post("/registerCredit", UserController.registerCredit);
 
 module.exports = router;

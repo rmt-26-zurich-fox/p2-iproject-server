@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Leaderboard extends Model {
     static associate(models) {
-      Leaderboard.hasMany(models.User, { foreignKey: "UserId" });
+      // Leaderboard.hasMany(models.User, { foreignKey: "UserId" });
     }
   }
   Leaderboard.init({

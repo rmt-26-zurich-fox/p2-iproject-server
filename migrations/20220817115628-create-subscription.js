@@ -6,7 +6,13 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        // references: {
+        //   model: "Users",
+        //   key: "id"
+        // },
+        // onUpdate: "CASCADE",
+        // onDelete: "CASCADE",
       },
       UserId: {
         type: Sequelize.INTEGER,

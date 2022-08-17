@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Subscription extends Model {
     static associate(models) {
-      Subscription.hasMany(models.User, { foreignKey: "UserId" });
+      Subscription.belongsTo(models.User, { foreignKey: "UserId" });
     }
   }
   Subscription.init({

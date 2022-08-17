@@ -1,5 +1,5 @@
-const { User, UserCredit } = require("../models");
-const { comparePassword } = require("../helpers/bcrypt");
+const { User, UserCredit, Leaderboard, Subscription } = require("../models");
+const { comparePassword, hashPassword } = require("../helpers/bcrypt");
 const { signToken } = require("../helpers/jwt");
 
 const register = async (req, res, next) => {
@@ -81,11 +81,11 @@ const googleSignIn = async (req, res, next) => {
 
 const registerCredit = async (req, res, next) => {
   try {
-    // const { id } = req.user;
+    const { id } = req.user;
     const { creditNumber, expiryDate, cvv } = req.body;
-    
+    console.log(req.body);
     const response = await UserCredit.create({
-      // id:1,
+      id,
       creditNumber,
       expiryDate,
       cvv
@@ -95,6 +95,39 @@ const registerCredit = async (req, res, next) => {
       id: response.id,
       creditNumber: response.creditNumber,
     })
+  } catch (err) {
+    next(err);
+  }
+}
+
+const createLeaderboard = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+    
+    // const [response, create] = await User.findOrCreate({
+    //   where: {
+    //     id
+    //   },
+    //   defaults: {
+    //     id
+    //   }
+    // });
+
+    const response = await User.findAll({
+      include: [
+        UserCredit, Subscription,
+        // {
+        //   model: UserCredit,
+        // }
+      ],
+    });
+
+    res.status(201).json({
+      // id: response.id,
+      // point: response.point,
+      response
+    });
+
   } catch (err) {
     next(err);
   }
@@ -121,10 +154,107 @@ const myProfile = async (req, res, next) => {
   }
 }
 
+const updateMyProfile = async (req, res, next) => {
+  try {
+
+    const { id } = req.user;
+
+    const { email, password, firstName, lastName, phoneNumber, birthDate } = req.body;
+
+    const response = await User.update({
+      email, password, firstName, lastName, phoneNumber, birthDate
+    }, {
+      where: {
+        id
+      },
+    });
+    
+    res.status(200).json({
+      message: "User updated",
+      id,
+      response
+    });
+
+  } catch (err) {
+    next(err);
+  }
+}
+const updateMyCredit = async (req, res, next) => {
+  try {
+
+    const { id } = req.user;
+
+    const { creditNumber, expiryDate, oldCvv, newCvv } = req.body;
+
+    const userCredit = await UserCredit.findByPk(+id);
+
+    if(!comparePassword(oldCvv, userCredit.cvv)){
+      throw { name: "Invalid credentials" }
+    }
+
+    const hashedCvv = hashPassword(newCvv);
+
+    const response = await UserCredit.update({
+      creditNumber, expiryDate, cvv: hashedCvv
+    }, {
+      where: {
+        id
+      },
+    });
+    
+    res.status(200).json({
+      message: "User Credit updated",
+      response
+    });
+
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+}
+
+const updateMyLeaderboard = async (req, res, next) => {
+  try {
+
+    const { id } = req.user;
+
+    const { point } = req.body;
+
+    const [find, create] = await Leaderboard.findOrCreate({
+      where: {
+        UserId: +id
+      },
+      defaults: {
+        UserId: +id
+      }
+    });
+
+    const response = await Leaderboard.update({
+      point: +point
+    }, {
+      where: {
+        UserId: +id
+      },
+    });
+    
+    res.status(200).json({
+      message: "Leaderboard updated",
+      response
+    });
+
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   register,
   login,
   googleSignIn,
   myProfile,
+  updateMyProfile,
+  updateMyCredit,
+  updateMyLeaderboard,
+  createLeaderboard,
   registerCredit
 }

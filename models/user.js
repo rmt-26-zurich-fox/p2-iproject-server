@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       User.belongsTo(models.UserCredit, { foreignKey: 'id' });
-      User.belongsTo(models.Subscription, { foreignKey: "UserId" });
+      User.hasMany(models.Subscription, { foreignKey: "UserId" });
+      // User.hasMany(models.Leaderboard, { foreignKey: "UserId" });
     }
   }
   User.init({
@@ -63,7 +64,12 @@ module.exports = (sequelize, DataTypes) => {
 
         instance.password = hashPassword(instance.password);
         
-      }
+      },
+      beforeUpdate: (instance, options) => {
+
+        instance.password = hashPassword(instance.password);
+        
+      },
     }
   });
   return User;

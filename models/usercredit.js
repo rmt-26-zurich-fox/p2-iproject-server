@@ -48,7 +48,12 @@ module.exports = (sequelize, DataTypes) => {
 
         instance.cvv = hashPassword(instance.cvv);
 
-      }
+      },
+      beforeUpdate: (instance, options) => {
+
+        instance.cvv = hashPassword(instance.cvv);
+
+      },
     }
   });
   return UserCredit;
