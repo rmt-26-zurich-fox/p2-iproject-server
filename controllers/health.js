@@ -43,7 +43,14 @@ class Controller {
                     "X-RapidAPI-Host": apihost
                 }
             })
-            res.status(200).json(data.info)
+            const result = {
+                bfp: data.info.bfp.toFixed(2),
+                fat_mass: data.info.fat_mass.toFixed(2),
+                lean_mass: data.info.lean_mass.toFixed(2),
+                description: data.info.description,
+                gender: data.info.gender
+            }
+            res.status(200).json(result)
         } catch (error) {
             next(error)
         }
@@ -67,9 +74,9 @@ class Controller {
                     "X-RapidAPI-Host": apihost
                 }
             })
-            data.info.carbs = (data.info.bmr * 0.6) / 4
-            data.info.protein = (data.info.bmr * 0.15) / 4
-            data.info.fat = (data.info.bmr * 0.25) / 9
+            data.info.carbs = Math.floor((data.info.bmr * 0.6) / 4)
+            data.info.protein = Math.floor((data.info.bmr * 0.15) / 4)
+            data.info.fat = Math.floor((data.info.bmr * 0.25) / 9)
             res.status(200).json(data.info)
         } catch (error) {
             next(error)

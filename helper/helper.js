@@ -18,10 +18,10 @@ const getPagination = (page, size) => {
 };
 
 const getPagingData = (data, page, limit) => {
-    const { count: totalItems, rows: product } = data;
+    const { count: totalItems, rows: food } = data;
     const currentPage = page ? +page : 1;
     const totalPages = Math.ceil(totalItems / limit);
-    return { totalItems, product, totalPages, currentPage };
+    return { totalItems, food, totalPages, currentPage };
 };
 
 module.exports = { hash, compare, createToken, verifyToken, getPagination, getPagingData }
