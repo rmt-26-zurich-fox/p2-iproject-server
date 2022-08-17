@@ -13,6 +13,8 @@ router.post('/register', userController.register)
 
 router.post('/login', userController.login)
 
+router.post('/googleg-sign-in', userController.googleSignIn)
+
 router.use(async (req, res, next) => {
     try {
         let { access_token } = req.headers

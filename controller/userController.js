@@ -2,6 +2,7 @@ const { User, Favorite } = require('../models')
 const axios = require('axios')
 const { verifyPassword } = require('../helpers/bcrypt')
 const { signToken } = require('../helpers/jwt')
+const { OAuth2Client } = require('google-auth-library');
 
 class Controller {
     static async register(req, res, next) {
@@ -38,6 +39,33 @@ class Controller {
 
         } catch (err) {
             next(err)
+        }
+    }
+
+    static async googleSignIn(req, res, next) {
+        try {
+            const { token_google } = req.headers
+            const client = new OAuth2Client('192317249394-020h8lnbson6pqe71vp9ntjo4pej3n7d.apps.googleusercontent.com');
+            const ticket = await client.verifyIdToken({
+                idToken: token_google,
+                audience: '192317249394-020h8lnbson6pqe71vp9ntjo4pej3n7d.apps.googleusercontent.com',
+            });
+            const payload = ticket.getPayload();
+
+            const [user, created] = await User.findOrCreate({
+                where: {
+                    email: payload.email,
+                },
+                defaults: {
+                    username: payload.name,
+                    password: 'login_via_email',
+                },
+            });
+            const access_token = signToken({ id: user.id, data: payload.email })
+            res.status(200).json({ access_token })
+        } catch (error) {
+            console.log(error)
+            next(error)
         }
     }
 }
