@@ -21,7 +21,7 @@ app.get('/products/:id', controller1.productDetail)
 
 app.use(authentication)
 app.get('/shoppingcarts', controller1.shoppingCart)
-app.post('/shoppingcart/:productId', controller1.createShoppingCart)
+app.post('/shoppingcarts/:productId', controller1.createShoppingCart)
 
 
 
@@ -32,7 +32,7 @@ app.use(async(err, req, res, next)=>{
 if(err.message == "Product isn't Found"){
         message = "Product isn't Found"
         code = 404
-}else if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError"){
+}else if(err.name === "SequelizeValidationError" || err.name == "SequelizeUniqueConstraintError" ){
     message = err.errors[0].message
     code = 400
 }else if( err.message == "Invalid username/password"){
@@ -41,6 +41,10 @@ if(err.message == "Product isn't Found"){
 }else if( err.name == "JsonWebTokenError" || err.message == "Invalid Token"){
     message = 'Invalid Token'
     code = 401
+
+}else if(err.message == "You've already added this Product to yout shopping cart"){
+    message = "You've already added this Product to yout shopping cart"
+    code = 400
 
 }
     res.status(code).json(message)

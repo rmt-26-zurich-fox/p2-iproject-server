@@ -165,6 +165,7 @@ class Controller{
         res.status(201).json({message: "Product is added to your Shopping Cart"})
 
     } catch (err) {
+        console.log(err)
         next(err)
     }
    }
