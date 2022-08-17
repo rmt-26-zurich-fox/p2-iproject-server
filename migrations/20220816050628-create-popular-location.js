@@ -9,18 +9,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       country: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       latitude: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       longtitude: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       imgUrl: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {

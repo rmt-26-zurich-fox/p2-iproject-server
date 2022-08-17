@@ -15,7 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   SavedLocation.init({
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Name cant be empty"
+        },
+        notEmpty: {
+          msg: "Name cant be empty"
+        }
+      }
+    },
     UserId: DataTypes.INTEGER
   }, {
     sequelize,
