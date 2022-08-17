@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       deliveryStatus: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false,
         validate: {
           notNull: {
             msg: "Delivery Status of product cannot be null",

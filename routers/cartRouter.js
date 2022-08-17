@@ -1,9 +1,9 @@
 const express = require("express");
-const cartRouter = express.Router()
+const cartRouter = express.Router();
 const CartController = require("../controllers/CartController");
-const cart = require("../models/cart");
 
-cartRouter.patch("/:ProductId", CartController.createCart)
-cartRouter.get('/', CartController.getCart)
+cartRouter.patch("/:ProductId", CartController.createCart);
+cartRouter.get("/", CartController.getCart);
+cartRouter.delete("/:id", CartController.deleteCart);
 
-module.exports = cartRouter
+module.exports = cartRouter;

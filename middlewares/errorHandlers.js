@@ -26,6 +26,10 @@ function errorHandlers(error, req, res, next) {
     res.status(404).json({
       message: "Product is Not Found",
     });
+  } else if (error.name === "NotFound") {
+    res.status(404).json({
+      message: "Cart is Not Found",
+    });
   } else {
     res.status(500).json({
       message: "Internal Server error",

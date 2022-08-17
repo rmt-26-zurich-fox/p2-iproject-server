@@ -59,6 +59,30 @@ class CartController {
       res.status(200).json({ message: "success read carts", cart });
     } catch (error) {
       console.log(error);
+      next(error);
+    }
+  }
+
+  static async deleteCart(req, res, next) {
+    try {
+      let { id } = req.params;
+      let userId = req.user.id;
+      console.log(id, userId, "di===================");
+
+      let findCart = await Cart.findByPk(id);
+      if (!findCart) {
+        throw { name: "NotFound" };
+      }
+      if (userId === findCart.UserId) {
+        console.log("masukkk");
+        let deletedCart = await Cart.destroy({ where: { id } });
+        res.status(200).json({ message: "success delete cart", deletedCart });
+      } else {
+        throw { name: "Forbidden" };
+      }
+    } catch (error) {
+      console.log(error);
+      next(error);
     }
   }
 }
