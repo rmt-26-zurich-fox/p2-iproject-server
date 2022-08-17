@@ -16,6 +16,15 @@ const errorHandler = async (err, req, res, next) => {
   if (err.name === "Invalid email or password")
     return errTemplate(401, err.name);
 
+  if (err.name === "Login require")
+    return errTemplate(401, err.name);
+
+  if (err.name === "Invalid token")
+    return errTemplate(401, err.name);
+
+  if (err.name === "JsonWebTokenError")
+    return errTemplate(401, "Invalid token");
+
   const errRes = err.response;
   if (errRes) {
     const errData = errRes.data;
