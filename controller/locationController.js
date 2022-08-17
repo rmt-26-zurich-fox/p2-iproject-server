@@ -26,12 +26,24 @@ class Controller {
             }
             res.status(200).json({ data: newData, page: Math.ceil(data.wisata.length / 8) })
         } catch (error) {
-            console.log(error)
-            console.log(error)
+            next(error)
         }
     }
 
-    
+    static async getLocationById(req, res, next) {
+        try {
+            const { id } = req.params
+            console.log(id)
+            const { data } = await axios({
+                url: `https://dev.farizdotid.com/api/purwakarta/wisata/${id}`,
+                method: 'get'
+            })
+            res.status(200).json( data )
+        } catch (error) {
+            next()
+        }
+    }
+
 }
 
 module.exports = Controller

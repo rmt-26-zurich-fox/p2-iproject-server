@@ -7,6 +7,8 @@ const { User } = require('../models')
 
 router.get('/location', locationController.getLocation)
 
+router.get('/location/:id', locationController.getLocationById)
+
 router.post('/register', userController.register)
 
 router.post('/login', userController.login)
@@ -38,5 +40,7 @@ router.post('/favourite/:id', favoriteController.createFavourite)
 router.get('/favourite', favoriteController.getFavourite)
 
 router.delete('/favourite', favoriteController.deleteFavourite)
+
+
 
 module.exports = router

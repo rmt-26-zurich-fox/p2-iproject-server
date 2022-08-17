@@ -40,7 +40,6 @@ class Controller {
             })
             res.status(200).json(favourite)
         } catch (error) {
-            console.log(error, "<<<<<")
             next(error)
         }
     }
@@ -48,13 +47,14 @@ class Controller {
     static async deleteFavourite(req, res, next) {
         try {
             const { id } = req.body
-            console.log(id)
             const favourite = await Favorite.destroy({where: {id}})
             res.status(200).json({message: 'Success delete data'})
         } catch (error) {
             next(error)
         }
     }
+
+    
 }
 
 module.exports = Controller
