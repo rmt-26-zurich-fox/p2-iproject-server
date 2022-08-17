@@ -29,8 +29,31 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    caption: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "caption required"
+        },
+        notNull: {
+          msg: "caption required"
+        }
+      }
+    },
     UserId: DataTypes.INTEGER,
-    imgUrl: DataTypes.STRING
+    imgUrl: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "image url required"
+        },
+        notNull: {
+          msg: "image url required"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Post',
