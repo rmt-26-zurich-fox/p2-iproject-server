@@ -3,6 +3,30 @@ const { signToken } = require("../helpers/jwt");
 const { User } = require("../models");
 
 class UserController {
+  static async register(req, res, next) {
+    try {
+      const { email, password, phoneNumber, address, role } = req.body;
+      // console.log(req.body);
+      let user = await User.create({
+        // name: username,
+        email,
+        password,
+        phoneNumber,
+        address,
+        role,
+      });
+      res.status(201).json({
+        message: "Register success",
+        user: {
+          id: user.id,
+          email: user.email,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+      next(err);
+    }
+  }
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
@@ -11,7 +35,16 @@ class UserController {
         throw { name: "Login fail" };
       }
       const access_token = signToken({ id: login.id, email });
-      res.status(200).json({ access_token });
+      res.status(200).json({
+        message: "Login Success",
+        access_token,
+        user: {
+          id: login.id,
+          email: login.email,
+          role: login.role,
+          imageUrl: login.imageUrl,
+        },
+      });
     } catch (error) {
       next(error);
     }
@@ -48,7 +81,6 @@ class UserController {
       next(err);
     }
   }
-  
 }
 
 module.exports = UserController;
