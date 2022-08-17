@@ -28,4 +28,4 @@ app.use(errorHandler);
 // Listen
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
-})
+});

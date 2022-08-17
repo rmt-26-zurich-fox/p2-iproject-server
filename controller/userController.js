@@ -43,7 +43,8 @@ class UserController {
 
             const findUser = await User.findOne({ where: {email} });
             if(!findUser) throw { name: "userNotFound" };
-            const idPassValid = comparePassword(password, findUser.password);
+            const isPassValid = comparePassword(password, findUser.password);
+            if(!isPassValid) throw { name: "userNotFound" };
             const payload = {
                 id: findUser.id,
                 username: findUser.username,
