@@ -17,30 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Post.init({
-    content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: "content required"
-        },
-        notNull: {
-          msg: "content required"
-        }
-      }
-    },
-    caption: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: "caption required"
-        },
-        notNull: {
-          msg: "caption required"
-        }
-      }
-    },
+    content: DataTypes.TEXT,
+    caption: DataTypes.TEXT,
     UserId: {
       type: DataTypes.INTEGER,
       allowNull: false,

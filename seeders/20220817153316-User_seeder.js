@@ -13,7 +13,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert("User", [{
+    await queryInterface.bulkInsert("Users", [{
       username: "Tanaka Ryuunosuke",
       email: "tanaka.ryu18@gmail.com",
       password: hashPassword("tanaka"),
@@ -29,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("User");
+    await queryInterface.bulkDelete("Users");
   }
 };
