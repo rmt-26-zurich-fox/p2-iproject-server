@@ -41,7 +41,18 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    UserId: DataTypes.INTEGER,
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "User Id required"
+        },
+        notNull: {
+          msg: "User Id required"
+        }
+      }
+    },
     imgUrl: {
       type: DataTypes.TEXT,
       allowNull: false,

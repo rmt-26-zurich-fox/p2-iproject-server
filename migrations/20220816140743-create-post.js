@@ -10,18 +10,21 @@ module.exports = {
       },
       content: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       caption: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       UserId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: { model: 'Users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
       imgUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       createdAt: {
