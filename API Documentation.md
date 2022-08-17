@@ -4,24 +4,24 @@
 
 List of available endpoints:
 
-- `POST /register/admin` 1
-- `POST /register/customer` 2
-- `POST /login/login` 3
-- `POST /login/login-google` 4
-- `GET /profiles/current` 5
-- `PUT /profiles/edit` 6
-- `GET /admins/products/list` 7
-- `POST /admins/products/add` 8
-- `PUT /admins/products/edit/:id` 9
-- `PATCH /admins/products/status/:id` 10
-- `GET /admins/orders/list` 11
-- `PATCH /admins/orders/status/:id` 12
+- `POST /register/admin`
+- `POST /register/customer`
+- `POST /login/login`
+- `POST /login/login-google`
+- `GET /profiles/current`
+- `PUT /profiles/edit`
+- `GET /admins/products/list`
+- `POST /admins/products/add`
+- `PUT /admins/products/edit/:id`
+- `PATCH /admins/products/status/:id`
+- `GET /admins/orders/list`
+- `PATCH /admins/orders/status/:id`
 - `GET /customers/products/list-active`
 - `GET /customers/products/list-active-pagination`
 - `GET /customers/products/detail/:id`
 - `POST /customers/orders/add/:id`
 - `GET /customers/orders/cart`
-- `DELETE /customers/orders/delete/:id` 18
+- `DELETE /customers/orders/delete/:id`
 - `GET /customers/orders/list`
 
 &nbsp;
@@ -614,7 +614,278 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## ambil nomor 13!!!
+## 13. GET /customers/products/list-active
+
+Description:
+
+- Get customer order list active status from db
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+    "message": "Success GET Product List",
+    "data": [
+        {
+            "id": "integer",
+            "name": "string",
+            "price": "integer",
+            "stock": "integer",
+            "weight": "integer",
+            "imageUrl": "string",
+            "productStatus": "string",
+            "createdAt": "date",
+            "updatedAt": "date"
+        },
+        ...
+    ]
+}
+```
+
+&nbsp;
+
+## 14. GET /customers/products/list-active-pagination
+
+Description:
+
+- Get customer order list active status from db for pagination
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+- query:
+
+```json
+{
+  "page": "integer",
+  "size": "integer",
+  "name": "string",
+  "min": "integer",
+  "max": "integer"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+    "message": "Succes read Product Pagination Filter",
+    "data": {
+        "totalItems": "integer",
+        "products": [
+            {
+                "id": "integer",
+                "name": "string",
+                "price": "integer",
+                "stock": "integer",
+                "weight": "integer",
+                "imageUrl": "string",
+                "productStatus": "string",
+                "createdAt": "date",
+                "updatedAt": "date"
+            },
+            ...
+        ],
+        "totalPages": "integer",
+        "currentPage": "integer"
+    }
+}
+```
+
+&nbsp;
+
+## 15. GET /customers/products/detail/:id
+
+Description:
+
+- Get customer product detail from db
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+- params:
+
+```json
+{
+  "id": "integer (required)"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+  "message": "Success GET Detail Product",
+  "data": {
+    "id": "integer",
+    "name": "string",
+    "price": "integer",
+    "stock": "integer",
+    "weight": "integer",
+    "imageUrl": "string",
+    "productStatus": "string",
+    "createdAt": "date",
+    "updatedAt": "date",
+    "qrcode": "string"
+  }
+}
+```
+
+_Response (404 - Not Found)_
+
+```json
+{
+  "message": "Data not found",
+  "error": "Failed to read Food with id <id>"
+}
+```
+
+&nbsp;
+
+## 16. POST /customers/orders/add/:id
+
+Description:
+
+- Add customer order by id
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+- params:
+
+```json
+{
+  "id": "integer (required)"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+  "message": "Success Add New Order to Cart",
+  "data": {
+    "orderStatus": "string",
+    "id": "integer",
+    "stock": "integer",
+    "totalCost": "integer",
+    "ProfileId": "integer",
+    "ProductId": "integer",
+    "updatedAt": "date",
+    "createdAt": "date"
+  }
+}
+```
+
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
+_Response (404 - Not Found)_
+
+```json
+{
+  "message": "Data not found",
+  "error": "Product with id <id> is not found!"
+}
+```
+
+&nbsp;
+
+## 17. GET /customers/orders/cart
+
+Description:
+
+- Get customer cart order from db
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+  "message": "Success GET Cart List",
+  "data": [
+    {
+      "id": "integer",
+      "orderStatus": "string",
+      "stock": "integer",
+      "totalCost": "integer",
+      "ProfileId": "integer",
+      "ProductId": "integer",
+      "createdAt": "date",
+      "updatedAt": "date",
+      "Product": {
+        "id": "integer",
+        "name": "string",
+        "price": "integer",
+        "stock": "integer",
+        "weight": "integer",
+        "imageUrl": "string",
+        "productStatus": "string",
+        "createdAt": "date",
+        "updatedAt": "date"
+      }
+    },
+    ...
+  ]
+}
+```
+
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
+&nbsp;
 
 ## 18. DELETE /customers/orders/delete/:id
 
@@ -668,6 +939,65 @@ OR
 {
   "message": "Data not found",
   "error": "Product with id <id> is not found!"
+}
+```
+
+&nbsp;
+
+## 19. GET /customers/orders/list
+
+Description:
+
+- Get customer order list from db
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+    "message": "Success GET Order List",
+    "data": [
+        {
+            "id": "integer",
+            "orderStatus": "string",
+            "stock": "integer",
+            "totalCost": "integer",
+            "ProfileId": "integer",
+            "ProductId": "integer",
+            "createdAt": "date",
+            "updatedAt": "date",
+            "Product": {
+                "id": "integer",
+                "name": "string",
+                "price": "integer",
+                "stock": "integer",
+                "weight": "integer",
+                "imageUrl": "string",
+                "productStatus": "string",
+                "createdAt": "date",
+                "updatedAt": "date"
+            }
+        },
+        ...
+    ]
+}
+```
+
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
 }
 ```
 
