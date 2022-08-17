@@ -72,7 +72,7 @@ class ItemController {
                 where: {id: id}
             })
             if (!item) {
-                throw {name: "Item Not Found"}
+                throw {name: "Not found"}
             }          
 
             res.status(200).json({
@@ -91,7 +91,7 @@ class ItemController {
             const item = await Item.findByPk(id)
 
             if (!item) {
-                throw {name: 'Item Not Found'}
+                throw {name: 'Not found'}
             }
             const user = await User.findByPk(+req.user.id, {attributes: ["username"]})
 

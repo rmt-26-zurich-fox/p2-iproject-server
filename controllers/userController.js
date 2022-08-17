@@ -28,11 +28,11 @@ class UserController {
                 }
             })
             if (!findUser) {
-                throw {name: "Invalid email or password, please check again"}
+                throw {name: "INVALID_EMAIL_PASSWORD"}
             }
             const checkPassword = comparePassword(password, findUser.password)
             if(!checkPassword) {
-                throw {name: "Invalid email or password, please check again"}
+                throw {name: "INVALID_EMAIL_PASSWORD"}
             }
 
             const payload = {
