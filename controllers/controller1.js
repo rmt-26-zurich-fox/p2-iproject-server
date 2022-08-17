@@ -69,6 +69,22 @@ class Controller{
         }
     }
 
+    static async productDetail(req, res, next){
+        try {
+            const { id } = req.params
+
+            const product = await Product.findOne({where:{id: id}})
+
+            if(!product){
+                throw({message: "Product isn't Found"})
+            }
+
+            res.status(200).json(product)
+        } catch (err) {
+            next(err)
+        }
+    }
+
     static async shoppingCart(req, res, next){
         try {
             const cart = await ShoppingCart.findAll({where:{UserId: req.user.id}, include:[
