@@ -3,120 +3,140 @@
         "name": "Jakarta",
         "country": "Indonesia",
         "latitude": -6.21,
-        "longtitude": 106.85
+        "longtitude": 106.85,
+        "imgUrl": "https://content.r9cdn.net/rimg/dimg/1b/61/ad879e55-city-22380-17ea1cf2107.jpg?width=1366&height=768&xhint=1472&yhint=1268&crop=true"
     },
     {
         "name": "Surabaya",
         "country": "Indonesia",
         "latitude": -7.25,
-        "longtitude": 112.75
+        "longtitude": 112.75,
+        "imgUrl": "https://ikbis.ac.id/wp-content/uploads/2021/03/Anda-di-Surabaya-Inilah-Pentingnya-Menggunakan-Konsultan-Pajak-Surabaya.jpg"
     },
     {
         "name": "Kyoto",
         "country": "Japan",
         "latitude": 35.02,
-        "longtitude": 135.75
+        "longtitude": 135.75,
+        "imgUrl": "https://res.klook.com/image/upload/Mobile/City/eqmulrv0u1xkiehfbvur.jpg"
     },
     {
         "name": "Tokyo",
         "country": "Japan",
         "latitude": 35.69,
-        "longtitude": 139.69
+        "longtitude": 139.69,
+        "imgUrl": "https://www.gotokyo.org/en/plan/tokyo-outline/images/main.jpg"
     },
     {
         "name": "Paris",
         "country": "France",
         "latitude": 48.87,
-        "longtitude": 2.33
+        "longtitude": 2.33,
+        "imgUrl": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/84000/84621-Paris.jpg"
     },
     {
         "name": "New York",
         "country": "United States of America",
         "latitude": 40.71,
-        "longtitude": -74.01
+        "longtitude": -74.01,
+        "imgUrl": "https://res.klook.com/image/upload/Mobile/City/szhx3ytpgfnhpbmsngk0.jpg"
     },
     {
         "name": "London",
         "country": "United Kingdom",
         "latitude": 51.52,
-        "longtitude": -0.11
+        "longtitude": -0.11,
+        "imgUrl": "https://img.okezone.com/content/2022/05/23/408/2598896/7-destinasi-wisata-di-london-jadi-lokasi-film-ikonik-apa-saja-8k4qj91HLa.jpg"
     },
     {
         "name": "Bangkok",
         "country": "Thailand",
         "latitude": 13.75,
-        "longtitude": 100.52
+        "longtitude": 100.52,
+        "imgUrl": "https://a.cdn-hotels.com/gdcs/production172/d459/3af9262b-3d8b-40c6-b61d-e37ae1aa90aa.jpg"
     },
     {
         "name": "Dubai",
         "country": "United Arab Emirates",
         "latitude": 25.25,
-        "longtitude": 55.28
+        "longtitude": 55.28,
+        "imgUrl": "https://a.cdn-hotels.com/gdcs/production126/d1421/11d188b3-38f4-4842-88f6-a928f14b5581.jpg"
     },
     {
         "name": "Rome",
         "country": "Italy",
         "latitude": 41.9,
-        "longtitude": 12.48
+        "longtitude": 12.48,
+        "imgUrl": "https://res.klook.com/image/upload/Mobile/City/afmqgg5h0jl9wnr1dfmf.jpg"
     },
     {
         "name": "Istanbul",
         "country": "Turkey",
         "latitude": 41.02,
-        "longtitude": 28.96
+        "longtitude": 28.96,
+        "imgUrl": "https://travelboulevard.be/wp-content/uploads/2015/05/Istanbul015.jpg"
     },
     {
         "name": "Delhi",
         "country": "India",
         "latitude": 28.67,
-        "longtitude": 77.22
+        "longtitude": 77.22,
+        "imgUrl": "https://cdn.getyourguide.com/img/location/533591d4b943b.jpeg/99.jpg"
     },
     {
         "name": "Moscow",
         "country": "Russia",
         "latitude": 55.75,
-        "longtitude": 37.62
+        "longtitude": 37.62,
+        "imgUrl": "https://a.cdn-hotels.com/gdcs/production29/d1375/234f7170-c9f4-4cee-a372-1a198e388483.jpg"
     },
     {
         "name": "Beijing",
         "country": "China",
         "latitude": 39.93,
-        "longtitude": 116.39
+        "longtitude": 116.39,
+        "imgUrl": "https://www.tripsavvy.com/thmb/LkZ9tuEaT2CgpFUJRZ0R73yJbh0=/2119x1192/smart/filters:no_upscale()/beijing-central-business-district-buildings-skyline--china-cityscape-477749918-ddee5166b7474fd881b53f87244cc6d2.jpg"
     },
     {
         "name": "Kuala Lumpur",
         "country": "Malaysia",
         "latitude": 3.17,
-        "longtitude": 101.7
+        "longtitude": 101.7,
+        "imgUrl": "https://content.r9cdn.net/rimg/dimg/1e/f2/0916f4b2-city-4723-1628829b6c4.jpg?crop=true&width=1366&height=768&xhint=1334&yhint=1020"
     },
     {
         "name": "Barcelona",
         "country": "Spain",
         "latitude": 41.38,
-        "longtitude": 2.18
+        "longtitude": 2.18,
+        "imgUrl": "https://www.icaiconf.org/wp-content/uploads/2018/07/barcelona-city-wallpaper1.jpg"
     },
     {
         "name": "Amsterdam",
         "country": "Netherlands",
         "latitude": 52.37,
-        "longtitude": 4.89
+        "longtitude": 4.89,
+        "imgUrl": "https://images.ctfassets.net/ihlmn42cjuv0/6Pr3W2fbjt5q9LMAErADrN/9949396b3ef766a81425f5683454ff3c/hero-amsterdam.jpg?fit=fill&w=1346&h=838&fm=jpg&q=93"
     },
     {
         "name": "Sydney",
         "country": "Australia",
         "latitude": -33.88,
-        "longtitude": 151.22
+        "longtitude": 151.22,
+        "imgUrl": "http://goldenstories.goldenrama.com/wp-content/uploads/2018/08/opera-house-gf1447d90c_1920.jpg"
     },
     {
         "name": "Busan",
         "country": "South Korea",
         "latitude": 35.1,
-        "longtitude": 129.04
+        "longtitude": 129.04,
+        "imgUrl": "https://www.remotelands.com/storage/media/3325/conversions/b160927069-banner-size.jpg"
     },
     {
         "name": "Seoul",
         "country": "South Korea",
         "latitude": 37.57,
-        "longtitude": 127
+        "longtitude": 127,
+        "imgUrl": "https://content.r9cdn.net/rimg/dimg/30/0c/6318617a-city-35982-163ff913019.jpg?width=1366&height=768&xhint=2421&yhint=1876&crop=true"
     }
 ]
