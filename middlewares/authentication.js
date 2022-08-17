@@ -16,7 +16,10 @@ const Authentication= async(req,res,next)=>{
         }
 
         req.user={
-            id: user.id
+            id: user.id,
+            name: user.username,
+            email: user.email,
+            phoneNumber: user.phoneNumber
         }
        next()
     } catch (error) {

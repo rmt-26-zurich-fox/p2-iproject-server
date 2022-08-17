@@ -43,6 +43,11 @@ function ErrorHandler(error,req,res,next){
               message: 'Email address invalid'
           })
         }
+        else if(error.name== "Domain or MX server does not exists"){
+          res.status(400).json({
+              message: 'Domain or MX server does not exists'
+          })
+        }
         else {
           res.status(500).json({
             message: "Internal server error",

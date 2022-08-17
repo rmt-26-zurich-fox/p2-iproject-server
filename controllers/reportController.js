@@ -2,8 +2,12 @@ const router= require('express').Router();
 const {getPagingData,getPagination}= require('../middlewares/pagination');
 const { Op } = require('sequelize');
 const{Report,Category}= require('../models');
+const midtransClient = require('midtrans-client');
+ 
+
 
 class Controller{
+
     static async getAllReport(req,res,next){
         try {
             let{page,size,name}=req.query
@@ -34,9 +38,36 @@ class Controller{
         try {
             let{imageUrl,name,CategoryId,UserId}= req.body
             let data= await Report.create({imageUrl,name,CategoryId,UserId: req.user.id})
+
+            let snap = new midtransClient.Snap({
+                // Set to true if you want Production Environment (accept real transaction).
+                isProduction : false,
+                serverKey : 'SB-Mid-server-V_dK50teqwrq_s7FnS_DHHo6'
+            });
+
+            let parameter = {
+                "transaction_details": {
+                    "order_id": `${name}-${CategoryId}-BUY`,
+                    "gross_amount": 10000
+                },
+                "credit_card":{
+                    "secure" : true
+                },
+                "customer_details": {
+                    "first_name": req.user.name,
+                    "email": req.user.email,
+                    "phone": req.user.phoneNumber
+                }
+            };
+          
+              let transaction= await snap.createTransaction(parameter)
+              let transactionUrl= transaction
+            //   console.log('transactionToken:', transactionUrl);
+            
             res.status(201).json(
-                data
+               { data, trans: transactionUrl}
             )
+
         } catch (error) {
             next(error)
         }
