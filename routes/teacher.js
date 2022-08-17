@@ -3,6 +3,7 @@ const TeacherController = require("../controllers/teacherController");
 const { authorization } = require("../middlewares/authorization");
 const router = express.Router();
 
+router.use(authorization);
 router.post("/courses/add", TeacherController.addCourse);
 router.put(
   "/courses/edit/:courseId",
@@ -10,3 +11,4 @@ router.put(
   TeacherController.editCourse
 );
 router.delete("/courses/delete/:courseId", TeacherController.deleteCourse);
+module.exports = router;
