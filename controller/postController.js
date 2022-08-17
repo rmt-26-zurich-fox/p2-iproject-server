@@ -5,6 +5,9 @@ const {
 const {
     Op
 } = require("sequelize");
+const {
+    verifyToken
+} = require("../helpers/jwt");
 
 class PostController {
 
@@ -16,6 +19,15 @@ class PostController {
             } = req.query;
             let limit = 4;
             let offset = page == 1 ? 0 : limit * (page - 1);
+
+            const {
+                access_token
+            } = req.headers;
+
+            let checkToken;
+            if(access_token) {
+                checkToken = verifyToken(access_token);
+            }
             let whereCondition = {
                 status: "Active"
             }
@@ -31,10 +43,13 @@ class PostController {
                 }
             }
             let options = {
-                where: whereCondition,
                 limit,
                 offset,
             }
+            if(!access_token || checkToken.role != "Admin") {
+                options.where = whereCondition
+            }
+          
             let {
                 count,
                 rows
@@ -58,6 +73,7 @@ class PostController {
             };
             res.status(200).json(response);
         } catch (error) {
+            console.log(error);
             next(error);
         }
     }
