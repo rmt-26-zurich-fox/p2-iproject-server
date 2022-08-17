@@ -56,13 +56,50 @@ class Controller{
         }
     }
 
+    static async googleLogin(req,res,next){
+        try {
+            const {access_token} = req.headers
+
+            const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+            const ticket = await client.verifyIdToken({
+            idToken: access_token,
+            audience: process.env.GOOGLE_CLIENT_ID,  
+            });
+            const payload = ticket.getPayload();
+            console.log(payload)
+            const [found , created] = await User.findOrCreate({where:{
+                email: payload.email
+            },
+                defaults:{
+                    username: payload.name, 
+                    email: payload.email, 
+                    password:"account gmail", 
+                },
+                hooks:false
+            })
+
+            let token = sign({id : found.id}, process.env.SECRET_KEY)
+
+            
+                res.status(200).json({
+                    id: found.id,
+                    access_token: token
+                })
+            
+
+        } catch (err) {
+            console.log(err)
+            next(err)
+        }
+    }
+
    static async fetchProduct(req, res, next){
         try {
             const { search , page , size} = req.query
 
             let {options, currentPage} = Product.filterProduct(search, page , size)
             const products = await Product.findAndCountAll(options)
-
             res.status(200).json({totalPages: Math.ceil(products.count/ options.limit), products, currentPage})
         } catch (err) {
             next(err)

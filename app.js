@@ -15,8 +15,10 @@ app.use(express.json())
 
 app.post('/register' , controller1.register)
 app.post('/login', controller1.login)
+app.post('/google-sign-in', controller1.googleLogin)
 app.get('/products', controller1.fetchProduct)
 app.get('/products/:id', controller1.productDetail)
+
 app.use(authentication)
 app.get('/shoppingcarts', controller1.shoppingCart)
 app.post('/shoppingcart/:productId', controller1.createShoppingCart)

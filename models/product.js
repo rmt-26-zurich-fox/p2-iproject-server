@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Op
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
     
     static filterProduct(search, page, size){
-      console.log(page)
       if(typeof page === "undefined" ){
         page = 1
       }
@@ -42,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       }
-      console.log(typeof page, page)
+
       return {options, currentPage: page}
     }
   }
