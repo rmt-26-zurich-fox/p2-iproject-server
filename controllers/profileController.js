@@ -1,4 +1,10 @@
-const { Profile, ProfileLikeThread, ProfileTeam, Team } = require("../models");
+const {
+  Profile,
+  ProfileLikeThread,
+  ProfileTeam,
+  Team,
+  Thread,
+} = require("../models");
 
 class ProfileController {
   static async createProfile(req, res, next) {
@@ -61,17 +67,16 @@ class ProfileController {
 
   static async findOneProfile(req, res, next) {
     try {
-      const { profileId } = req.params;
+      const { id } = req.user;
       let targetProfile = await Profile.findOne({
         where: {
-          id: profileId,
-        },
-        include: {
-          model: ProfileLikeThread,
+          UserId: id,
         },
       });
-      delete targetProfile.dataValues.createdAt;
-      delete targetProfile.dataValues.updatedAt;
+      if (targetProfile) {
+        delete targetProfile.dataValues.createdAt;
+        delete targetProfile.dataValues.updatedAt;
+      }
       res.status(200).json(targetProfile);
     } catch (error) {
       next(error);
