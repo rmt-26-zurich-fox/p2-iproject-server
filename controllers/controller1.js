@@ -2,6 +2,7 @@ const { hashSync, compareSync } = require("bcryptjs")
 const { sign, verify} = require('jsonwebtoken')
 const { User, Product, ShoppingCart} = require('../models')
 const {Op} = require('sequelize')
+const {OAuth2Client} = require('google-auth-library');
 
 class Controller{
     static async register(req, res, next){
@@ -61,19 +62,20 @@ class Controller{
             const {access_token} = req.headers
 
             const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
             const ticket = await client.verifyIdToken({
-            idToken: access_token,
-            audience: process.env.GOOGLE_CLIENT_ID,  
+                idToken: access_token,
+                audience: process.env.GOOGLE_CLIENT_ID,  
             });
             const payload = ticket.getPayload();
-            console.log(payload)
+            // console.log(payload)
             const [found , created] = await User.findOrCreate({where:{
                 email: payload.email
             },
                 defaults:{
                     username: payload.name, 
                     email: payload.email, 
+                    phoneNumber: "----------",
+                    address: "address google",
                     password:"account gmail", 
                 },
                 hooks:false
