@@ -2,6 +2,9 @@ const {
     Post,
     Category
 } = require("../models");
+const {
+    Op
+} = require("sequelize");
 
 class PostController {
 
@@ -11,19 +14,19 @@ class PostController {
             const {
                 page = 1, categoryId, id, search
             } = req.query;
-            let limit = 3;
+            let limit = 4;
             let offset = page == 1 ? 0 : limit * (page - 1);
             let whereCondition = {
                 status: "Active"
             }
             if (categoryId) {
-                whereCondition.genreId = genreId
+                whereCondition.CategoryId = categoryId
             }
             if (id) {
                 whereCondition.id = id
             }
             if (search) {
-                whereCondition.title = {
+                whereCondition.name = {
                     [Op.iLike]: `%${search}%`
                 }
             }
