@@ -1,9 +1,12 @@
 const express = require('express')
 const passport = require('passport')
+const Strategy = require('passport-discord/lib/strategy')
 const productController = require('../controllers/productController')
 const userController = require('../controllers/userController')
+const { createToken } = require('../helpers/helper')
 const authentication = require('../middlewares/authentication')
 const authorization = require('../middlewares/authorization')
+
 
 
 const router = express.Router()
@@ -14,18 +17,27 @@ router.post('/admin/login', userController.adminLogin)
 router.post('/cust/register', userController.registerCustomer )
 router.post('/cust/login', userController.loginCustomer )
 
-router.get('/api/auth/discord/', passport.authenticate('discord'), (req,res)=>{
-    res.status(200).json({message:"masuk get discord"})
-})
-router.get('/api/auth/discord/redirect', passport.authenticate('discord'), (req,res)=>{
-    res.status(200).json({message:"masuk post discord"})
-})
+// router.get('/api/auth/discord/', passport.authenticate('discord'))
+// router.get('/api/auth/discord/redirect', passport.authenticate('discord'), (req,res)=>{
+//     let {code} = req.query
+//     console.log(code);
+//     router.post('https://discord.com/api/oauth2/token', (req,res)=>{
+//         const data={
+//             'client_id' : process.env.DISCORD_CLIENT_ID,
+//             'client_secret' : process.env.DISCORD_CLIENT_SECRET,
+//             'grant_type': 'authorization_code',
+//             'code' : code,
+//             'redirect_uri': process.env.DISCORD_CLIENT_REDIRECT      
+//         }
+//         console.log(res);
+//     })
+    
+// })
+// router.get('/products', productController.getProducts)
+// router.get('/products/:productId', productController.getOneProduct)
 
-router.get('/products', productController.getProducts)
-router.get('/products/:productId', productController.getOneProduct)
 
-
-// router.use(authentication)
+router.use(authentication)
 router.post('/products/add',authorization, productController.createProduct)
 router.get('/cart', productController.getCart)
 router.delete('/cart', productController.emptyCart)
