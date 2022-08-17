@@ -3,13 +3,13 @@ const axios = require("axios");
 class Controller {
   static async findMovie(req, res, next) {
     try {
-      const { search } = req.body;
+      const { keyword } = req.query;
       const { data } = await axios.get(
         "https://api.themoviedb.org/3/search/movie",
         {
           params: {
             api_key: "05190277617ad5aa6569afc189bf57d3",
-            query: search,
+            query: keyword,
             page: 1,
             include_adult: true,
           },
@@ -42,6 +42,23 @@ class Controller {
     try {
       const { data } = await axios.get(
         "https://api.themoviedb.org/3/trending/movie/week",
+        {
+          params: {
+            api_key: "05190277617ad5aa6569afc189bf57d3",
+            page: 1,
+          },
+        }
+      );
+      res.status(200).json(data);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async topVoteMovie(req, res, next) {
+    try {
+      const { data } = await axios.get(
+        "https://api.themoviedb.org/3/movie/top_rated",
         {
           params: {
             api_key: "05190277617ad5aa6569afc189bf57d3",
