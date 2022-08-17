@@ -89,5 +89,50 @@ module.exports = class QuoteController {
         }
     }
 
+    static async quoteOfTheDay(req, res, next){
+
+        try {
+
+            const { data } = await axios({
+                method: 'get',
+                url: 'https://favqs.com/api/qotd',
+            })
+
+            res.status(200).json(data)
+            
+        } catch (error) {
+
+            console.log(error)
+            next(error)
+            
+        }
+
+    }
+
+    static async tesDiscord(req, res, next){
+
+        const token = 'TOKEN'
+
+        try {
+
+            const { data } = await axios({
+                method: 'get',
+                url: 'https://discord.com/api/v9/users',
+                headers: {
+                    Authorization: `Bot ${token}`
+                }
+            })
+
+            console.log(data)
+            res.status(200).json(data)
+            
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+
+        
+    }
     
 }

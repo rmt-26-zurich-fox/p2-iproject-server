@@ -26,7 +26,8 @@ const io = require('socket.io')(http, {
     });
     io.on('connection', (socket) => {
       socket.on('my message', (msg) => {
-        io.emit('my broadcast', `server: ${msg}`);
+        
+        io.emit('my broadcast', `${msg}`);
       });
     });
 
