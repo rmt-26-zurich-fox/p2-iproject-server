@@ -10,13 +10,16 @@ const errorHandler = async (err, req, res, next) => {
   if (err.name === "Password is required")
     return errTemplate(400, err.name);
 
+  if (err.name === "Already in your bookmarks")
+    return errTemplate(400, err.name);
+
   if (err.name === "SequelizeValidationError")
     return errTemplate(400, err.errors[0].message);
 
   if (err.name === "Invalid email or password")
     return errTemplate(401, err.name);
 
-  if (err.name === "Login require")
+  if (err.name === "Login required")
     return errTemplate(401, err.name);
 
   if (err.name === "Invalid token")
@@ -31,6 +34,11 @@ const errorHandler = async (err, req, res, next) => {
     const status_code = errData.status_code;
     const status_message = errData.status_message;
     if (status_code === 22) return errTemplate(400, status_message);
+  }
+
+  if (errRes) {
+    const errMsg = errRes.data.errors;
+    return errTemplate(400, errMsg)
   }
 
   errTemplate(500, "Internal server error");

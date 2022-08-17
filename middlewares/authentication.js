@@ -4,7 +4,7 @@ const { User } = require("../models");
 async function authentication(req, res, next) {
   try {
     const access_token = req.headers.access_token;
-    if (!access_token) throw { name: "Login require" };
+    if (!access_token) throw { name: "Login required" };
 
     const id = verifyToken(access_token);
     const findUser = await User.findByPk(id);
