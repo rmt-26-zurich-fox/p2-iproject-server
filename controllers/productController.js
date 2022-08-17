@@ -181,7 +181,7 @@ class ProductController {
 
             const qrCodeData = await axios({
                 method: "get",
-                url: `https://api.happi.dev/v1/qrcode?data=http://localhost:8080/product-detail/${data.id}&width=&dots=000000&bg=FFFFFF&apikey=${process.env.SECRET_HAPPI_API_KEY}`,
+                url: `https://api.happi.dev/v1/qrcode?data=https://baking-fortress-client.web.app/product-detail/${data.id}&width=&dots=000000&bg=FFFFFF&apikey=${process.env.SECRET_HAPPI_API_KEY}`,
             })
 
             data.dataValues.qrcode = qrCodeData.data.qrcode;
