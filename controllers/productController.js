@@ -36,17 +36,27 @@ class productController {
     try {
       // console.log(req.headers);
       const { productId } = req.params;
-      const addedToCart = await Cart.create({
-        userId: req.loggedUser.id,
-        productId,
-      });
-      if (addedToCart) {
-        res.status(201).json({
-          message: `Success adding product with id ${addedToCart.productId} to cart!`,
-        });
-      } else {
-        throw { name: "not found" };
-      }
+        const findProduct = await Product.findByPk(productId)
+        if(findProduct){
+            try {
+                const addedToCart = await Cart.create({
+                  userId: req.loggedUser.id,
+                  productId,
+                  price: findProduct.price
+                });
+                if (addedToCart) {
+                  res.status(201).json({
+                    message: `Success adding product with id ${addedToCart.productId} to cart!`,
+                  });
+                } else {
+                  throw { name: "not found" };
+                }
+                
+            } catch (error) {
+                
+            }
+        }
+      
     } catch (error) {
       //   console.log(error);
       if (error.name === "not found") {
@@ -84,7 +94,7 @@ class productController {
     const { name, type, description, price, imageUrl1, imageUrl2, videolink } =
       req.body;
     try {
-      const createdNews = await Product.create({
+      const createdProduct6 = await Product.create({
         name,
         type,
         description,
@@ -155,9 +165,28 @@ class productController {
 
       if (empty) {
         res.status(200).json({ message: "checkout succesful" });
-      }
+      } 
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  static async getTotalPrice (req,res){
+    try {
+        const totalPrice = await Cart.sum("price",{
+            where:{
+                userId : req.loggedUser.id
+            }
+        })
+        // console.log(totalPrice);
+        if(totalPrice){
+            res.status(200).json(totalPrice)
+        }else if (totalPrice===null){
+            res.status(200).json(0)
+        }
+
+    } catch (error) {
+        res.status(500).json({message:"Internal Server Error"})
     }
   }
 }
