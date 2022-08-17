@@ -78,6 +78,7 @@ class RequestController {
       next(error);
     }
   }
+  
 }
 
 module.exports = RequestController;
