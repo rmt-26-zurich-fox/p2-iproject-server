@@ -9,6 +9,7 @@ class TeacherController {
         description,
         duration,
         price,
+        UserId: req.user.id,
       });
       res.status(201).json({
         message: `successfully created new Course`,
@@ -28,9 +29,8 @@ class TeacherController {
         { title, description, duration, price },
         { where: { id: courseId } }
       );
-      res
-        .status(200)
-        .json({ message: `Course ${response.title} has been edited` });
+      console.log(response);
+      res.status(200).json({ message: `Course has been edited` });
     } catch (error) {
       next(error);
     }
@@ -48,7 +48,7 @@ class TeacherController {
         throw { name: `NotFound` };
       } else {
         res.status(200).json({
-          message: `Course ${course.title} is deleted`,
+          message: `Course is deleted`,
         });
       }
     } catch (error) {

@@ -5,11 +5,10 @@ class StudentController {
     try {
       const { courseId } = req.params;
       await ShoppingCart.create({
-        where: {
-          UserId: req.user.id,
-          CourseId: courseId,
-        },
+        UserId: req.user.id,
+        CourseId: courseId,
       });
+      console.log(req.user);
       res.status(201).json({
         message: `Course added to shopping cart`,
       });
@@ -23,6 +22,9 @@ class StudentController {
       let data = await ShoppingCart.findAll({ where: { UserId: req.user.id } });
       const courseData = data.Course;
       const response = await CourseList.create({ courseData });
+      res.status(201).json({
+        message: `Course added to course list`,
+      });
     } catch (error) {
       next(error);
     }
