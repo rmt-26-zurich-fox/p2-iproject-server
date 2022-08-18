@@ -1,0 +1,212 @@
+[
+    {
+        "name": "Tray",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/2/1/91f06d77-34ce-4701-b37d-2310e73fe464.jpg",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 19.8
+    },
+    {
+        "name": "Mini Couch",
+        "imgUrl" : "https://waterbasecoating.com/wp-content/uploads/2021/02/finishing-rotan-scaled-646x345.jpg",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 559.8
+    },
+    {
+        "name": "Shopping Bag",
+        "imgUrl" : "https://i0.wp.com/rimbakita.com/wp-content/uploads/2020/05/tas-rotan.jpg",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 47.1
+    },
+    {
+        "name": "Cloth Hanger",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2020/6/6/263a01e2-2f74-465c-aded-4354ce3eacb2.jpg",
+        "material": "Bamboo",
+        "stock": 10,
+        "price" : 22.7
+    },
+    {
+        "name": "Southport Rattan Screen Divider ",
+        "imgUrl" : "https://cdn11.bigcommerce.com/s-31djhj4ixx/images/stencil/1280x1280/products/13741/10494/Mocka_Southport_Rattan_Screen_Divider_Black_7__98898.1645479410.jpg?c=1",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 310.5
+    },
+    {
+        "name": "Rattan Decor Stand",
+        "imgUrl" : "https://cdn11.bigcommerce.com/s-31djhj4ixx/images/stencil/1280x1280/products/13704/9670/MCP_MKA_112102_336__04123.1639357730.jpg?c=1",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 29.8
+    },
+    {
+        "name": "Levi Bar Stool",
+        "imgUrl" : "https://cdn11.bigcommerce.com/s-31djhj4ixx/images/stencil/1280x1280/products/13948/10985/Mocka_Levi_Barstool_Black_1__46231.1647822800.jpg?c=1",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 149.9
+    },
+    {
+        "name": "Dried Palm Decor with Vase",
+        "imgUrl" : "https://m.media-amazon.com/images/I/81jv1JwfbiL._SL1500_.jpg",
+        "material": "Palm Tree",
+        "stock": 10 ,
+        "price" : 81.9
+    },
+    {
+        "name": "Wall Mirror",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/3/3/01aadc24-e163-4c18-acd4-a65088340190.jpg",
+        "material": "Kiefer Wood",
+        "stock": 10 ,
+        "price" : 99.8
+    },
+    {
+        "name": "Fisherman's Ship Decoration ",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/product-1/2019/12/12/batch-upload/batch-upload_87394826-04a4-424c-827b-d06b4bb6fc6d.jpg",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 10.8
+    },
+    {
+        "name": "Ornamen Dekoration",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/hDjmkQ/2022/8/10/ae39b33c-94de-4431-9ed1-393fa058b574.jpg",
+        "material": "Resin",
+        "stock": 10 ,
+        "price" : 139.9
+    },
+    {
+        "name": "Laundry Basket",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/11/21/5e6bdb03-b6da-4b2d-8ebb-655684b68533.jpg",
+        "material": "Seagrass",
+        "stock": 10 ,
+        "price" : 37.9
+    },
+    {
+        "name": "Square Basket",
+        "imgUrl" : "https://www.ikea.com/om/en/images/products/branaes-basket-rattan__0906446_pe575326_s5.jpg?f=xl",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 24.0
+    },
+    {
+        "name": "Seagrass Carpet",
+        "imgUrl" : "https://cdn.shopify.com/s/files/1/0350/6402/1037/products/1_67c89c16-e555-411b-887a-f3629d0b02d0_1024x1024@2x.jpg?v=1599585971",
+        "material": "Seagrass",
+        "stock": 10 ,
+        "price" : 41.0
+    },
+    {
+        "name": "Bamboo cup 1",
+        "imgUrl" : "https://content.instructables.com/ORIG/FE1/Y39G/H4AGJVJU/FE1Y39GH4AGJVJU.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=2f10d7c67eab28a575e421407b3e75e0",
+        "material": "Bamboo",
+        "stock": 10 ,
+        "price" : 13.2
+    },
+    {
+        "name": "Bamboo cup 2",
+        "imgUrl" : "https://ancientcookware.com/images/stories/virtuemart/product/col_8615_1.jpg",
+        "material": "Bamboo",
+        "stock": 10 ,
+        "price" : 13.2
+    },
+    {
+        "name": "Natural Carpet Seroja Jute",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/9/29/2d9ea142-e3de-4623-a623-cb8795e448e9.jpg",
+        "material": "Jute Fiber",
+        "stock": 10 ,
+        "price" : 47.9
+    },
+    {
+        "name": "Topeng Decoration",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/23/481d2969-795e-43a4-b98a-f42f161e28ed.jpg",
+        "material": "acacia wood",
+        "stock": 10 ,
+        "price" : 15.5
+    },
+    {
+        "name": "Wallhanging Mahony Mask",
+        "imgUrl" : "https://www.99.co/blog/indonesia/wp-content/uploads/2021/06/singesinfo.jpg",
+        "material": "Mahogany Ghani",
+        "stock": 10 ,
+        "price" : 88.9
+    },
+    {
+        "name": "Bamboo Sleep Lamp",
+        "imgUrl" : "https://cf.shopee.co.id/file/669c46b43937a6cbc8556697c7d5111f",
+        "material": "Bamboo",
+        "stock": 10 ,
+        "price" : 69.9
+    },
+    {
+        "name": "Teak Decor",
+        "imgUrl" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-5RMUMfvTVjMeVReGV3fDzeWHcq2IMFwvQUyx_-DLQZEWqBft&usqp=CAc",
+        "material": "Teak Wood",
+        "stock": 10 ,
+        "price" : 75 
+    },
+    {
+        "name": "Macrame Wallhanging Earth Colour",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/9/10/275901b0-ad96-493f-9c03-46d918fc7293.jpg",
+        "material": "Cotton",
+        "stock": 10 ,
+        "price" : 69.9
+    },
+    {
+        "name": "Macrame Dain Rose",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/hDjmkQ/2021/2/4/98e5ccba-0f20-433c-b21a-92c43abb58bd.jpg",
+        "material": "Cotton",
+        "stock": 10 ,
+        "price" : 69.9
+    },
+    {
+        "name": "Macrame Dain Rose",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/hDjmkQ/2021/2/4/31524b2c-e68f-4887-b002-699ce9709cfd.jpg",
+        "material": "Cotton",
+        "stock": 10 ,
+        "price" : 69.9
+    },
+    {
+        "name": "Wooden Wall Clock",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/11/4/220bbcd9-304a-4d8f-87ff-c1a93d0b4593.jpg",
+        "material": "Teak Wood",
+        "stock": 10 ,
+        "price" : 29.9
+    },
+    {
+        "name": "Wallhangin crafted Gunungan Wayang Black Color",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/hDjmkQ/2022/8/11/21429d45-f129-472b-9034-feafe88782a8.jpg",
+        "material": "Teak Wood",
+        "stock": 10 ,
+        "price" : 449.9
+    },
+    {
+        "name": "Wallhangin crafted Gunungan Wayang Natular Wood Color",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/hDjmkQ/2022/8/11/6fef7932-8338-45dd-a401-02aa0b15a62d.jpg",
+        "material": "Teak Wood",
+        "stock": 10 ,
+        "price" : 449.9
+    },
+    {
+        "name": "Baratayudha Warhorse Crafted Wood Wallhagin",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/product-1/2020/8/5/1306439/1306439_b1a14c94-2e59-4a8b-9982-3ba2a45ece9a_1024_1024.jpg",
+        "material": "Wood & brass",
+        "stock": 10 ,
+        "price" : 1350
+    },
+    {
+        "name": "Wall Decoration Bali Vintage Brass",
+        "imgUrl" : "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/12/27/8b2959b2-ae53-40c7-aa99-5129cac3b18d.jpg",
+        "material": "Rattan",
+        "stock": 10 ,
+        "price" : 113
+    },
+    {
+        "name": "Bamboo Bell",
+        "imgUrl" : "https://www.99.co/blog/indonesia/wp-content/uploads/2021/09/lonceng-bambu.jpg",
+        "material": "Bamboo",
+        "stock": 10 ,
+        "price" : 34.9
+    }
+]

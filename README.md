@@ -1,2 +1,2 @@
-# p2-iproject-server
-Individual Project - Server
+# Renjana-server
+Renjana - Server
