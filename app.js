@@ -39,6 +39,18 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
+// Define route for heroku
+app.get('/', (req, res, next) => {
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            name: 'https://movies-5001.herokuapp.com/',
+            version: '0.1.0'
+        }
+    });
+});
+
 // Get Image after upload (Multer)
 app.use(multer({storage: storage, fileFilter: fileFilter}).single("imageUrl"));
 app.use("/images", express.static("images"));
