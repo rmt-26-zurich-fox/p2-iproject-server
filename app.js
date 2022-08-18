@@ -9,32 +9,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post("/login", async (req, res, next) => {
-  try {
-    let { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
-    if (!user) {
-      throw { name: "Not Found" };
-    }
-    const isPasswordValid = compareHash(password, user.password);
-    if (!isPasswordValid) {
-      throw { name: "password invalid" };
-    }
-    const payload = {
-      id: user.id,
-    };
-    const token = createToken(payload);
-    res.status(200).json({
-      access_token: token,
-      id: user.id,
-      role: user.role,
-    });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-});
-
 app.get("/agents", async (req, res, next) => {
   try {
     const { data } = await axios.get(
@@ -75,9 +49,8 @@ app.get("/agents", async (req, res, next) => {
       };
     });
     res.status(200).json(agents);
-    // console.log(data.data[0].displayName);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 });
 
@@ -90,38 +63,15 @@ app.get("/:map/:type/:site", async (req, res, next) => {
     // console.log(strategies);
     res.status(200).json(strategies);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 });
 
-app.get("/map", async (req, res, next) => {
-  try {
-    const url =
-      "https://ap.api.riotgames.com/val/content/v1/contents?locale=id-ID";
+app.use((err, req, res, next) => {
+  let code = 500;
+  let msg = "Internal Server Error";
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    // Add Your Key Here!!!
-    axios.defaults.headers.common = {
-      "X-Riot-Token": "RGAPI-74ea5a79-c529-44dd-8fc4-a4fcd75b62e2",
-    };
-
-    const smsD = await axios({
-      method: "post",
-      url: url,
-      data: {
-        message: "Some message to a lonely_server",
-      },
-      config,
-    });
-    console.log(smsD);
-  } catch (error) {
-    console.log(error);
-  }
+  res.status(code).json({ message: msg });
 });
 
 app.listen(port, () => {
