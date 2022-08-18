@@ -7,24 +7,26 @@ class UserController {
   static async createUser(req, res, next) {
     try {
       const { email, password, phoneNumber, name } = req.body;
-      const verifyEmail = await axios.get(
-        `https://emailvalidation.abstractapi.com/v1/?api_key=1643f60bd7484bab980621ea880f57fd&email=${email}`
-      );
+      const verifyEmail = await axios({
+        url: `https://emailvalidation.abstractapi.com/v1/?api_key=1643f60bd7484bab980621ea880f57fd&email=${email}`,
+        method: "GET",
+      });
       if (verifyEmail.data.quality_score * 10 <= 5) {
         throw { name: `not a valid email` };
       }
-      const verifyPhone = await axios.get(
-        `https://phonevalidation.abstractapi.com/v1/?api_key=0941b288e2894e4fbfb51e876d696ad1&phone=+62${phoneNumber.slice(
-          1
-        )}`
-      );
+      // const verifyPhone = await axios({
+      //   url: `https://phonevalidation.abstractapi.com/v1/?api_key=0941b288e2894e4fbfb51e876d696ad1&phone=+62${phoneNumber.slice(
+      //     1
+      //   )}`,
+      //   method: "GET",
+      // });
 
-      if (
-        verifyPhone.data.location !== "Indonesia" ||
-        !verifyPhone.data.valid
-      ) {
-        throw { name: `not a valid phonenumber` };
-      }
+      // if (
+      //   verifyPhone.data.location !== "Indonesia" ||
+      //   !verifyPhone.data.valid
+      // ) {
+      //   throw { name: `not a valid phonenumber` };
+      // }
       let urlRole = "Customer";
       if (password === "MenjadiAdmin") {
         urlRole = "Admin";
