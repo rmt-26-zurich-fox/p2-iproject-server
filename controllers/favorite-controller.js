@@ -14,7 +14,11 @@ module.exports = class FavoriteController{
 
                     {
                         model: Post,
-                        include: User
+                        attributes: ['id', 'desc', 'CategoryId','UserId'],
+                        include: {
+                            model: User,
+                            attributes: ['id', 'username', 'email']
+                        }
                     }
                 ]
             })

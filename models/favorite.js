@@ -16,8 +16,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Favorite.init({
-    UserId: DataTypes.INTEGER,
-    PostId: DataTypes.INTEGER
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {msg: 'UserId is require'},
+        notEmpty: {msg: 'UserId is require'}
+      }
+    },
+    PostId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {msg: 'PostId is require'},
+        notEmpty: {msg: 'PostId is require'}
+      }
+    }
   }, {
     sequelize,
     modelName: 'Favorite',
