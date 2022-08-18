@@ -1,5 +1,7 @@
 const { getPagination, getPagingData } = require("../helpers/pagination");
+const axios = require("axios");
 const { Course } = require("../models");
+const { Op } = require("sequelize");
 
 class CoursesController {
   static async fetchCourses(req, res, next) {

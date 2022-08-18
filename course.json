@@ -5,5 +5,54 @@
         "duration": 7,
         "UserId":1,
         "price": 350000
+    },
+    {
+        "title": "English for elementary school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
+    },
+    {
+        "title": "English for elementary school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
+    },
+    {
+        "title": "English for elementary school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
+    },
+    {
+        "title": "English for elementary school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
+    },
+    {
+        "title": "English for elementary school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
+    },
+    {
+        "title": "English for middle school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
+    },
+    {
+        "title": "English for High school",
+        "description":"Introductory english course for elementary school level including practice test in writing,reading and listening",
+        "duration": 7,
+        "UserId":1,
+        "price": 350000
     }
 ]

@@ -1,5 +1,6 @@
 const { compareHash } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
+var nodemailer = require("nodemailer");
 const { User } = require("../models");
 
 class UserController {
@@ -7,14 +8,64 @@ class UserController {
     try {
       const { username, email, password, fullName, role, location } = req.body;
 
-      let registerUser = await User.create({
+      var transporter = nodemailer.createTransport({
+        service: "yahoo",
+        auth: {
+          user: "individualprojectphase2@hotmail.com",
+          pass: "satu2satu2TIGA",
+        },
+      });
+
+      const code = Math.floor(Math.random() * 100 + 54);
+      const baseUrl = "http://localhost:3000";
+      const host = req.get("host");
+
+      // const options = {
+      //   from: "individualprojectphase2@gmail.com",
+      //   to: `${email}`,
+      //   subject: `Email Verification`,
+      //   text: `Hello, please click on the link to verify your email ${baseUrl}/verify?id=${code}`,
+      // };
+
+      // transporter.sendMail(options, (error, response) => {
+      //   if (error) {
+      //     console.log(error);
+      //     res.end("error");
+      //   } else {
+      //     console.log("Message sent: " + response.message);
+      //     res.end("sent");
+      //   }
+      // });
+
+      // if (req.protocol + "://" + req.get("host") == "http://" + host) {
+      //   console.log("Domain is matched. Information is from Authentic email");
+      //   if (req.query.id == rand) {
+      //     return (registerUser = await User.create({
+      //       username,
+      //       email,
+      //       password,
+      //       fullName,
+      //       role,
+      //       location,
+      //     }));
+      //     console.log("email is verified");
+      //     // res.end("Email " + mailOptions.to + " is been Successfully verified");
+      //   } else {
+      //     console.log("email is not verified");
+      //     res.end("Bad Request");
+      //   }
+      // } else {
+      //   res.end("Request is from unknown source");
+      // }
+
+      const registerUser = await User.create({
         username,
         email,
         password,
         fullName,
-        role,
         location,
       });
+
       res.status(201).json({
         message: `User has been registered`,
         id: registerUser.id,

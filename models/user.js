@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.beforeCreate((user, options) => {
     user.password = passwordHash(user.password);
+    user.role = "Student";
   });
   return User;
 };
