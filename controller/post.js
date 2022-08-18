@@ -194,15 +194,14 @@ class PostController {
     static async deleteComment(req, res, next) {
         try {
             const { id, commentId } = req.params;
-            console.log(id, commentId);
-            const findPost = await Post.findByPk(id);
-            if (!findPost) {
-                throw { name: "postNotFound" };
-            }
-            const findComment = await Comment.findByPk(commentId);
-            if (!findComment) {
-                throw { name: "CommentNotFound" };
-            }
+            // const findPost = await Post.findByPk(id);
+            // if (!findPost) {
+            //     throw { name: "postNotFound" };
+            // }
+            // const findComment = await Comment.findByPk(commentId);
+            // if (!findComment) {
+            //     throw { name: "CommentNotFound" };
+            // }
             const deleteComment = await Comment.destroy({
                 where: {
                     id: commentId
@@ -220,8 +219,6 @@ class PostController {
     static async getUserLike(req, res, next) {
         try {
             const { id } = req.params;
-            console.log(id);
-            console.log(req.user.id);
             if (req.user.id !== +id) {
                 throw { name: "Forbidden" };
             }

@@ -51,7 +51,16 @@ async function errorHandler(error, req, res, next) {
         res.status(400).json({
             message: ["You dont like this post yet"]
         });
+    } else if (error.name === "postNotFound") {
+        res.status(404).json({
+            message: ["Post Not Found"]
+        });
+    } else if (error.name === "CommentNotFound") {
+        res.status(404).json({
+            message: ["Comment Not Found"]
+        });
     }
+
     else {
         res.status(500).json({
             message: ["Internal Server Error"]
