@@ -7,7 +7,7 @@
     },
     {
         "id": 2,
-        "desc": "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
+        "desc": "SequelizeForeignKeyConstraintError, error in sequelize",
         "UserId": 2,
         "CategoryId": 2
     },

@@ -144,5 +144,7 @@ module.exports = class QuoteController {
 
         
     }
+
+   
     
 }
