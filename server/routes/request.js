@@ -1,8 +1,13 @@
-const serviceRouter = require("express").Router();
+const requestRouter = require("express").Router();
+const PaymentController = require("../controllers/paymentController");
 const RequestController = require("../controllers/requestController");
 
-serviceRouter.get("/", RequestController.fetchAllRequest);
-serviceRouter.post("/product/:productId", RequestController.addProduct);
-serviceRouter.post("/service/:serviceId", RequestController.addService);
+requestRouter.get("/", RequestController.fetchAllRequest);
+requestRouter.post("/product/:ProductId", RequestController.addProduct);
+requestRouter.post("/service/:ServiceId", RequestController.addService);
+requestRouter.delete("/product/:ProductId", RequestController.cancelProduct);
+requestRouter.delete("/service/:ServiceId", RequestController.cancelService);
+requestRouter.get("/payment", PaymentController.getBill);
 
-module.exports = serviceRouter;
+
+module.exports = requestRouter;
