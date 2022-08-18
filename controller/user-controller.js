@@ -14,19 +14,19 @@ class UserController {
       if (verifyEmail.data.quality_score * 10 <= 5) {
         throw { name: `not a valid email` };
       }
-      const verifyPhone = await axios({
-        url: `https://phonevalidation.abstractapi.com/v1/?api_key=0941b288e2894e4fbfb51e876d696ad1&phone=+62${phoneNumber.slice(
-          1
-        )}`,
-        method: "GET",
-      });
+      // const verifyPhone = await axios({
+      //   url: `https://phonevalidation.abstractapi.com/v1/?api_key=0941b288e2894e4fbfb51e876d696ad1&phone=+62${phoneNumber.slice(
+      //     1
+      //   )}`,
+      //   method: "GET",
+      // });
 
-      if (
-        verifyPhone.data.location !== "Indonesia" ||
-        !verifyPhone.data.valid
-      ) {
-        throw { name: `not a valid phonenumber` };
-      }
+      // if (
+      //   verifyPhone.data.location !== "Indonesia" ||
+      //   !verifyPhone.data.valid
+      // ) {
+      //   throw { name: `not a valid phonenumber` };
+      // }
       let urlRole = "Customer";
       if (password === "MenjadiAdmin") {
         urlRole = "Admin";
