@@ -24,7 +24,6 @@ class Controller {
                     newData.push(data.wisata[i])
                 }
             }
-            console.log({ data: newData, page: Math.ceil(data.wisata.length / 8) })
             res.status(200).json({ data: newData, page: Math.ceil(data.wisata.length / 8) })
         } catch (error) {
             next(error)
