@@ -5,17 +5,17 @@ let auth = async (req, res, next) => {
     try {
         let {access_token} = req.headers
         if(!access_token){
-            throw({name: `No token`})
+            throw({name: `NoToken`})
         }
 
         let payload = verifyJwt(access_token)
         if(!payload){
-            throw({name: `No token`})
+            throw({name: `NoToken`})
         }
 
         let foundUser = await User.findByPk(+payload.id)
         if(!foundUser) {
-            throw({name: `No token`})
+            throw({name: `NoToken`})
         }
         req.user = {
             id: foundUser.id,
