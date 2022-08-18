@@ -1,6 +1,6 @@
 const { User, Profile, House, Image, HouseFacility, Facility, Category } = require("../models");
 const { Op } = require("sequelize");
-const axios = require("axios");
+const nodemailer = require("nodemailer");
 
 class Controller {
   static async getAllHouses(req, res, next) {
@@ -179,6 +179,27 @@ class Controller {
       };
 
       const transactionToken = await snap.createTransaction(parameter);
+
+      const transporter = nodemailer.createTransport({
+        service: 'hotmail',
+        auth: {
+          user: process.env.email_username,
+          pass: process.env.email_password,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.email_username,
+        to: user.email,
+        subject: "Transaction notification",
+        text: `Hello, ${user.username}. You have made a transaction invoice at Serum. Thank you.`,
+      };
+
+      transporter.sendMail(mailOptions, (err) => {
+        if (err) {
+          return res.status(500).json({ message: "error sending mail" });
+        }
+      });
 
       res.status(200).json(transactionToken.token);
     } catch (error) {

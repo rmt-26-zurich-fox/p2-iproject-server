@@ -6,8 +6,6 @@ function errorHandler(error, req, res, next) {
     res.status(400).json({ message: errors });
   } else if (error.name === "no file") {
     res.status(400).json({ message: `Bad request` });
-  } else if (error.name === "Maximum file size is more than 255 Kb") {
-    res.status(400).json({ message: "Maximum file size is 255Kb" });
   } else if (error.name === "File needs to be an image") {
     res.status(400).json({ message: "File type needs to be an image" });
   } else if (error.name === "invalid email/password") {
