@@ -22,6 +22,7 @@ app.get('/products/:id', controller1.productDetail)
 app.use(authentication)
 app.get('/shoppingcarts', controller1.shoppingCart)
 app.post('/shoppingcarts/:productId', controller1.createShoppingCart)
+app.delete('/shoppingcarts/:id', controller2.deleteCart)
 
 
 

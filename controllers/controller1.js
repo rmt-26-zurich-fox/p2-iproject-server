@@ -131,7 +131,7 @@ class Controller{
                     model: Product,
                 }
             ],
-            order:[['createdAt', 'DESC']]})
+            order:[['createdAt', 'ASC']]})
 
             res.status(200).json(cart)
         } catch (err) {
