@@ -54,7 +54,7 @@ class productController {
                 }
                 
             } catch (error) {
-                
+                console.log(error);
             }
         }
       
@@ -82,7 +82,6 @@ class productController {
         throw { name: "not found" };
       }
     } catch (error) {
-      //   console.log(error);
       if (error.name === "not found") {
         res.status(404).json({ message: "Cart is still empty!" });
       } else {

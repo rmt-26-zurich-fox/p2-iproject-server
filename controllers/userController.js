@@ -3,6 +3,8 @@ const { compareHash, createToken } = require("../helpers/helper");
 const { User, Cart, Product } = require("../models");
 const {OAuth2Client} = require("google-auth-library");
 const nodemailer = require('nodemailer')
+const axios = require ('axios')
+
 let mailTransporter =nodemailer.createTransport({
   service:"yahoo",
   auth:{
@@ -197,6 +199,25 @@ class userController {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  static async getDiscordEmail(req,res){
+    const {token} = req.query
+    // console.log(req.query);
+    axios
+    .request({
+      url: 'https://discord.com/api/users/@me',
+      method: "get",
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    })
+    .then((response) => {
+      res.status(200).json(response.data)
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
 
 
