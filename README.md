@@ -1,2 +1,2 @@
-# p2-iproject-server
-Individual Project - Server
+# p2-cms-integration-server
+CMS Integration - Server
