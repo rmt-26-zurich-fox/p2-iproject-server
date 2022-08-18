@@ -68,7 +68,7 @@ class TransactionController {
     try {
       let UserId = req.user.id;
       let transactions = await Transaction.findAll({
-        where: {  UserId },
+        where: { UserId },
       });
 
       const totalAmount = await Transaction.findAll({
@@ -76,12 +76,17 @@ class TransactionController {
           "UserId",
           [Sequelize.fn("sum", Sequelize.col("totalPrice")), "totalPriceAll"],
         ],
+        where: { paymentStatus: false },
         group: ["UserId"],
       });
 
       res
         .status(200)
-        .json({ message: "success read all transactions", transactions, totalAmount });
+        .json({
+          message: "success read all transactions",
+          transactions,
+          totalAmount,
+        });
     } catch (error) {
       console.log(error);
       next(error);
@@ -95,7 +100,7 @@ class TransactionController {
 
       let payment = await Transaction.update(
         { paymentStatus: true },
-        { where: { id } }
+        { where: { UserId, paymentStatus: false } }
       );
       res.status(200).json({ message: "transaction success", payment });
     } catch (error) {
