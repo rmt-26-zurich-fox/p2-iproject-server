@@ -12,5 +12,21 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
     "sequelize": "^6.21.3"
-  }
+  },
+  "name": "p2-iproject-server",
+  "description": "Individual Project - Server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nardogou/p2-iproject-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nardogou/p2-iproject-server/issues"
+  },
+  "homepage": "https://github.com/nardogou/p2-iproject-server#readme"
 }
