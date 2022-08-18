@@ -26,7 +26,10 @@ module.exports = class Patchlogs {
 	static async showAll(req, res, next) {
 		try {
 			// res.status(200).json({ length: patchlogs.posts.length, data: patchlogs.posts });
-			const dataRead = await Patchnote.findAll({ attributes: { exclude: ["createdAt", ["updatedAt"]] } });
+			const dataRead = await Patchnote.findAll({
+				limit: 10,
+				attributes: { exclude: ["createdAt", ["updatedAt"]] },
+			});
 			console.log(dataRead[dataRead.length - 1].dataValues.id);
 			res.status(200).json({ response: dataRead.reverse() });
 		} catch (error) {
