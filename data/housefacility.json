@@ -1,0 +1,230 @@
+[
+  {
+    "HouseId": 1,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 1,
+    "FacilityId": 3
+  },
+  {
+    "HouseId": 1,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 1,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 1,
+    "FacilityId": 7
+  },
+  {
+    "HouseId": 1,
+    "FacilityId": 8
+  },
+  {
+    "HouseId": 1,
+    "FacilityId": 9
+  },
+  {
+    "HouseId": 2,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 2,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 2,
+    "FacilityId": 8
+  },
+  {
+    "HouseId": 2,
+    "FacilityId": 9
+  },
+  {
+    "HouseId": 3,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 3,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 3,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 3,
+    "FacilityId": 8
+  },
+  {
+    "HouseId": 3,
+    "FacilityId": 9
+  },
+  {
+    "HouseId": 4,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 4,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 4,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 4,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 4,
+    "FacilityId": 8
+  },
+  {
+    "HouseId": 4,
+    "FacilityId": 9
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 3
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 6
+  },
+  {
+    "HouseId": 5,
+    "FacilityId": 7
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 3
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 6
+  },
+  {
+    "HouseId": 6,
+    "FacilityId": 7
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 3
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 6
+  },
+  {
+    "HouseId": 7,
+    "FacilityId": 7
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 3
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 6
+  },
+  {
+    "HouseId": 8,
+    "FacilityId": 7
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 1
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 2
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 3
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 4
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 5
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 6
+  },
+  {
+    "HouseId": 9,
+    "FacilityId": 7
+  }
+]
