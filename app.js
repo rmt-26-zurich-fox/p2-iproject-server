@@ -5,7 +5,7 @@ const cors = require('cors')
 const express = require('express')
 const router = require('./routes')
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000
 const http = require('http').createServer(app);
 
 const io = require('socket.io')(http, {
@@ -26,16 +26,7 @@ const io = require('socket.io')(http, {
         });
         
     });
-    // io.on('connection', (socket) => {
 
-    //   socket.o
-
-    //   // socket.on('my message', (msg) => {
-    //   //   io.emit('my broadcast', `${msg}`, socket.id);
-    //   //   // socket.broadcast.emit('my message', msg)       
-        
-    //   // });
-    // });
 
 
 app.use(cors())
