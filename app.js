@@ -10,7 +10,7 @@ const http = require('http').createServer(app);
 
 const io = require('socket.io')(http, {
     cors: {
-      origins: ['http://localhost:5173']
+      origins: ['https://quote-app-zurich-fox.web.app']
     }
   });
   
