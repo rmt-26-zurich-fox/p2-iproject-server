@@ -29,7 +29,9 @@ class ProfileController {
         birthdate,
         UserId: id,
       });
-      res.status(201).json({ message: `Profile with ID ${createdProfile.id}` });
+      res
+        .status(201)
+        .json({ message: `Profile with ID ${createdProfile.id} created` });
     } catch (error) {
       next(error);
     }

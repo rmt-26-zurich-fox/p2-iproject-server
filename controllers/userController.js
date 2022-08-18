@@ -6,14 +6,14 @@ const { OAuth2Client } = require("google-auth-library");
 class UserController {
   static async register(req, res, next) {
     try {
-      const { email, password, role } = req.body;
+      const { email, password } = req.body;
       if (!password) {
         throw { name: "emptyPassword" };
       }
       const createdUser = await User.create({
         email: email,
         password: hashPassword(password),
-        role: role,
+        role: "Visitor",
       });
       res.status(201).json({
         message: `Successfully created user with ID ${createdUser.id}`,
@@ -90,7 +90,6 @@ class UserController {
       // If request specified a G Suite domain:
       // const domain = payload['hd'];
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
