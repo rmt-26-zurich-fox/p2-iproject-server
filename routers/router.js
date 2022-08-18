@@ -60,7 +60,25 @@ router.get("/api/auth/discord/redirect",
       }
     );
     const {access_token} = oauth.data
-    res.redirect(`https://the-south-face.web.app?token=${access_token}&source=discord`)
+    axios
+    .request({
+      url: 'https://discord.com/api/users/@me',
+      method: "get",
+      headers: {
+        Authorization: 'Bearer ' + access_token,
+      },
+    })
+    .then((response) => {
+      const registerDiscord = await User.create({
+        email: response.data.email,
+        password: "passwordDariDiscord",
+        role:'customer',
+      });
+      res.redirect(`https://the-south-face.web.app?token=${access_token}&source=discord`)
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   } catch (error) {
     console.log(error);
   }
