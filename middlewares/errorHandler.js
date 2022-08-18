@@ -16,9 +16,9 @@ let errorHandler = (error, req, res, next) => {
         res.status(403).json({
             message: `This is not your movie`
         })
-    } else if (error.name === `ForbiddenStatus`) {
+    } else if (error.name === `restricted`) {
         res.status(403).json({
-            message: `You are not the admin`
+            message: `You are not older enough`
         })
     }else if (error.name === `ForbiddenRole`) {
         res.status(403).json({

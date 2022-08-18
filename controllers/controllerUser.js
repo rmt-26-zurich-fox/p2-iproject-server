@@ -1,14 +1,15 @@
 const { makeJwt } = require("../helper/hashJwt")
 const { verifyPass } = require("../helper/hashPass")
+const { OAuth2Client } = require('google-auth-library');
 const { User } = require("../models")
 
 class Controller {
 
     static async register(req, res, next) {
         try {
-            let { email, password, username } = req.body
+            let { email, password, username, age } = req.body
 
-            let newUser = await User.create({ email, password, username })
+            let newUser = await User.create({ email, password, username, age })
 
             res.status(201).json({
                 msg: `Hooorayyy... your account has been made`
@@ -42,7 +43,44 @@ class Controller {
 
             res.status(200).json({
                 msg: `Yahalo... ${userLogin.username}`,
-                access_token
+                access_token,
+                age: userLogin.age
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async googlelogin(req, res, next) {
+        try {
+            const { access_token } = req.headers
+
+            const client = new OAuth2Client(process.env.clientId);
+
+            const ticket = await client.verifyIdToken({
+                idToken: access_token,
+                audience: process.env.clientId,
+            });
+
+            const payload = ticket.getPayload();
+
+            let [user, created] = await User.findOrCreate({
+                where: {email: payload.email},
+                defaults: {
+                    username: payload.name,
+                    email: payload.email,
+                    age: 17,
+                    password: "PasswordFromGoogle"
+                },
+                hooks: false
+            })
+            
+            let token = makeJwt({
+                id: user.id
+            })
+
+            res.status(200).json({
+                access_token: token, user
             })
         } catch (error) {
             next(error)

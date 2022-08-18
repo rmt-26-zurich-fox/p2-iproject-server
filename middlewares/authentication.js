@@ -18,7 +18,8 @@ let auth = async (req, res, next) => {
             throw({name: `Unauthorized`})
         }
         req.user = {
-            id: foundUser.id
+            id: foundUser.id,
+            age: foundUser.age
         }
         next()
     } catch (error) {
