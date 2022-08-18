@@ -59,9 +59,7 @@ async function errorHandler(error, req, res, next) {
         res.status(404).json({
             message: ["Comment Not Found"]
         });
-    }
-
-    else {
+    } else {
         res.status(500).json({
             message: ["Internal Server Error"]
         });
