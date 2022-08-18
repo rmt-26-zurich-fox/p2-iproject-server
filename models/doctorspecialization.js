@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   DoctorSpecialization.init(
     {
       userId: {
-        type: DataTypes.Integer,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {

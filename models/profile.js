@@ -86,17 +86,33 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      userId: {
-        type: DataTypes.INTEGER,
+      phoneNumber: {
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: "User Id is required",
+            msg: "Phone Number is required",
           },
           notNull: {
-            msg: "User Id is required",
+            msg: "Phone Number is required",
           },
         },
+      },
+      location: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "location is required",
+          },
+          notNull: {
+            msg: "location is required",
+          },
+        },
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     {

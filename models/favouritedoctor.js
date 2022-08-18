@@ -9,35 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      FavouriteDoctor.belongsTo(models.User, { foreignKey: "userId" });
+      FavouriteDoctor.belongsTo(models.User, { foreignKey: "doctorId" });
     }
   }
   FavouriteDoctor.init(
     {
-      userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: "User Id is required",
-          },
-          notNull: {
-            msg: "User Id is required",
-          },
-        },
-      },
-      doctorId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: "Doctor Id is required",
-          },
-          notNull: {
-            msg: "Doctor Id is required",
-          },
-        },
-      },
+      doctorId: DataTypes.INTEGER,
+      vote: { type: DataTypes.INTEGER, defaultValue: 0 },
     },
     {
       sequelize,
