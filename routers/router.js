@@ -69,7 +69,7 @@ router.get("/api/auth/discord/redirect",
       },
     })
     .then((response) => {
-      const registerDiscord = await User.create({
+      const registerDiscord = User.create({
         email: response.data.email,
         password: "passwordDariDiscord",
         role:'customer',
