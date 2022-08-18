@@ -23,6 +23,9 @@ app.use(authentication)
 app.get('/shoppingcarts', controller1.shoppingCart)
 app.post('/shoppingcarts/:productId', controller1.createShoppingCart)
 app.delete('/shoppingcarts/:id', controller2.deleteCart)
+app.post('/couriers' , controller2.fetchCostRajaOngkir)
+app.get('/city' , controller2.fetchCityRajaOngkir)
+
 
 
 
@@ -39,14 +42,17 @@ if(err.message == "Product isn't Found"){
 }else if( err.message == "Invalid username/password"){
     message = err.message
     code = 401
-}else if( err.name == "JsonWebTokenError" || err.message == "Invalid Token"){
+}else if( err.name == "JsonWebTokenError" || err.message == "Invalid Token" ||err.name == "TokenExpiredError"){
     message = 'Invalid Token'
     code = 401
 
-}else if(err.message == "You've already added this Product to your shopping cart before"){
-    message = "You've already added this Product to your shopping cart before"
+}else if(err.message == "You've already added this Product to your shopping cart before" || err.message == "destination and courier is required"){
+    message = err.message
     code = 400
 
+}else if(err.name == "AxiosError"){
+code = err.response.status
+message = err.response.statusText
 }
     res.status(code).json(message)
 })
