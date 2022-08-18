@@ -1,33 +1,54 @@
-const axios = require("axios");
+const midtransClient = require("midtrans-client");
+const { ShoppingCart, Course } = require("../models");
 
 class InvoiceController {
-  constructor() {
-    (this.url = "https://api.xendit.co/v2/invoices"),
-      (this.headers = {
-        "Content-Type": "application/json",
-      }),
-      (this.auth = {
-        username:
-          "xnd_development_KSBvwkzCbaXOJLnQzkfN1Od2HxVPuTzoozgsHa42IVC0WUhUHWqGt0Ca4NfodwH",
-        password: "",
-      });
-    this.timeout = 10000;
-  }
-
-  async create(data) {
-    const options = {
-      method: "POST",
-      headers: this.headers,
-      timeout: this.timeout,
-      auth: this.auth,
-      url: this.url,
-      data,
-    };
-
+  static async checkout(req, res, next) {
     try {
-      return await axios(options);
+      const course = await ShoppingCart.findAll({
+        where: { UserId: req.user.id },
+        include: Course,
+      });
+
+      let items = [];
+      let totalPrice = 0;
+      course.forEach((el) => {
+        items.push(
+          el.id,
+          el.Course.title,
+          el.Course.description,
+          el.Course.price,
+          el.Course.duration
+        );
+        totalPrice += el.Course.price;
+      });
+
+      let parameter = {
+        transaction_details: {
+          order_id: `${Math.floor(Math.random() * 100)}`,
+          gross_amount: totalPrice,
+        },
+        credit_card: {
+          secure: true,
+        },
+        item_details: [items],
+        customer_details: {
+          email: req.user.email,
+        },
+      };
+
+      let snap = new midtransClient.Snap({
+        // Set to true if you want Production Environment (accept real transaction).
+        isProduction: false,
+        serverKey: "SB-Mid-server-Mp8cE9pAmg5SeRFlNV2nGd4S",
+      });
+
+      snap.createTransaction(parameter).then((transaction) => {
+        // transaction token
+        let transactionToken = transaction.token;
+        res.status(200).json({ transaction_token: transactionToken });
+      });
     } catch (error) {
-      throw error;
+      next(error);
     }
   }
 }
