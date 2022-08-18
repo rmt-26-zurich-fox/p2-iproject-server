@@ -43,24 +43,24 @@ router.post("/cust/login", userController.loginCustomer);
 router.post("/cust/googleSignIn", userController.googleLoginCustomer);
 
 router.get("/api/auth/discord/", passport.authenticate("discord"));
-router.get("/api/auth/discord/redirect", async (req, res) => {
+router.get("/api/auth/discord/redirect", passport.authenticate("discord"), async (req, res) => {
   try {
-    let { code } = req.query;
-    const oauth = await axios.post(
-      "https://discord.com/api/oauth2/token",
-      queryString.stringify({
-        client_id: process.env.DISCORD_CLIENT_ID,
-        client_secret: process.env.DISCORD_CLIENT_SECRET,
-        grant_type: "authorization_code",
-        code: code,
-        redirect_uri: process.env.DISCORD_CLIENT_REDIRECT,
-      }),
-      {
-        "Content-Type": "application/x-www-form-urlencoded",
-      }
-    );
-    const {access_token} = oauth.data
-    res.status(201).json(access_token);
+    // let { code } = req.query;
+    // const oauth = await axios.post(
+    //   "https://discord.com/api/oauth2/token",
+    //   queryString.stringify({
+    //     client_id: process.env.DISCORD_CLIENT_ID,
+    //     client_secret: process.env.DISCORD_CLIENT_SECRET,
+    //     grant_type: "authorization_code",
+    //     code: code,
+    //     redirect_uri: process.env.DISCORD_CLIENT_REDIRECT,
+    //   }),
+    //   {
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //   }
+    // );
+    // const {access_token} = oauth.data
+    res.status(201).json(req.user.email);
   } catch (error) {
     console.log(error);
   }
