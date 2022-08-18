@@ -10,14 +10,14 @@ class Controller {
       });
       res.status(200).json(fullQuran.data);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 
   static async fetchSurahbyId(req, res, next) {
     try {
       const { surahId } = req.params;
-      if (surahId >= 114) {
+      if (surahId > 114) {
         throw { name: "Data not found" };
       }
       const surah = await axios({
@@ -30,20 +30,21 @@ class Controller {
     }
   }
 
-  static async ayahInSurah(req,res, next){
+  static async ayahInSurah(req, res, next) {
     try {
-      const {surahId, ayah} = req.params
+      const { surahId, ayah } = req.params;
 
       const fetchAyah = await axios({
         method: "GET",
-        url: baseUrl + `/${surahId}/${ayah}`
-      })
-      if(fetchAyah.data.status === 404 || fetchAyah === 'undefined'){
-        throw {name: 'Data not found'}
+        url: baseUrl + `/${surahId}/${ayah}`,
+      });
+
+      if (fetchAyah.data.status === 404 || fetchAyah === "undefined") {
+        throw { name: "Data not found" };
       }
-      res.status(200).json(fetchAyah.data)
+      res.status(200).json(fetchAyah.data);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 }
