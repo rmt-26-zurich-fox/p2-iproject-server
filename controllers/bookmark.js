@@ -14,7 +14,7 @@ class Controller {
       const MovieId = findMovie.id;
 
       const [findBookmark, created] = await Bookmark.findOrCreate({
-        where: { MovieId },
+        where: { UserId, MovieId },
         defaults: { UserId, MovieId, status: "Unwatched" },
       });
 
