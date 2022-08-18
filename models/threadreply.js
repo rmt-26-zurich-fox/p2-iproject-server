@@ -14,7 +14,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   ThreadReply.init(
     {
-      content: DataTypes.TEXT,
+      content: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: { msg: "Content required" },
+          notNull: { msg: "Content required" },
+        },
+      },
       UserId: DataTypes.INTEGER,
       ThreadTitleId: DataTypes.INTEGER,
     },
