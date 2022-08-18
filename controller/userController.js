@@ -18,7 +18,6 @@ class Controller {
     static async login(req, res, next) {
         try {
             const { email, password } = req.body
-            console.log(email, password)
             const data = await User.findOne({
                 where: {
                     email: email
@@ -45,10 +44,10 @@ class Controller {
     static async googleSignIn(req, res, next) {
         try {
             const { token_google } = req.headers
-            const client = new OAuth2Client('192317249394-020h8lnbson6pqe71vp9ntjo4pej3n7d.apps.googleusercontent.com');
+            const client = new OAuth2Client(process.env.CLIENT_ID);
             const ticket = await client.verifyIdToken({
                 idToken: token_google,
-                audience: '192317249394-020h8lnbson6pqe71vp9ntjo4pej3n7d.apps.googleusercontent.com',
+                audience: process.env.CLIENT_ID
             });
             const payload = ticket.getPayload();
 
@@ -64,7 +63,6 @@ class Controller {
             const access_token = signToken({ id: user.id, data: payload.email })
             res.status(200).json({ access_token })
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

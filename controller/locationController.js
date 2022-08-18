@@ -24,6 +24,7 @@ class Controller {
                     newData.push(data.wisata[i])
                 }
             }
+            console.log({ data: newData, page: Math.ceil(data.wisata.length / 8) })
             res.status(200).json({ data: newData, page: Math.ceil(data.wisata.length / 8) })
         } catch (error) {
             next(error)
@@ -33,7 +34,6 @@ class Controller {
     static async getLocationById(req, res, next) {
         try {
             const { id } = req.params
-            console.log(id)
             const { data } = await axios({
                 url: `https://dev.farizdotid.com/api/purwakarta/wisata/${id}`,
                 method: 'get'

@@ -6,7 +6,6 @@ class Controller {
     static async createFavourite(req, res, next) {
         try {
             const { userId } = req.user
-            console.log(userId, "=====")
             const { id } = req.params
             const { data } = await axios({
                 method: 'get',
