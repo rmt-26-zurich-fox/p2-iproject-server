@@ -85,8 +85,7 @@ module.exports = class Warframestat {
 			let { data } = await axios({
 				url: Credentials.warframestats() + `/${platform}/news`,
 			});
-
-			res.status(200).json({ response: data });
+			res.status(200).json({ response: data.reverse() });
 		} catch (error) {
 			next(error);
 		}
