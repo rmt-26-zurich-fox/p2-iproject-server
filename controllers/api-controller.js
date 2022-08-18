@@ -14,13 +14,12 @@ class ApiController {
       const response = await axios({
         method: "GET",
         url: "https://tasty.p.rapidapi.com/recipes/list",
-        params: { from: +offset, size, q: search },
+        params: { from: +offset, size, tags: "under_30_minutes", q: search },
         headers: {
           "X-RapidAPI-Key": process.env.TASTY_API_KEY,
           "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         },
       });
-
       let recipes = response.data.results.map((x) => {
         let ingredients = x.sections[0].components.map((y) => {
           return {
@@ -32,7 +31,6 @@ class ApiController {
           id: x.id,
           name: x.name,
           description: x.description,
-          nutrition: x.nutrition,
           instructions: x.instructions,
           image: x.thumbnail_url,
           ingredients,
@@ -40,6 +38,7 @@ class ApiController {
       });
       res.status(200).json(recipes);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
