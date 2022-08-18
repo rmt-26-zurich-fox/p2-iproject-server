@@ -11,10 +11,11 @@ async function authorizationComment(req, res, next) {
         if (!findComment) {
             throw { name: "CommentNotFound" };
         }
-        if (findComment.UserId !== req.user.id) {
+        if (findComment.UserId == req.user.id || findPost.UserId == req.user.id) {
+            next();
+        } else {
             throw { name: "Forbidden" };
         }
-        next();
     } catch (error) {
         console.log(error);
         next(error);

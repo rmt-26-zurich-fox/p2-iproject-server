@@ -6,7 +6,11 @@ class PostController {
                 include: [
                     {
                         model: User,
-                        attributes: ["id", "email"]
+                        attributes: ["id", "email", "username"]
+                    },
+                    {
+                        model: Like,
+                        attributes: ["id"]
                     }
                 ],
                 order: [
@@ -28,6 +32,16 @@ class PostController {
                 where: {
                     UserId: id
                 },
+                include: [
+                    {
+                        model: User,
+                        attributes: ["id", "email", "username"]
+                    },
+                    {
+                        model: Like,
+                        attributes: ["id"]
+                    }
+                ],
                 order: [["id", "DESC"]]
             });
             res.status(200).json({
@@ -46,15 +60,17 @@ class PostController {
                 include: [
                     {
                         model: User,
-                        attributes: ["id", "email"]
+                        attributes: ["id", "email", "username"]
                     },
                     {
                         model: Like,
                     },
                     {
                         model: Comment,
+                        include: [{ model: User, attributes: ["id", "email", "username"] }],
                     }
                 ],
+                order: [[Comment, "id", "DESC"]]
             });
             res.status(200).json({
                 post
@@ -66,14 +82,15 @@ class PostController {
     }
     static async addPost(req, res, next) {
         try {
-            const { content, imgUrl } = req.body;
+            const { content, caption } = req.body;
             const createPost = await Post.create({
+                caption,
                 content,
-                imgUrl,
+                imgUrl: req.imgUrl,
                 UserId: req.user.id
             });
             res.status(201).json({
-                message: "succes add post"
+                message: "Succes add new post"
             });
         } catch (error) {
             next(error);
@@ -194,6 +211,36 @@ class PostController {
             res.status(200).json({
                 message: "success delete comment"
             });
+        } catch (error) {
+            console.log(error);
+            next(error);
+        }
+    }
+
+    static async getUserLike(req, res, next) {
+        try {
+            const { id } = req.params;
+            console.log(id);
+            console.log(req.user.id);
+            if (req.user.id !== +id) {
+                throw { name: "Forbidden" };
+            }
+            const findLike = await Like.findAll({
+                where: {
+                    UserId: req.user.id
+                },
+                include: [
+                    {
+                        model: Post,
+                        include: [
+                            { model: User, attributes: ["id", "email", "username"] },
+                            { model: Like, attributes: ["id"] }
+                        ]
+                    },
+                ],
+                order: [["id", "DESC"]]
+            });
+            res.status(200).json(findLike);
         } catch (error) {
             console.log(error);
             next(error);
