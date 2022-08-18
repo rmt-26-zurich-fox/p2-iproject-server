@@ -4,10 +4,10 @@ const { User, Cart, Product } = require("../models");
 const {OAuth2Client} = require("google-auth-library");
 const nodemailer = require('nodemailer')
 let mailTransporter =nodemailer.createTransport({
-  service:"gmail",
+  service:"yahoo",
   auth:{
-    user:'rhanantyoko@gmail.com',
-    password:process.env.GMAIL_PASSWORD
+    user:'THESOUTHFACE123@yahoo.com',
+    pass:process.env.YAHOO_PASSWORD
   }
 })
 
@@ -85,6 +85,17 @@ class userController {
         password,
         role: "customer",
       });
+      const mailDetails = {
+        from:'THESOUTHFACE123@yahoo.com',
+        to: createdCustomer.email,
+        subject:"Success Registering THESOUTHFACE Account",
+        text :'Your account has been registered, enjoy!'
+      }
+
+      mailTransporter.sendMail(mailDetails,(err)=>{
+        if(err) console.log(err,"error");
+        else console.log(("success"));
+      })
 
       res.status(201).json({
         createdCustomer: {

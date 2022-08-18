@@ -1,6 +1,6 @@
 const express = require('express')
-const passport = require('passport')
-const Strategy = require('passport-discord/lib/strategy')
+// const passport = require('passport')
+// const Strategy = require('passport-discord/lib/strategy')
 const productController = require('../controllers/productController')
 const userController = require('../controllers/userController')
 const authentication = require('../middlewares/authentication')

@@ -166,9 +166,13 @@ class productController {
 
       if (empty) {
         res.status(200).json({ message: "checkout succesful" });
-      } 
+      } else if (empty.length===0){
+        throw({name:"cannot checkout an empty cart"})
+      }
     } catch (error) {
-      console.log(error);
+      if (error.name==="cannot checkout an empty cart") {
+        res.status(404).json({message:"cart is empty already"})
+      }
     }
   }
 

@@ -8,15 +8,15 @@ const port = process.env.PORT || 3000;
 const router = require("./routers/router");
 require('./strategies/discord')
 const session = require('express-session')
-const passport = require('passport')
+// const passport = require('passport')
 
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: 'nosecrethere' 
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({
+//   resave: false,
+//   saveUninitialized: true,
+//   secret: 'nosecrethere' 
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use(cors());
 
