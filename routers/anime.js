@@ -1,12 +1,11 @@
 const Controller = require("../controllers/controllerAnime")
+const { route } = require("./user")
 
 const router = require("express").Router()
 
-router.get("/winter", Controller.fetchWinter)
-router.get("/spring", Controller.fetchSpring)
-router.get("/summer", Controller.fetchSummer)
-router.get("/fall", Controller.fetchFall)
 router.get("/top", Controller.topAnime)
+router.get("/:season", Controller.fetchAnime)
+router.get("/details/:animeId", Controller.animeDetails)
 
 
 module.exports = router

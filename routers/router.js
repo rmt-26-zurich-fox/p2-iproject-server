@@ -10,11 +10,11 @@ const planning = require("./planning")
 
 router.use("/user", user)
 router.use("/animes", anime)
-router.use("/arts", art)
 router.use("/comments", comment)
 
 router.use(auth)
 
+router.use("/arts", art)
 router.use("/plannings", planning)
 
 
