@@ -1,0 +1,26 @@
+[
+  {
+    "firstName": "guest",
+    "lastName": "guest",
+    "address": "guest",
+    "phoneNumber": "guest",
+    "editStatus": "Yes",
+    "UserId": 1
+  },
+  {
+    "firstName": "admin",
+    "lastName": "admin",
+    "address": "admin",
+    "phoneNumber": "admin",
+    "editStatus": "Yes",
+    "UserId": 2
+  },
+  {
+    "firstName": "customer",
+    "lastName": "customer",
+    "address": "customer",
+    "phoneNumber": "customer",
+    "editStatus": "Yes",
+    "UserId": 3
+  }
+]
