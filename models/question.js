@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Question.init(
     {
-      question: DataTypes.TEXT,
+      questionA: DataTypes.TEXT,
+      questionB: DataTypes.TEXT,
     },
     {
       sequelize,

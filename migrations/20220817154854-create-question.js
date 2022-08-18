@@ -8,7 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      question: {
+      questionA: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      questionB: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
