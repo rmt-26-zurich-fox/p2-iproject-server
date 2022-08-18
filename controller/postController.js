@@ -73,7 +73,6 @@ class PostController {
             };
             res.status(200).json(response);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
@@ -124,7 +123,7 @@ class PostController {
                 name,
                 imageUrl,
                 article,
-                category,
+                CategoryId: category,
                 status
             }, {
                 where: {
