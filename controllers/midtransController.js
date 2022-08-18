@@ -60,7 +60,7 @@ class MidtransController {
             });
 
             // send mail with defined transport object
-            const mailing = await transporter.sendMail({
+            const mailing = transporter.sendMail({
                 from: "yohkristianwibowo@outlook.com", // sender address
                 to: `${req.user.email}`, // list of receivers
                 subject: "Hello you completed your midtrans payment", // Subject line
