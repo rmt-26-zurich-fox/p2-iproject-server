@@ -74,7 +74,6 @@ class Controller{
             next(error)
         }
     }
-
     static async updateReport(req,res,next){
         try {
             let {reportId} = req.params
