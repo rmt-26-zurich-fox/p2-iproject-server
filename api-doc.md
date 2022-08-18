@@ -436,7 +436,7 @@ _Response (404 - Not Found)_
 }
 ```
 
-### 6. GET /categories
+### 8. GET /categories
 
 Description:
 - get all categories
@@ -473,7 +473,7 @@ _Response (404 - Not Found)_
 }
 ```
 
-### 7. GET /api
+### 9. GET /api
 
 Description:
 - get all songs data from API
