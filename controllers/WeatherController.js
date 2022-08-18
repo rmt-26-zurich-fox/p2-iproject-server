@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { Bookmark } = require('../models');
+const { Op } = require("sequelize");
 
 class WeatherController {
     static async postBookmark(req, res, next) {
@@ -22,7 +23,7 @@ class WeatherController {
                     UserId: req.user.id
                 }
             })
-
+            if (bookmarks.length > 3) throw { name: "Badrequest" }
             let axiosArray = []
             bookmarks.forEach(bookmark => {
                 let request = axios({
@@ -45,8 +46,9 @@ class WeatherController {
                 })
             })
                 .catch((error) => {
-                    // console.log(error.message)
-                    res.status(400).json({ message: error.message })
+                    // console.log(bookmarks.length)
+                    // console.log(error)
+                    res.status(error.response.status).json({ message: error.message })
                 })
 
         } catch (error) {
