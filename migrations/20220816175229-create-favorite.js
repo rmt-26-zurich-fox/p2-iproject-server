@@ -1,7 +1,4 @@
 'use strict';
-
-const { sequelize } = require("../../../W1/p2-cms-integration-server/models");
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Favorites', {
