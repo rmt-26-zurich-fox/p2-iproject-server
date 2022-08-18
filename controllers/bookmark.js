@@ -71,7 +71,9 @@ class Controller {
 
   static async readBookmark(req, res, next) {
     try {
+      const UserId = req.user.id;
       const readBookmark = await Bookmark.findAll({
+        where: { UserId },
         include: [
           {
             model: Movie,
