@@ -13,7 +13,7 @@ class artController {
                 url: `https://collectionapi.metmuseum.org/public/collection/v1/objects/${randId}`
             })
 
-            const image = data.primaryImage
+            const image = data.primaryImageSmall
 
             // if(!data){
             //     throw {name: "noImage"}
