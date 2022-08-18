@@ -4,7 +4,7 @@ class ApiController {
 
     static async getSongs(req, res, next) {
         try {
-            const { search } = req.body;
+            const { search } = req.query;
             let getSongs = await axios({
                 url: "http://api.genius.com/search?q=" + search,
                 method: "get",
