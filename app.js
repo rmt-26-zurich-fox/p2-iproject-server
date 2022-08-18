@@ -45,7 +45,7 @@ app.get('/', (req, res, next) => {
     res.status(200).json({
         status: 'success',
         data: {
-            name: 'https://movies-5001.herokuapp.com/',
+            name: 'https://audio-id.herokuapp.com/',
             version: '0.1.0'
         }
     });
