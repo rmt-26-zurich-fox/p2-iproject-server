@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+    require("dotenv").config();
+}
+
 const authentication = require("../middlewares/authentication");
 const Login = require("../controller/login");
 const PostController = require("../controller/post");
@@ -5,14 +9,16 @@ const Register = require("../controller/register");
 const authorizationPost = require("../middlewares/authorizationPost");
 const authorizationComment = require("../middlewares/authorizationComment");
 const authorizationLike = require("../middlewares/authorizationLike");
-if (process.env.NODE_ENV != "production") {
-    require("dotenv").config();
-}
 const router = require("express").Router();
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 const oploadImage = require("../middlewares/uploadImage");
+
+
+
+
+
 
 router.post("/register", Register.postRegister);
 router.post("/login", Login.postLogin);
