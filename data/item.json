@@ -1,0 +1,135 @@
+[
+    {
+        "name": "Alginat",
+        "description": "Biasa digunakan untuk Blok 11",
+        "buyPrice": 57000,
+        "sellPrice": 64900,
+        "stock": 10,
+        "imageUrl": "https://images.tokopedia.net/img/cache/700/VqbcmM/2020/7/7/c1bdff6a-5129-4d85-9683-124267cc1042.jpg",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 1     
+    },
+    {
+        "name": "Pinset",
+        "description": "Digunakan untuk Skills Lab Opdent",
+        "buyPrice": 16000,
+        "sellPrice": 20000,
+        "stock": 15,
+        "imageUrl": "https://images.tokopedia.net/img/cache/700/attachment/2019/8/14/156575804003536/156575804003536_51826335-2ca3-4524-be7c-0bb379974cad.png",
+        "status": "active",
+        "UserId": 2,
+        "SupplierId": 2
+    },
+    {
+        "name": "Blade",
+        "description": "Biasa digunakan untuk Blok 17",
+        "buyPrice": 1000,
+        "sellPrice": 2000,
+        "stock": 30,
+        "imageUrl": "https://s2.bukalapak.com/img/7400484503/medium/handle_scapel_gagang_mata_pisau_operasi_no_2_3.png",
+        "status": "active",
+        "UserId": 3,
+        "SupplierId": 17
+    },
+    {
+        "name": "Needle Holder",
+        "description": "Gagang needle untuk Skills Lab",
+        "buyPrice": 21500,
+        "sellPrice": 25000,
+        "stock": 14,
+        "imageUrl": "https://m.media-amazon.com/images/I/61k8z0GT64L._SL1500_.jpg",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 6
+    },
+    {
+        "name": "Bunsen",
+        "description": "Pembakar digunakan untuk blok 11",
+        "buyPrice": 16170,
+        "sellPrice": 20000,
+        "stock": 20,
+        "imageUrl": "https://image.made-in-china.com/202f0j00IjyaSVkKATzM/Dental-Laboratory-Dental-Bunsen-Burner-Single-Type.jpg",
+        "status": "active",
+        "UserId": 2,
+        "SupplierId": 14
+    },
+    {
+        "name": "Alkohol 96%",
+        "description": "Biasa digunakan untuk Blok 11",
+        "buyPrice": 57000,
+        "sellPrice": 64900,
+        "stock": 10,
+        "imageUrl": "https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/872x872/productos/i/a/l/alcohol-etilico-96-x-250-ml-45430-default-1.jpg",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 16
+    },
+    {
+        "name": "Bur enchance",
+        "description": "Finishing gigi",
+        "buyPrice": 80000,
+        "sellPrice": 90000,
+        "stock": 12,
+        "imageUrl": "https://cf.shopee.co.id/file/deecf340c3aff0f323c24cff78c46a63",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 5
+    },
+    {
+        "name": "Konektor",
+        "description": "Penghubung bur ke mikromotor",
+        "buyPrice": 15000,
+        "sellPrice": 22000,
+        "stock": 18,
+        "imageUrl": "https://s1.bukalapak.com/img/62853651011/large/Halodent_Dental_Konektor_Connector_Bur_Highspeed_Ke_Lowspeed.png",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 19
+    },
+    {
+        "name": "Gates Drill",
+        "description": "Memperlebar saluran akar",
+        "buyPrice": 70000,
+        "sellPrice": 87000,
+        "stock": 14,
+        "imageUrl": "https://www.arkhealth.com.au/productimages/Y284941.jpg",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 3
+    },
+    {
+        "name": "Sendok Cetak",
+        "description": "Mencetak gigi",
+        "buyPrice": 50000,
+        "sellPrice": 58000,
+        "stock": 22,
+        "imageUrl": "https://cf.shopee.co.id/file/251f958d56b0d04ad466748bc28058c0",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 2
+    },
+    {
+        "name": "Base Plate Wax",
+        "description": "Carving equipment",
+        "buyPrice": 30000,
+        "sellPrice": 45000,
+        "stock": 22,
+        "imageUrl": "https://m.media-amazon.com/images/I/31j8GZIUPIL.jpg",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 5
+    },
+    {
+        "name": "Kaca Mulut",
+        "description": "Inspeksi",
+        "buyPrice": 17000,
+        "sellPrice": 23000,
+        "stock": 25,
+        "imageUrl": "https://s3.bukalapak.com/img/8358643754/large/Hot_Kaca_Mulut_Dental.jpg",
+        "status": "active",
+        "UserId": 1,
+        "SupplierId": 8
+    }
+
+] 
