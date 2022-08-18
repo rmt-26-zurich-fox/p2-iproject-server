@@ -3,6 +3,24 @@ const { signToken } = require("../helpers/jwt");
 const { comparePass } = require("../helpers/bcrypt");
 
 class Controller {
+  static async socialLogin(req, res, next) {
+    try {
+      const { username, email } = req.body;
+
+      const [findUser, created] = await User.findOrCreate({
+        where: { username, email },
+        defaults: { username, email, password: "social_login" },
+        hooks: false,
+      });
+
+      res.status(201).json({
+        message: "Success login with email " + findUser.email,
+        access_token: signToken(findUser.id),
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
   static async register(req, res, next) {
     try {
       const { body } = req;
