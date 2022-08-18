@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Doctor.belongsTo(models.User, { foreignKey: "userId" });
-      Doctor.hasMany(models.FavouriteDoctor, { foreignKey: "doctorId" });
+      Doctor.hasOne(models.FavouriteDoctor, { foreignKey: "doctorId" });
     }
   }
   Doctor.init(
@@ -24,6 +24,19 @@ module.exports = (sequelize, DataTypes) => {
           },
           notNull: {
             msg: "User Id is required",
+          },
+        },
+      },
+      status: {
+        type: DataTypes.INTEGER,
+        defaultValue: "Offline",
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Status is required",
+          },
+          notNull: {
+            msg: "Status is required",
           },
         },
       },

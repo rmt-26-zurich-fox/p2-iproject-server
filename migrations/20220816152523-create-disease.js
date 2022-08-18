@@ -11,21 +11,6 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      symptomOne: {
-        type: Sequelize.STRING,
-      },
-      symptomTwo: {
-        type: Sequelize.STRING,
-      },
-      symptomThree: {
-        type: Sequelize.STRING,
-      },
-      symptomFour: {
-        type: Sequelize.STRING,
-      },
-      symptomFive: {
-        type: Sequelize.STRING,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

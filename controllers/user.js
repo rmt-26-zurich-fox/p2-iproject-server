@@ -1,4 +1,4 @@
-const { User, Doctor } = require("../models");
+const { User, Doctor, FavouriteDoctor } = require("../models");
 const { compareHash } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 
@@ -10,14 +10,21 @@ class UserController {
       let data = await User.create({
         email,
         password,
-        role: "User",
+        role: req.baseUrl === "/doctors" ? "Doctor" : "Customer",
       });
-      let createDoctor = await Doctor.create({ userId: data.id });
+
+      if (req.baseUrl === "/doctors") {
+        let createDoctor = await Doctor.create({ userId: data.id });
+        let createFavoriteDoctor = await FavouriteDoctor.create({
+          doctorId: data.id,
+        });
+      }
       res.status(201).json({
         message: `success create user with id ${data.id} and email ${data.email}`,
         id: data.id,
       });
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
@@ -30,7 +37,9 @@ class UserController {
       if (!findUser) {
         throw { name: "invalid_email/password" };
       }
+
       const comparePassword = compareHash(password, findUser.password);
+
       if (!comparePassword) {
         throw { name: "invalid_email/password" };
       }
@@ -43,9 +52,14 @@ class UserController {
       res.status(200).json({
         access_token: getToken,
         role: findUser.role,
-        username: findUser.username,
-        message: "Success Login",
       });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async userFacebookLogin(req, res, next) {
+    try {
     } catch (error) {
       next(error);
     }
