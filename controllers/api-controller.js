@@ -14,7 +14,7 @@ class ApiController {
       const response = await axios({
         method: "GET",
         url: "https://tasty.p.rapidapi.com/recipes/list",
-        params: { from: +offset, size, tags: "under_30_minutes", q: search },
+        params: { from: +offset, size, q: search },
         headers: {
           "X-RapidAPI-Key": process.env.TASTY_API_KEY,
           "X-RapidAPI-Host": "tasty.p.rapidapi.com",
