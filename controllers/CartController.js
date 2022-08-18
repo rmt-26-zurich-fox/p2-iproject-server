@@ -44,7 +44,7 @@ class CartController {
   static async getCart(req, res, next) {
     try {
       let UserId = req.user.id;
-      let cart = await Cart.findAll({
+      let carts = await Cart.findAll({
         where: { UserId },
         attributes: {
           exclude: ["createdAt", "updatedAt"],
@@ -56,7 +56,7 @@ class CartController {
           },
         },
       });
-      res.status(200).json({ message: "success read carts", cart });
+      res.status(200).json({ message: "success read carts", carts });
     } catch (error) {
       console.log(error);
       next(error);

@@ -1,4 +1,5 @@
-const { Cart, Product, Transaction } = require("../models");
+const { User, Cart, Product, Transaction } = require("../models");
+const { Sequelize } = require("sequelize");
 
 class TransactionController {
   static async checkout(req, res, next) {
@@ -53,7 +54,7 @@ class TransactionController {
         await Cart.destroy({ where: { UserId } });
         res
           .status(201)
-          .json({ message: "transaction success", newTransaction });
+          .json({ message: "success create new transaction", newTransaction });
       }
 
       //   res.status(200).json(findCart)
@@ -66,10 +67,21 @@ class TransactionController {
   static async getTransaction(req, res, next) {
     try {
       let UserId = req.user.id;
-      let transactions = await Transaction.findAll({ where: { UserId } });
+      let transactions = await Transaction.findAll({
+        where: {  UserId },
+      });
+
+      const totalAmount = await Transaction.findAll({
+        attributes: [
+          "UserId",
+          [Sequelize.fn("sum", Sequelize.col("totalPrice")), "totalPriceAll"],
+        ],
+        group: ["UserId"],
+      });
+
       res
         .status(200)
-        .json({ message: "success read all transactions", transactions });
+        .json({ message: "success read all transactions", transactions, totalAmount });
     } catch (error) {
       console.log(error);
       next(error);
@@ -81,10 +93,11 @@ class TransactionController {
       let UserId = req.user.id;
       let { id } = req.params;
 
-      let payment = await Transaction.update({ paymentStatus: true }, { where: { id } });
-      res
-      .status(200)
-      .json({ message: "transaction success", payment });
+      let payment = await Transaction.update(
+        { paymentStatus: true },
+        { where: { id } }
+      );
+      res.status(200).json({ message: "transaction success", payment });
     } catch (error) {
       console.log(error);
       next(error);
