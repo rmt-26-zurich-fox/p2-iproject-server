@@ -1,4 +1,5 @@
 const midtransClient = require("midtrans-client");
+const nodemailer = require("nodemailer");
 const { Profile, Order } = require("../models");
 
 class MidtransController {
@@ -47,6 +48,30 @@ class MidtransController {
                 where: {
                     orderStatus: "Cart",
                     ProfileId: req.user.profile_id
+                }
+            })
+
+            const transporter = nodemailer.createTransport({
+                service: "hotmail",
+                auth: {
+                    user: "yohkristianwibowo@outlook.com", // generated ethereal user
+                    pass: `${process.env.OUTLOOK_PASSWORD}`, // generated ethereal password
+                },
+            });
+
+            // send mail with defined transport object
+            const mailing = await transporter.sendMail({
+                from: "yohkristianwibowo@outlook.com", // sender address
+                to: `${req.user.email}`, // list of receivers
+                subject: "Hello you completed your midtrans payment", // Subject line
+                text: "Your payment is completed, and your item will arrive shortly", // plain text body
+            });
+
+            transporter.sendMail(mailing, (err, info) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(info);
                 }
             })
 
