@@ -1,6 +1,8 @@
 const { hashPassword, compareHash } = require("../helpers/bcrypt");
 const { createToken, verifyToken } = require("../helpers/jwt");
 const { User } = require("../models");
+const { OAuth2Client } = require("google-auth-library");
+
 
 class UserController {
   static async register(req, res, next) {
@@ -100,6 +102,7 @@ class UserController {
       });
     } catch (error) {
       next(error);
+      console.log(error);
     }
   }
 }
