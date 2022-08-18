@@ -1,6 +1,8 @@
 function errorHandle(error, req, res, next) {
     console.log(error)
-    if (error.name === 'Bad Request') {
+    if (error.name == 'noToken') {
+        res.status(400).json({ message: "Invalid Token" })
+    } else if (error.name === 'Bad Request') {
         res.status(401).json({ message: "Please Login" })
     } else if (error.name === 'Badrequest') {
         res.status(401).json({ message: "Please Upgrade" })
