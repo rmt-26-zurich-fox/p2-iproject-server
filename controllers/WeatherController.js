@@ -1,6 +1,5 @@
 const axios = require('axios');
 const { Bookmark } = require('../models');
-const { Op } = require("sequelize");
 
 class WeatherController {
     static async postBookmark(req, res, next) {
@@ -46,17 +45,13 @@ class WeatherController {
                 })
             })
                 .catch((error) => {
-                    // console.log(bookmarks.length)
-                    // console.log(error)
                     res.status(error.response.status).json({ message: error.message })
                 })
 
         } catch (error) {
             next(error)
-            // res.status(500).json({ message: "Internal server error" })
         }
     }
-    // adff6230-bca9-4190-972a-219e13fb5087
 
     static async deleteBookmarks(req, res, next) {
         try {
