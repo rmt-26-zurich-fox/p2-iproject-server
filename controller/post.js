@@ -108,7 +108,6 @@ class PostController {
                 message: "success deleting post"
             });
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
