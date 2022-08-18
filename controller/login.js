@@ -69,6 +69,7 @@ class Login {
                     email: payload.email
                 },
                 defaults: {
+                    username: payload.name,
                     email: payload.email,
                     password: makeRandomPassword(5),
                 },
@@ -81,6 +82,7 @@ class Login {
             res.status(200).json({
                 access_token,
                 email: payload.email,
+                id: user.id
             });
         } catch (error) {
             next(error);
