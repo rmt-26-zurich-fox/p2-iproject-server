@@ -1,0 +1,20 @@
+[
+    {
+        "imageUrl": "https://awsimages.detik.net.id/community/media/visual/2019/07/23/64412906-8952-4d5c-92af-70dd459b0d93.jpeg?w=700&q=90",
+        "name": "Pelecehan Seksual",
+        "CategoryId": 1,
+        "UserId": 1
+    },
+    {
+        "imageUrl": "https://1.bp.blogspot.com/-5upUa1CkVNA/XntdWKxroyI/AAAAAAAAABQ/OleWcJilt7wwMxG9FiLByU9TIQYK1nBcgCLcBGAsYHQ/s1600/Cerai.jpg",
+        "name": "Perceraian",
+        "CategoryId": 3,
+        "UserId": 1
+    },
+    {
+        "imageUrl": "https://1.bp.blogspot.com/-5upUa1CkVNA/XntdWKxroyI/AAAAAAAAABQ/OleWcJilt7wwMxG9FiLByU9TIQYK1nBcgCLcBGAsYHQ/s1600/Cerai.jpg",
+        "name": "Sengeketa Dagang",
+        "CategoryId": 4,
+        "UserId": 1
+    }
+]
