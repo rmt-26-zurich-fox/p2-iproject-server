@@ -59,37 +59,25 @@ class ProductController {
       next(error);
     }
   }
-  static async fetchAdminProduct(req, res, next) {
+  static async fetchProductProvider(req, res, next) {
     try {
-      // const id = req.user.id;
-      let { page, filter, id } = req.query;
-
-      if (!page) {
-        page = 1;
-      }
-      if (!filter) {
-        filter = "";
-      }
-      let product = await Product.findAndCountAll({
+      const id = req.params.id;
+      let product = await Product.findAll({
+        include: {
+          model: User,
+          required: true,
+        },
         where: {
-          [Op.or]: {
-            title: { [Op.iLike]: `%${filter}%` },
-            content: { [Op.iLike]: `%${filter}%` },
-          },
-          status: "Active",
-          UserId: id,
+          UserId: id
         },
         order: [["id", "DESC"]],
-        offset: 9 * (+page - 1),
-        limit: 9,
       });
-      product.totalPages = Math.ceil(+product.count / 9);
-      product.currentPage = +page;
       res.status(200).json({
-        message: `Success read product from user ${id} page: ${page}`,
+        message: `Success read product from user ${id}`,
         product,
       });
     } catch (error) {
+      // console.log(error);
       next(error);
     }
   }

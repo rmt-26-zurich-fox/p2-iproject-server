@@ -1,7 +1,17 @@
 const midtransClient = require("midtrans-client");
+const {
+  User,
+  Product,
+  Service,
+  ProductRequest,
+  ServiceRequest,
+} = require("../models");
 
 class PaymentController {
-  static async test(req, res, next) {
+  static async getBill(req, res, next) {
+    const { id, email } = req.user;
+    let orderId = 0
+
     // Create Snap API instance
     let snap = new midtransClient.Snap({
       // Set to true if you want Production Environment (accept real transaction).
@@ -9,19 +19,36 @@ class PaymentController {
       serverKey: "SB-Mid-server-26sPTRxaxeMr0B8vj92SAoJ2",
     });
 
+    const requestProduct = await ProductRequest.findAll({
+      include: { model: Product, required: true },
+      where: { UserId: id },
+    });
+
+    const productAmount = requestProduct.reduce((accumulator, object) => {
+      return accumulator + object.Product.price;
+    }, 0);
+
+    const requestService = await ServiceRequest.findAll({
+      include: { model: Service, required: true },
+      where: { UserId: id },
+    });
+
+    const serviceAmount = requestService.reduce((accumulator, object) => {
+      return accumulator + object.Service.price;
+    }, 0);
+
+    console.log(serviceAmount + productAmount, '<<<<<<<< total bayar');
+
     let parameter = {
       transaction_details: {
-        order_id: "Orderan pertama",
-        gross_amount: 50000,
+        order_id: orderId++,
+        gross_amount: serviceAmount + productAmount,
       },
       credit_card: {
         secure: false,
       },
       customer_details: {
-        first_name: "budi",
-        last_name: "pratama",
-        email: "budi.pra@example.com",
-        phone: "08111222333",
+        email: email,
       },
     };
 
@@ -35,7 +62,7 @@ class PaymentController {
       })
       .catch((err) => console.log(err));
   }
-  static async notification(req, res, next) {
+  static notification(req, res, next) {
     let apiClient = new midtransClient.Snap({
       isProduction: false,
       serverKey: "SB-Mid-server-26sPTRxaxeMr0B8vj92SAoJ2",

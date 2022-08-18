@@ -2,9 +2,10 @@ const ServiceController = require("../controllers/serviceController");
 
 const serviceRouter = require("express").Router();
 
-serviceRouter.get("/", ServiceController.fetchAdminService);
-serviceRouter.post("/add", ServiceController.addNewService);
 serviceRouter.put("/", ServiceController.updateService);
-serviceRouter.get("/:name/:serviceId", ServiceController.getOneService);
+serviceRouter.get("/", ServiceController.fetchAllServiceProvider);
+serviceRouter.post("/add", ServiceController.addNewService);
+serviceRouter.get("/:id", ServiceController.fetchServiceProvider);
+serviceRouter.get("/:id/:serviceId", ServiceController.getOneService);
 
 module.exports = serviceRouter;

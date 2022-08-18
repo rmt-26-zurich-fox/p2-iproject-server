@@ -19,33 +19,46 @@ class ServiceController {
       next(error);
     }
   }
-  static async fetchAdminService(req, res, next) {
+  static async fetchServiceProvider(req, res, next) {
     try {
-      // const id = req.user.id;
-      const { filter } = req.body;
-      if (!filter) {
-        filter = "";
-      }
-      let service = await Service.findAndCountAll({
+      const id = req.params.id;
+      let service = await Service.findAll({
+        include: {
+          model: User,
+          required: true,
+        },
         where: {
-          [Op.or]: {
-            title: { [Op.iLike]: `%${filter}%` },
-            content: { [Op.iLike]: `%${filter}%` },
-          },
-          status: "Active",
-          UserId: id,
+          UserId: id
         },
         order: [["id", "DESC"]],
-        offset: 9 * (+page - 1),
-        limit: 9,
       });
-      service.totalPages = Math.ceil(+service.count / 9);
-      service.currentPage = +page;
       res.status(200).json({
-        message: `Success read service from user ${id} page: ${page}`,
+        message: `Success read service from user ${id}`,
         service,
       });
     } catch (error) {
+      // console.log(error);
+      next(error);
+    }
+  }
+  static async fetchAllServiceProvider(req, res, next) {
+    try {
+      let service = await User.findAll({
+        attributes: ['id', 'email', 'imageUrl'],
+        where: {
+          role: "Service Provider",
+          status: "Active",
+        },
+        order: [["email", "ASC"]],
+      });
+      // service.totalPages = Math.ceil(+service.count / 9);
+      // service.currentPage = +page;
+      res.status(200).json({
+        message: `Success read all service provider`,
+        service,
+      });
+    } catch (error) {
+      console.log(error);
       next(error);
     }
   }
