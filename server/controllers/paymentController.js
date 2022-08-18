@@ -5,12 +5,12 @@ const {
   Service,
   ProductRequest,
   ServiceRequest,
+  Bill,
 } = require("../models");
 
 class PaymentController {
   static async getBill(req, res, next) {
     const { id, email } = req.user;
-    let orderId = 0
 
     // Create Snap API instance
     let snap = new midtransClient.Snap({
@@ -37,12 +37,17 @@ class PaymentController {
       return accumulator + object.Service.price;
     }, 0);
 
-    console.log(serviceAmount + productAmount, '<<<<<<<< total bayar');
+    console.log(serviceAmount + productAmount, "<<<<<<<< total bayar");
+    const createBill = await Bill.create({
+      totalAmount: serviceAmount + productAmount,
+      status: "created",
+      UserId: id,
+    });
 
     let parameter = {
       transaction_details: {
-        order_id: orderId++,
-        gross_amount: serviceAmount + productAmount,
+        order_id: createBill.id,
+        gross_amount: createBill.totalAmount,
       },
       credit_card: {
         secure: false,
