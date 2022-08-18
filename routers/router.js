@@ -7,6 +7,8 @@ const authorization = require("../middlewares/authorization");
 const axios = require("axios");
 const queryString = require("querystring");
 
+const {User} = require ('../models')
+
 
 // async function exchangeCode(code){
 //     console.log(code);
