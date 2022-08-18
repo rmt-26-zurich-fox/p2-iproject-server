@@ -1,0 +1,20 @@
+[
+    {
+        "email": "jc15@gmail.com",
+        "password": "15061997",
+        "phoneNumber": "(021) 5372828",
+        "location": "Jakarta"
+    },
+    {
+        "email": "jo@gmail.com",
+        "password": "15061997",
+        "phoneNumber": "(021) 5372828",
+        "location": "Surabaya"
+    },
+    {
+        "email": "alisa@gmail.com",
+        "password": "15061997",
+        "phoneNumber": "(021) 5372828",
+        "location": "South Tangerang"
+    }
+]
