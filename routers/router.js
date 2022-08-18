@@ -62,7 +62,7 @@ router.get("/api/auth/discord/redirect",
     const {access_token} = oauth.data
     // res.redirect(201).json(access_token);
     // res.redirect(201, 'http://localhost:8080' + queryString.stringify(access_token))
-    res.redirect(`http://localhost:8080?token=${access_token}&source=discord`)
+    res.redirect(`https://the-south-face.web.app?token=${access_token}&source=discord`)
   } catch (error) {
     console.log(error);
   }
