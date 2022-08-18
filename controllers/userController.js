@@ -2,6 +2,15 @@
 const { compareHash, createToken } = require("../helpers/helper");
 const { User, Cart, Product } = require("../models");
 const {OAuth2Client} = require("google-auth-library");
+const nodemailer = require('nodemailer')
+let mailTransporter =nodemailer.createTransport({
+  service:"gmail",
+  auth:{
+    user:'rhanantyoko@gmail.com',
+    password:process.env.GMAIL_PASSWORD
+  }
+})
+
 
 
 class userController {
