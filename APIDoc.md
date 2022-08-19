@@ -11,6 +11,16 @@ List of Available Endpoints:
 
 -`GET /course/:courseId`
 
+-`GET /students/shopping-cart`
+
+-`GET /students/courselist`
+
+-`POST /students/courselist/:courseId/add`
+
+-`POST /students/shopping-cart/:courseId`
+
+-`DELETE /students/shopping-cart/delete`
+
 
 > ### POST /users/register
 
@@ -106,7 +116,7 @@ _400 - Bad Request_
   >### GET /courses
 
 #### Description
-- get data for news
+- get data for course
 
 #### Request
 
@@ -142,3 +152,149 @@ _200 -OK
         "currentPage": Integer
 }
 ```
+
+  >### GET /courses/:courseId
+
+#### Description
+- get data for course
+
+#### Request
+
+
+#### Response
+_200 -OK
+
+```json
+"data": {
+        "id": Integer,
+        "title": String,
+        "description": Text,
+        "duration": Integer,
+        "UserId": Integer,
+        "price": Integer,
+        "createdAt": Date,
+        "updatedAt": Date
+    }
+```
+
+  >### GET /students/shopping-cart
+
+#### Description
+- get data for shopping cart
+
+- Headers
+  ```json
+  {
+    "access_token": String
+  }
+  ```
+
+  #### Response
+_200 -OK
+
+```json
+ {
+        "id": Integer,
+            "UserId": Integer,
+            "CourseId": Integer,
+            "createdAt": Date,
+            "updatedAt": Date,
+            "Course": {
+                "id": Integer,
+                "title": String,
+                "description": Text,
+                "duration": Integer,
+                "UserId": Integer,
+                "price": Integer,
+                "createdAt": Date,
+                "updatedAt": Date
+    }}
+```
+
+>### GET /students/courselist
+
+#### Description
+- get data for course owned by student
+
+- Headers
+  ```json
+  {
+    "access_token": String
+  }
+  ```
+
+  #### Response
+_200 -OK
+
+```json
+ {
+        "id": Integer,
+            "UserId": Integer,
+            "CourseId": Integer,
+            "createdAt": Date,
+            "updatedAt": Date,
+            "Course": {
+                "id": Integer,
+                "title": String,
+                "description": Text,
+                "duration": Integer,
+                "UserId": Integer,
+                "price": Integer,
+                "createdAt": Date,
+                "updatedAt": Date
+    }}
+```
+
+>### GET /students/courselist
+
+#### Description
+- Add course to courselist
+
+- Headers
+  ```json
+  {
+    "access_token": String
+  }
+  ```
+
+#### Response 
+```json
+{"message": "Course added to course list",}
+```
+>### POST /shopping-cart/:courseId
+
+#### Description
+- Add course to shopping cart
+
+#### Response 
+```json
+{"message": "Course added to shopping cart",}
+```
+
+
+>### DELETE /shopping-cart/delete
+
+#### Description
+- Delete shopping cart
+
+#### Response 
+```json
+{"message": "Shopping cart is deleted",}
+```
+
+
+> ### Global Error
+
+#### Response
+
+_500 - Internal Server Error_
+
+- Body
+
+  ```json
+  {
+    "message": "Internal Server Error"
+  }
+  ```
+
+
