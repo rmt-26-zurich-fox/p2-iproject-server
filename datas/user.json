@@ -1,0 +1,50 @@
+[
+    {
+        "username": "isAdmin",
+        "email": "admin@gmail.com",
+        "password": "12345",
+        "role": "admin",
+        "phoneNumber": "609-790-7128",
+        "address": "5258 American Ash Plaza"
+    },
+    {
+        "username": "cbudgen1",
+        "email": "tleads1@technorati.com",
+        "password": "i2BEDOL",
+        "role": "admin",
+        "phoneNumber": "766-769-5681",
+        "address": "87273 John Wall Pass"
+    },
+    {
+        "username": "isStaff",
+        "email": "staff@gmail.com",
+        "password": "12345",
+        "role": "staff",
+        "phoneNumber": "544-168-4631",
+        "address": "9 Spenser Road"
+    },
+    {
+        "username": "cdargue3",
+        "email": "cfransson3@bravesites.com",
+        "password": "c7DfToX0Iav",
+        "role": "staff",
+        "phoneNumber": "445-919-8684",
+        "address": "0 Orin Hill"
+    },
+    {
+        "username": "rhuc4",
+        "email": "gtemperton4@canalblog.com",
+        "password": "qoNkoRUbS8c",
+        "role": "staff",
+        "phoneNumber": "984-407-7274",
+        "address": "55536 Karstens Avenue"
+    },
+    {
+        "username": "abhi",
+        "email": "abhi@gmail.com",
+        "password": "12345",
+        "role": "customer",
+        "phoneNumber": "596-691-3267",
+        "address": "424 Duke Way"
+    }
+]   

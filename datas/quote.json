@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "desc": "How many people you killed",
+        "UserId": 1,
+        "CategoryId": 3
+    },
+    {
+        "id": 2,
+        "desc": "SequelizeForeignKeyConstraintError, error in sequelize",
+        "UserId": 2,
+        "CategoryId": 2
+    },
+    {
+        "id": 3,
+        "desc": "It takes a great man to be a good listener.",
+        "UserId": 3,
+        "CategoryId": 1
+    }
+]
