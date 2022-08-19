@@ -5,8 +5,10 @@ const routerUser = require("./user");
 const routerTeacher = require("./teacher");
 const routerStudent = require("./student");
 const CoursesController = require("../controllers/coursecontroller");
+// const TeacherController = require("../controllers/teacherController");
 const authentication = require("../middlewares/authentication");
 
+// router.post("/google-calendar", TeacherController.googleCalendar);
 router.use("/users", routerUser);
 router.get("/courses", CoursesController.fetchCourses);
 router.get("/course/:courseId", CoursesController.fetchCoursesById);

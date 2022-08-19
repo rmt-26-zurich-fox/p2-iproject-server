@@ -14,4 +14,6 @@ router.delete(
   authorization,
   TeacherController.deleteCourse
 );
+router.post("/google-calendar", TeacherController.googleCalendar);
+// router.post("/addEvent", TeacherController.addCalendarEvent);
 module.exports = router;
