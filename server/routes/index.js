@@ -6,7 +6,9 @@ const serviceRouter = require("./service");
 const requestRouter = require("./request");
 const errorHandler = require("../middleware/errorHandler");
 const PaymentController = require("../controllers/paymentController");
+const allowAccess = require("../middleware/access");
 
+router.use(allowAccess);
 router.use("/user", userRouter);
 router.use(authentication);
 router.use("/product", productRouter);
