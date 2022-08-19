@@ -76,7 +76,7 @@ router.get("/api/auth/discord/redirect",
         password: "passwordDariDiscord",
         role:'customer',
       });
-      res.redirect(`http://localhost:8080?token=${access_token}&source=discord`)
+      res.redirect(`https://the-south-face.web.app?token=${access_token}&source=discord`)
     })
     .catch((error)=>{
       console.log(error);
