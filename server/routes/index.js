@@ -8,7 +8,6 @@ const errorHandler = require("../middleware/errorHandler");
 const PaymentController = require("../controllers/paymentController");
 
 router.use("/user", userRouter);
-// router.get("/payment/requestToken", PaymentController.test);
 router.use(authentication);
 router.use("/product", productRouter);
 router.use("/service", serviceRouter);
