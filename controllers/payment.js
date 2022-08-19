@@ -38,7 +38,6 @@ class Controller {
 
       const transaction = await snap.createTransaction(parameter);
       const transactionToken = transaction.token;
-      console.log("transactionToken:", transactionToken);
 
       res.status(200).json({ transactionToken });
     } catch (error) {

@@ -83,20 +83,8 @@ class Controller {
           },
         }
       );
-      data.results = data.results.filter(el => el.type === "Trailer")
+      data.results = data.results.filter((el) => el.type === "Trailer");
       res.status(200).json(data.results[0]);
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  static async genres(req, res, next) {
-    try {
-      const { data } = await axios.get(
-        "https://api.themoviedb.org/3/genre/movie/list",
-        { params: { api_key: "05190277617ad5aa6569afc189bf57d3" } }
-      );
-      res.status(200).json(data);
     } catch (error) {
       next(error);
     }

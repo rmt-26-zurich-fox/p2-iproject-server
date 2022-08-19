@@ -13,7 +13,7 @@ class Controller {
         hooks: false,
       });
 
-      res.status(201).json({
+      res.status(200).json({
         message: "Success login with email " + findUser.email,
         access_token: signToken(findUser.id),
       });

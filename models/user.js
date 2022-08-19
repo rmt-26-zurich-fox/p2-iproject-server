@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: { msg: "Username is require" },
-          notEmpty: { msg: "Username is require" },
+          notNull: { msg: "Username is required" },
+          notEmpty: { msg: "Username is required" },
         },
       },
       email: {
@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
         validate: {
-          notNull: { msg: "Email is require" },
-          notEmpty: { msg: "Email is require" },
+          notNull: { msg: "Email is required" },
+          notEmpty: { msg: "Email is required" },
           isEmail: { msg: "Invalid email format" },
           async unique(value) {
             const findUser = await User.findOne({ where: { email: value } });
@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: { msg: "Password is require" },
-          notEmpty: { msg: "Password is require" },
+          notNull: { msg: "Password is required" },
+          notEmpty: { msg: "Password is required" },
         },
       },
     },
