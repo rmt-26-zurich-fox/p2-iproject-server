@@ -83,7 +83,8 @@ class UserController {
                 role: user.role,
                 user_id: user.id,
                 profile_id: user.Profile.id,
-                profile_first_name: user.Profile.firstName
+                profile_first_name: user.Profile.firstName,
+                edit_status: user.Profile.editStatus
             });
         } catch (error) {
             next(error);
@@ -130,7 +131,8 @@ class UserController {
                 role: user.role,
                 user_id: user.id,
                 profile_id: profile.id,
-                profile_first_name: payload.given_name ? payload.given_name : "No Name"
+                profile_first_name: payload.given_name ? payload.given_name : "No Name",
+                edit_status: profile.editStatus
             })
         } catch (error) {
             next(error);
