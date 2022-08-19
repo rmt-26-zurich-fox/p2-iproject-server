@@ -142,7 +142,8 @@ _Response (200 - OK)_
   "role": "string",
   "user_id": "integer",
   "profile_id": "integer",
-  "profile_first_name": "string"
+  "profile_first_name": "string",
+  "edit_status": "string"
 }
 ```
 
@@ -183,7 +184,8 @@ _Response (200 - OK)_
   "role": "string",
   "user_id": "integer",
   "profile_id": "integer",
-  "profile_first_name": "string"
+  "profile_first_name": "string",
+  "edit_status": "string"
 }
 ```
 
