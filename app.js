@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const axios = require("axios");
 const { Strategy, User } = require("./models");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -64,6 +65,41 @@ app.get("/:map/:type/:site", async (req, res, next) => {
     res.status(200).json(strategies);
   } catch (error) {
     next(error);
+  }
+});
+
+app.post("/github-sign-in", async (req, res, next) => {
+  try {
+    let { email } = req.body;
+    const [user, created] = await User.findOrCreate({
+      where: {
+        username: email,
+      },
+      defaults: {
+        username: email,
+        password: "github-user",
+      },
+    });
+    const access_token = jwt.sign("github-user", "rahasia");
+    res.status(200).json({ access_token });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get("/map", async (req, res, next) => {
+  try {
+    const { data } = await axios.get(
+      "https://ap.api.riotgames.com/val/content/v1/contents?locale=id-ID",
+      {
+        headers: {
+          "X-Riot-Token": "RGAPI-95c5c310-288a-451b-9ac1-649df27f4060",
+        },
+      }
+    );
+    res.status(200).json(data.maps);
+  } catch (error) {
+    console.log(error);
   }
 });
 
