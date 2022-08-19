@@ -1,5 +1,5 @@
  const { UserRefreshClient } = require('google-auth-library')
-const {art, User} = require('../models')
+const {Art, User} = require('../models')
 const axios = require("axios")
 
 class artController {

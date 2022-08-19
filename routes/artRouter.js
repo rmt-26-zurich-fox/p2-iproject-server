@@ -3,7 +3,7 @@ const router = require("express").Router()
 
 // router.get("/", artController.arts)
 router.get("/", artController.art)
-router.get("/genres", artController.genres)
+// router.get("/genres", artController.genres)
 // router.post("/", artController.createart)
 // router.get("/:id", authorization, artController.showartById)
 // router.put("/:id", authorization, artController.updateart)
