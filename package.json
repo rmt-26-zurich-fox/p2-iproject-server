@@ -1,0 +1,47 @@
+{
+  "name": "p2-iproject-server-punyario",
+  "version": "1.0.0",
+  "description": "Individual Project - Server",
+  "main": "index.js",
+  "scripts": {
+    "db": "npx sequelize-cli db:drop && npx sequelize-cli db:create",
+    "migration": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "dev": "NODE_ENV=development npx nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rirrorio/p2-iproject-server-punyario.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rirrorio/p2-iproject-server-punyario/issues"
+  },
+  "homepage": "https://github.com/rirrorio/p2-iproject-server-punyario#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "btoa": "^1.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "google-auth-library": "^8.2.0",
+    "googleapis": "^105.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.7.8",
+    "passport": "^0.6.0",
+    "passport-discord": "^0.1.4",
+    "pg": "^8.7.3",
+    "querystring": "^0.2.1",
+    "sequelize": "^6.21.3",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
+  }
+}

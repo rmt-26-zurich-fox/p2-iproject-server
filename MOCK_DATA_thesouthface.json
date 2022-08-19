@@ -1,0 +1,264 @@
+[
+  {
+    "name": "Noir OLV75",
+    "type": "prebuilt",
+    "description": "Featuring south facing hotswap PCB, JWK ultimate black switch with 62g actuation point,  and triple connection mode, the Noir OLV75 is one of the best prebuilts out there",
+    "price": 1450000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/0506/2741/2156/products/OLIVE75-6low_1024x1024@2x.jpg?v=1641444947",
+    "imageUrl2": "https://cf.shopee.co.id/file/b49d2451cd09519de5d5c174eeee7460",
+    "videolink": "https://www.youtube.com/watch?v=6baEn59H81E&ab_channel=CrankyTechID"
+  },
+  {
+    "name": "Rexus Daxa M64 Classic",
+    "type": "prebuilt",
+    "description": "Featuring south facing hotswap PCB, gateron yellow switch with 55g actuation, and usb type c detachable, the Rexus Daxa M64 classic is a budget killer prebuilt. Sold in grey color",
+    "price": 750000,
+    "imageUrl1": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2022/2/10/8d343d19-ccad-4442-a6cb-c371065030e0.jpg",
+    "imageUrl2": "https://cf.shopee.co.id/file/4df322c306f49ec6d9fbd9a5908dfe94",
+    "videolink": "https://www.youtube.com/watch?v=SWsx_mx8oWE&ab_channel=CrankyTechID"
+  },
+  {
+    "name": "Fantech Maxfit67",
+    "type": "prebuilt",
+    "description": "Featuring south facing hotswap PCB, gateron yellow switch with 55g actuation, usb type c detachable, and really good stabilizer tuning out of the box, the maxfit is something that you dont have to tinker with out of the box and it will still compete with the big boys out there",
+    "price": 1250000,
+    "imageUrl1": "https://www.techpowerup.com/review/fantech-maxfit67-rgb/images/keyboard-1.jpg",
+    "imageUrl2": "https://asset.kompas.com/crops/fE3JUMlh_C7tTSnjy_NxWR0Bilo=/1x0:2000x1333/780x390/data/photo/2022/01/20/61e855b985854.jpg",
+    "videolink": "https://www.youtube.com/watch?v=YdNeHq7Xruo&ab_channel=CrankyTechID"
+
+  },
+  {
+    "name": "Keychron V1",  
+    "type": "prebuilt",
+    "description": "This budget version of the Q1, but wow does it not feel like that. Featuring keychron own red switch with 45g of actuation, doubel shot OSA profile keycaps, and southfacing pcb, surely the keychron V1 is not something to be underestimate.",
+    "price": 1700000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychronv1custommechanicalkeyboard2-1657168313809.jpg?v=1657168321",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychronv1custommechanicalkeyboard4-1657168342318.jpg?v=1657168355",
+    "videolink": "https://www.youtube.com/watch?v=HVphB6RYBaY&ab_channel=HardwareCanucks"
+  },
+  {
+    "name": "Keyhron Q1",
+    "type": "prebuilt",
+    "description": "Gasket, gasket, gasket!. Being the only gasket option on our prebuilt lineup and equipped with gateron yellow switch, the keychron Q1 is one of a teeny tiny population of solid, enthusiast level prebuilt out there",
+    "price": 2800000,
+    "imageUrl1": "https://ae01.alicdn.com/kf/H19b23c33870643699f10b4682c74e006o/Keychron-Q1-QMK-Keyboard-Mekanis-Kustom-75-Barebone-ISO-Layout-Type-c-Keyboard-Berkabel-untuk-Mac.jpg",
+    "imageUrl2": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/10/9/caa43e5f-a8b0-4d94-8451-7859d34b1890.jpg",
+    "videolink": "https://www.youtube.com/watch?v=d9v5bK8hCMM&ab_channel=CrankyTechID"
+  },
+  {
+    "name": "KBD67 Lite R4",
+    "type": "barebones",
+    "description": "The KBD67 lite R4 is a 'budget' option from kbdfans that features a southfacing pcb, a translucent case, and a gasket mounted system. Seriously, nothing could go wrong with this kit ",
+    "price": 1600000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/1473/3902/products/c184defbe2b9cac90d93ed6156093c5f_460x.jpg?v=1653029338f",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/1473/3902/products/18_61a9e438-9c13-4dd9-b125-53c2fa99f530_460x.jpg?v=1653029338",
+    "videolink": "https://www.youtube.com/watch?v=TE_uXoOeIuU&t=50s&ab_channel=HamajiNeo"
+  },
+  {
+    "name": "Meletrix Zoom65 Essential Edition",
+    "type": "barebones",
+    "description": "The zoom65 is taking the market by the storm! hurry and grab it fast while it last! no keycaps and switch included, it is a barebone after all",
+    "price": 2400000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/0238/7342/1376/products/ZOOM65-Black.jpg?v=1649232801",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0607/2474/0287/products/Zoom65_Black_GMKWoB_600x600.jpg?v=1649126779",
+    "videolink": "https://www.youtube.com/watch?v=6dB6CjzHhLQ&ab_channel=%3A3ildcat"
+  },
+  {
+    "name": "KBDfans Tiger 80",
+    "type": "barebones",
+    "description": "Our only TKL pick for TKL lovers out there. The Tiger 80 is packed with robust construction, gasket mounted, and a case color that is worth the money.",
+    "price": 3400000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/1473/3902/products/8_6a27b87b-88b8-4fb3-a85f-37de03a184f5_460x.jpg?v=1653037121",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/1473/3902/products/6_a09a59c8-6281-41c2-9216-909c75e838ac_460x.jpg?v=1653037121",
+    "videolink": "https://www.youtube.com/watch?v=LyH4vO4wx6I&t=843s&ab_channel=Keybored"
+  },
+  {
+    "name": "KBDFans Tofu60",
+    "type": "barebones",
+    "description": "This thing is timeless. With a solid aluminium case, brass plate, and a solid look, nothing can ever go wrong with this barebone kit",
+    "price": 2300000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/1473/3902/products/63_40f8487a-49cc-4686-bdbf-619512f83805_460x.jpg?v=1639025220",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/1473/3902/products/12_5c20edc0-ec8a-47ed-b649-fee0c2539967_460x.jpg?v=1619687748",
+    "videolink": "https://www.youtube.com/watch?v=hvyTHpitIQ8&t=364s&ab_channel=OptimumTech"
+  },
+  {
+    "name": "Akko mod 005",
+    "type": "barebones",
+    "description": "The solid 65% options from us. With gasket mounted and solid aluminium case, surely the MOD 005 would satisfy your needs",
+    "price": 1900000,
+    "imageUrl1": "https://en.akkogear.com/wp-content/uploads/2021/11/MOD005-Dark-Night.jpg",
+    "imageUrl2": "https://en.akkogear.com/wp-content/uploads/2021/11/MOD005-SP4-1024x1024.jpg",
+    "videolink": "https://www.youtube.com/watch?v=tREBIaoa0N4&t=416s&ab_channel=CGBuild"
+  },
+  {
+    "name": "Noir OLV75 Barebone",
+    "type": "barebones",
+    "description": "Local pride! This is the barebones version from the Noir OLV75 fullkit, packing the same features just without the keycaps and switches. Because those two are for you to explore!",
+    "price": 900000,
+    "imageUrl1": "https://images.tokopedia.net/img/cache/700/VqbcmM/2022/4/19/39280819-070d-4d05-9015-5735e3b05380.jpg",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0506/2741/2156/products/OLV75Barebone_2of1_-Copy_1024x1024@2x.jpg?v=1649734579",
+    "videolink": "https://www.youtube.com/watch?v=6baEn59H81E&ab_channel=CrankyTechID"
+  },
+  {
+    "name": "Gateron  yellow",
+    "type": "switch",
+    "description": "All time budget favorite. Linear and have 55g of actuation. Sold in Packs of 90",
+    "price": 270000,
+    "imageUrl1": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/9/17/c228654f-3a1b-47b6-a1fb-4053af9873bb.jpg",
+    "imageUrl2": "https://rexus.id/wp-content/uploads/2021/01/gateron-yellow.png",
+    "videolink": "https://www.youtube.com/watch?v=qd6Eo96P0Ew&t=63s&ab_channel=HamajiNeo"
+  },
+  {
+    "name": "Gateron Ink Black V2",
+    "type": "switch",
+    "description": "Factory lubed so you dont have to do it yourself. Linear and have 60g of actuation.Sold in Packs of 90",
+    "price": 1035000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/0275/3649/0561/products/gateron-ink-switches-v2-550646.jpg?v=1635297021",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0280/3931/5529/products/aq4.jpg?v=1616745336",
+    "videolink": "https://www.youtube.com/watch?v=qdFvG6ZG9no&ab_channel=headtr1p"
+  },
+  {
+    "name": "Gazzew Boba U4T",
+    "type": "switch",
+    "description": "THOCK KING! Tactile and have 62g of actuation. Sold in Packs of 90",
+    "price": 810000,
+    "imageUrl1": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/4/24/e3c0f598-7576-4187-ab59-9919521c9c1d.jpg",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0227/9171/6941/products/U4THero_1050x700.jpg?v=1615595826",
+    "videolink": "https://www.youtube.com/watch?v=zb7tm7zyCQY&ab_channel=headtr1p"
+  },
+  {
+    "name": "Glorious Holy Panda",
+    "type": "switch",
+    "description": "it is glorious. no, not making a pun from its name. it. is. glorious.Tactile and have 65g of actuation. Sold in Packs of 90",
+    "price": 830000,
+    "imageUrl1": "https://cdn11.bigcommerce.com/s-up92fzossx/images/stencil/1280x1280/products/230/601/Glorious_Panda_1__88181.1607730576.jpg?c=1",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0549/2681/products/front_1000x.png?v=1599234810",
+    "videolink": "https://www.youtube.com/watch?v=aUzc6mnFh4U&ab_channel=%3A3ildcat"
+  },
+  {
+    "name": "C3 Tangerine Dark",
+    "type": "switch",
+    "description": "Ahhh. The exotics. Who wouldn't love them, right? Linear and have 67g of actuation. Sold in Packs of 90 ",
+    "price": 1215000,
+    "imageUrl1": "http://cdn.shopify.com/s/files/1/0068/3599/4706/products/DSC01892_1200x1200.jpg?v=1657606095",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0627/0759/7529/products/22sfgweo1w171_1060x.jpg?v=1648437898",
+    "videolink": "https://www.youtube.com/watch?v=YEyU3wi1dOU&ab_channel=nearLucid"
+  },
+  {
+    "name": "Kailh x Novelkeys Sherbet",
+    "type": "switch",
+    "description": "The ONLY clicky options from us. For you guys out there who likes it loud. And hated by your coworkers/family/roomate/gf. Clicky and have 50g of actuation. Sold in Packs of 90 ",
+    "price": 615000,
+    "imageUrl1": "https://lzd-img-global.slatic.net/g/p/642bcd1335a2d7cd91edadc011d2616d.jpg_2200x2200q80.jpg_.webp",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/3099/8088/products/Kailh_Sherbet_1024x1024@2x.jpg?v=1630595983",
+    "videolink": "https://www.youtube.com/watch?v=5r1v9MPxxQ8&ab_channel=Preston%27sThoughts"
+  },
+  {
+    "name": "GMK Aurora Polaris",
+    "type": "keycaps",
+    "description": "a premium, exotic GMK keycaps has no competition",
+    "price": 2500000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/0068/3599/4706/products/jO5nNTQ_1260x.png?v=1647367596",
+    "imageUrl2": "https://preview.redd.it/rlv4vcbxs2j81.jpg?auto=webp&s=62e5a3024df4cfba01017c226bbab07462e53776",
+    "videolink": "https://www.youtube.com/watch?v=UDmcRe6dDMQ&ab_channel=keebface"
+  },
+  {
+    "name": "GMK White on Black",
+    "type": "keycaps",
+    "description": "A classic one from GMK.",
+    "price": 2000000,
+    "imageUrl1": "https://images.tokopedia.net/img/cache/500-square/hDjmkQ/2022/2/7/a49d62a1-061e-4a18-b93c-fb6852807895.jpg",
+    "imageUrl2": "https://cf.shopee.co.id/file/8dd0d402a5a82c2f80ad3faddeb65697",
+    "videolink": "https://www.youtube.com/watch?v=uDGqF5LUlTQ&ab_channel=Tanukey"
+  },
+  {
+    "name": "GMK Minimal",
+    "type": "keycaps",
+    "description": "A classic white on black one from GMK.",
+    "price": 2000000,
+    "imageUrl1": "https://i.postimg.cc/RV4Fx8Qg/Kit-Base-V2-with-logo.png",
+    "imageUrl2": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/12/5/fb7ac6f5-b536-4f52-849b-5aefcbdb56e9.jpg",
+    "videolink": "https://www.youtube.com/watch?v=z7agUhbgtLk&ab_channel=Ratseeker"
+  },
+  {
+    "name": "GMK Modern Dolch",
+    "type": "keycaps",
+    "description": "a premium, exotic GMK keycaps has no competition",
+    "price": 2800000,
+    "imageUrl1": "https://i.imgur.com/PvFcDi2.jpg",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0054/0878/4458/products/Bauer_Top_d32a2777-3371-41bb-81b0-f1ac72c38743_800x.jpg?v=1652735695",
+    "videolink": "https://www.youtube.com/watch?v=KwRwG_Keh_U&t=37s&ab_channel=HamajiNeo"
+  },
+  {
+    "name": "GMK Muted 2",
+    "type": "keycaps",
+    "description": "a premium, exotic GMK keycaps has no competition",
+    "price": 2600000,
+    "imageUrl1": "https://matrixzj.github.io/assets/images/gmk-keycaps/muted/kits_pics/base.jpg",
+    "imageUrl2": "https://cdn.shopify.com/s/files/1/0335/2087/7700/products/gmk_muted_2_keyboard_bauer_persp_angled_right.jpg?v=1610674782",
+    "videolink": "https://www.youtube.com/watch?v=ySyUwf4HiKo&ab_channel=VincentNguyen"
+  },
+  {
+    "name": "Akko Macaw",
+    "type": "keycaps",
+    "description": "Akko is seriously one of the go to brand that says 'bang on the buck' rightnow. This macaw keycap set is taking inspiration from the GMK Nautilus.",
+    "price": 900000,
+    "imageUrl1": "https://en.akkogear.com/wp-content/uploads/2021/03/Macaw-Keycap-Set-XQ.jpg",
+    "imageUrl2": "https://m.media-amazon.com/images/I/61iw1Pnf+rL.jpg",
+    "videolink": "https://www.youtube.com/watch?v=jZm5-CJjg-E&ab_channel=headtr1p"
+  },
+  {
+    "name": "Akko Black Pink ASA profile ",
+    "type": "keycaps",
+    "description": "For the black pink lovers out there",
+    "price": 700000,
+    "imageUrl1": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/eef80feb-2e93-4f30-9435-b54db7ce5cdf.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+    "imageUrl2": "https://preview.redd.it/0td9y1daft371.jpg?auto=webp&s=74ff11af2d808f56819df4b2b6e9aa746dd69d96",
+    "videolink": "https://www.youtube.com/watch?v=zEs0Ybib5Nk&ab_channel=VIA.Vincee"
+  },
+  {
+    "name": "GMK DMG",
+    "type": "keycaps",
+    "description": "a premium, exotic GMK keycaps has no competition",
+    "price": 2600000,
+    "imageUrl1": "https://ae01.alicdn.com/kf/He6c803016b75413aad741e9ba07934967/173-Tombol-Set-GMK-DMG-Keycaps-ABS-Dua-Tembakan-Keycap-Cherry-Profil-Key-Cap-dengan-ISO.jpg_Q90.jpg_.webp",
+    "imageUrl2": "https://ae01.alicdn.com/kf/Hfe05d924f41e47d3b0f5816ba38d4bcbC.jpg",
+    "videolink": "https://www.youtube.com/watch?v=EL2k_HpfGjU&ab_channel=Keynori"
+  },
+  {
+    "name": "GMK 8008",
+    "type": "keycaps",
+    "description": "a premium, exotic GMK keycaps has no competition",
+    "price": 2600000,
+    "imageUrl1": "https://cf.shopee.co.id/file/623b8228980eb4536d639511b39bfd5a",
+    "imageUrl2": "https://ae01.alicdn.com/kf/H77338629f9ba462cb8089684625847c0T/1-Set-GMK-8008-Olivia-Botani-Merlin-Keycaps-ABS-Dua-Shot-Keycap-Cherry-Profil-Key-Cap.jpg_Q90.jpg_.webp",
+    "videolink": "https://www.youtube.com/watch?v=wxrfeTItz2U&ab_channel=KwertyKeyboards"
+  },
+  {
+    "name": "GMK Bushido",
+    "type": "keycaps",
+    "description": "a premium, exotic GMK keycaps has no competition",
+    "price": 2600000,
+    "imageUrl1": "https://ucarecdn.com/aeebb0a3-e12b-4bd6-99f8-4b8b2f7fddf1~1/nth/0/-/format/auto/-/quality/lighter/",
+    "imageUrl2": "https://preview.redd.it/5ks1s3mq6eg71.jpg?auto=webp&s=b771007687d9f132778861d14ffbd961e5be94b3",
+    "videolink": "https://www.youtube.com/watch?v=MHox6_sgj9U&ab_channel=LubeHaiNhoi"
+  },
+  {
+    "name": "Lubing Kit",
+    "type": "addon",
+    "description": "yea cant tell much about this. its a brush, stem holder, keycap puller, switch puller, and the lube itself",
+    "price": 150000,
+    "imageUrl1": "https://m.media-amazon.com/images/I/41UjQb62H9L._SX425_.jpg",
+    "imageUrl2": "https://m.media-amazon.com/images/I/41UjQb62H9L._SX425_.jpg",
+    "videolink": " "
+  },
+  {
+    "name": "KBDFans Switch Opener",
+    "type": "addon",
+    "description": "Aluminium switch opener",
+    "price": 100000,
+    "imageUrl1": "https://cdn.shopify.com/s/files/1/1473/3902/files/QQ_20181231091555.jpg?v=1546218970",
+    "imageUrl2": "https://preview.redd.it/20dsiz4j36m21.jpg?auto=webp&s=f66ad19f5ec134af06d19bb6b2b7a17e6370050b",
+    "videolink": " "
+  }
+]
