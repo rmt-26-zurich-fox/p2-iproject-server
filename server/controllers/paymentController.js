@@ -45,8 +45,6 @@ class PaymentController {
       UserId: id,
     });
 
-    console.log(createBill.id, "<<<<<<<<<< Nomor nota");
-
     let parameter = {
       transaction_details: {
         order_id: createBill.id,
@@ -66,9 +64,8 @@ class PaymentController {
         // transaction token
         res.status(201).json(transaction);
         let transactionToken = transaction.token;
-        console.log("transactionToken:", transactionToken);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => next(err));
   }
   static notification(req, res, next) {
     let apiClient = new midtransClient.Snap({
@@ -138,6 +135,8 @@ class PaymentController {
       },
       { where: { id: order_id } }
     );
+
+    res.status(201).json({ message: "Success update payment status" });
   }
 }
 
