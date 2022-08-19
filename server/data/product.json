@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Tire",
+    "price": 500000,
+    "detail": "type P225/70R16 91S",
+    "imageUrl": "https://images.tokopedia.net/img/cache/700/VqbcmM/2020/10/20/f7329097-a05e-4f0a-b897-279802a36d7c.jpg",
+    "UserId": 2
+  },
+  {
+    "name": "Car head lamp",
+    "price": 300000,
+    "detail": "Headlamp custom all new corolla",
+    "imageUrl": "https://images.tokopedia.net/img/cache/500-square/product-1/2018/6/24/3574892/3574892_62e0f3d0-1567-4f57-b791-4811abf8bc40_960_960.jpg",
+    "UserId": 3
+  } 
+]
