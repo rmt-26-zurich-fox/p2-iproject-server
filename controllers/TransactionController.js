@@ -144,10 +144,10 @@ class TransactionController {
       console.log("transactionToken:", transactionToken)
       
 
-      // let payment = await Transaction.update(
-      //   { paymentStatus: true },
-      //   { where: { UserId, paymentStatus: false } }
-      // );
+      let payment = await Transaction.update(
+        { paymentStatus: true },
+        { where: { UserId, paymentStatus: false } }
+      );
       res.status(201).json({ message: "transaction success", transactionToken});
     } catch (error) {
       console.log(error);
