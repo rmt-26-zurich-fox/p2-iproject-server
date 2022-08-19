@@ -14,8 +14,18 @@ module.exports = (sequelize, DataTypes) => {
   }
   ProductRequest.init(
     {
-      ProductId: { type: DataTypes.INTEGER, allowNull: false },
-      UserId: { type: DataTypes.INTEGER, allowNull: false },
+      ProductId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      UserId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      status: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+      },
     },
     {
       sequelize,

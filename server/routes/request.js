@@ -8,6 +8,8 @@ requestRouter.post("/service/:ServiceId", RequestController.addService);
 requestRouter.delete("/product/:ProductId", RequestController.cancelProduct);
 requestRouter.delete("/service/:ServiceId", RequestController.cancelService);
 requestRouter.get("/payment", PaymentController.getBill);
+requestRouter.post("/payment/status", PaymentController.changeStatus);
+
 
 
 module.exports = requestRouter;

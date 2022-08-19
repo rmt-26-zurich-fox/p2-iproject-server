@@ -8,6 +8,8 @@ const {
   Bill,
 } = require("../models");
 
+// Authorization: Basic U0ItTWlkLXNlcnZlci0yNnNQVFJ4YXhlTXIwQjh2ajkyU0FvSjI6
+// https://api.sandbox.midtrans.com/v2/charge
 class PaymentController {
   static async getBill(req, res, next) {
     const { id, email } = req.user;
@@ -21,7 +23,7 @@ class PaymentController {
 
     const requestProduct = await ProductRequest.findAll({
       include: { model: Product, required: true },
-      where: { UserId: id },
+      where: { UserId: id, status: false },
     });
 
     const productAmount = requestProduct.reduce((accumulator, object) => {
@@ -30,19 +32,20 @@ class PaymentController {
 
     const requestService = await ServiceRequest.findAll({
       include: { model: Service, required: true },
-      where: { UserId: id },
+      where: { UserId: id, status: false },
     });
 
     const serviceAmount = requestService.reduce((accumulator, object) => {
       return accumulator + object.Service.price;
     }, 0);
 
-    console.log(serviceAmount + productAmount, "<<<<<<<< total bayar");
     const createBill = await Bill.create({
       totalAmount: serviceAmount + productAmount,
       status: "created",
       UserId: id,
     });
+
+    console.log(createBill.id, "<<<<<<<<<< Nomor nota");
 
     let parameter = {
       transaction_details: {
@@ -110,6 +113,31 @@ class PaymentController {
           // and response with 200 OK
         }
       });
+  }
+  static async changeStatus(req, res, next) {
+    const { id } = req.user;
+    const { bank, fraud_status, order_id, payment_type, transaction_id } =
+      req.body;
+
+    const serviceUpdate = await ServiceRequest.update(
+      { status: true },
+      { where: { UserId: id } }
+    );
+
+    const productUpdate = await ProductRequest.update(
+      { status: true },
+      { where: { UserId: id } }
+    );
+
+    const paymentStatus = await Bill.update(
+      {
+        bank,
+        paymentType: payment_type,
+        paymentStatus: fraud_status,
+        transactionId: transaction_id,
+      },
+      { where: { id: order_id } }
+    );
   }
 }
 

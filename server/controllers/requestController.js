@@ -15,6 +15,7 @@ class RequestController {
       let service = await ServiceRequest.create({
         UserId: id,
         ServiceId,
+        status: false
       });
       res.status(201).json({
         message: `Success add new service request`,
@@ -34,6 +35,7 @@ class RequestController {
       let product = await ProductRequest.create({
         UserId: id,
         ProductId,
+        status: false
       });
       res.status(201).json({
         message: `Success add new product request`,
@@ -84,6 +86,7 @@ class RequestController {
         include: { model: Service, required: true },
         where: {
           UserId: id,
+          status: false
         },
         order: [["id", "DESC"]],
       });
@@ -91,6 +94,7 @@ class RequestController {
         include: { model: Product, required: true },
         where: {
           UserId: id,
+          status: false
         },
         order: [["id", "DESC"]],
       });
