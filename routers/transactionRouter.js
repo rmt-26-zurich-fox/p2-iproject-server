@@ -4,6 +4,6 @@ const TransactionController = require('../controllers/TransactionController')
 
 transactionRouter.patch('/checkout', TransactionController.checkout)
 transactionRouter.get('/', TransactionController.getTransaction)
-transactionRouter.patch('/', TransactionController.payment)
+transactionRouter.post('/payment', TransactionController.payment)
 
 module.exports = transactionRouter
