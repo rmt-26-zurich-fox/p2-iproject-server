@@ -4,17 +4,17 @@ const { createToken } = require('../helpers/jwt');
 const axios = require("axios")
 class userController {
 
-    static async showUser(req, res, next) {
-        try {
-            let users = await User.findAll()
-            res.status(200).json({
-                message: "successfully shown users", 
-                users
-            })
-        } catch(error) {
-            next(error)
-        }
-    }
+    // static async showUser(req, res, next) {
+    //     try {
+    //         let users = await User.findAll()
+    //         res.status(200).json({
+    //             message: "successfully shown users", 
+    //             users
+    //         })
+    //     } catch(error) {
+    //         next(error)
+    //     }
+    // }
     
     static async register(req, res, next) {
         console.log("ini di controller");
