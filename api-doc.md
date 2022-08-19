@@ -309,7 +309,7 @@ _Response (200 - OK):_
 
 - Description:
 
-  - Empty card upon checkot
+  - Empty cart upon checkout
 
 - Request:
   - headers :
@@ -352,7 +352,7 @@ integer
 ```
 ## `DELETE /products/:productId/delete`
 - Description:
-Delete product from the database
+  - Delete product from the database
 
 - Request:
   - headers :
@@ -378,7 +378,7 @@ Delete product from the database
 
 ## POST `/cart/:productId`
 - Description:
-add products to cart
+  - add products to cart
 
 - Require:
   - params :
@@ -402,7 +402,8 @@ add products to cart
 
 ## DELETE `/cart/:cartId`
 
-- Description : remove item from cart
+- Description : 
+  - remove item from cart
 - Require:
   - params :
 
