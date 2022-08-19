@@ -76,20 +76,27 @@ router.get("/api/auth/discord/redirect",
         password: "passwordDariDiscord",
         role:'customer',
       });
-      res.redirect(`https://the-south-face.web.app?token=${access_token}&source=discord`)
+      res.redirect(`http://localhost:8080?token=${access_token}&source=discord`)
     })
     .catch((error)=>{
       console.log(error);
     })
   } catch (error) {
-    console.log(error);
+    if(error.name==='SequelizeUniqueConstraintError') res.status(400).json(error.errors[0].message)
+    else res.status(500).json({message:"Internal Server Error"})
   }
 });
+
+
 
 router.get('/discordNyusahin', userController.getDiscordEmail)
 
 router.get("/products", productController.getProducts);
 router.get("/products/:productId", productController.getOneProduct);
+
+router.get('/rajaongkir/province', productController.getProvince )
+router.get('/rajaongkir/city', productController.getCity)
+router.post('/rajaongkir/cost', productController.getdeliveryFee)
 
 router.use(authentication);
 

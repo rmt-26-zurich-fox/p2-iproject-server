@@ -1,5 +1,6 @@
 
 const { Product, Cart } = require("../models");
+const axios = require('axios')
 
 class productController {
   static async getProducts(req, res) {
@@ -191,6 +192,57 @@ class productController {
 
     } catch (error) {
         res.status(500).json({message:"Internal Server Error"})
+    }
+  }
+
+  static async getProvince(req,res){
+    try {
+      const province = await axios ({
+        method:"GET",
+        url:`https://api.rajaongkir.com/starter/province`,
+        headers:{
+          key: process.env.RAJAONGKIR
+        }
+      })
+      res.status(200).json(province.data.rajaongkir.results)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async getCity(req,res){
+    try {
+      const city = await axios ({
+        method:"GET",
+        url:`https://api.rajaongkir.com/starter/city`,
+        headers:{
+          key: process.env.RAJAONGKIR
+        }
+      })
+      res.status(200).json(city.data.rajaongkir.results)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async getdeliveryFee(req,res){
+    try {
+      const {origin, destination, weight, courier} = req.body
+      console.log(req.body);
+      console.log(req.body);
+      const cost = await axios ({
+        method:"post",
+        url:`https://api.rajaongkir.com/starter/cost`,
+        headers:{
+          key: process.env.RAJAONGKIR
+        },
+        data:{
+          origin, destination, weight, courier
+        }
+      })
+      res.status(200).json(cost.data.rajaongkir.results)
+    } catch (error) {
+      // console.log(error);
     }
   }
 }
