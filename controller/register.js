@@ -4,7 +4,9 @@ class Register {
     static async postRegister(req, res, next) {
         try {
             let { email, username, password } = req.body;
-            email = email.toLowerCase();
+            if (email) {
+                email = email.toLowerCase();
+            }
             const findUser = await User.findOne({ where: { email } });
             if (findUser) {
                 throw { name: "EmailAlreadyExists" };
