@@ -1,6 +1,6 @@
 function allowAccess(req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader("Access-Control-Allow-Origin", "https://otohelper1.web.app");
+  res.setHeader("Access-Control-Allow-Origin", "https://otohelper1.web.app/");
 
   // Request methods you wish to allow
   res.setHeader(
