@@ -33,9 +33,9 @@ class StudentController {
   static async deleteShoppingCart(req, res, next) {
     try {
       const { cartId } = req.params;
-      await ShoppingCart.destroy({ where: { id: cartId } });
+      await ShoppingCart.destroy({ where: { UserId: req.user.id } });
 
-      res.status(200).json({});
+      res.status(200).json({ message: `Shopping cart is deleted` });
     } catch (error) {
       next(error);
     }
@@ -43,17 +43,29 @@ class StudentController {
 
   static async addToCourseList(req, res, next) {
     try {
-      let data = await ShoppingCart.findAll({
-        where: { UserId: req.user.id },
-        include: Course,
-      });
-      const courseData = data.Course;
-      console.log(data[0]);
-      const response = await CourseList.create({ data });
+      const { courseId } = req.params;
+      const response = await CourseList.create(
+        { UserId: req.user.id, CourseId: courseId },
+        { where: { id: courseId } }
+      );
       res.status(201).json({
         message: `Course added to course list`,
         response,
       });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async fetchCourseList(req, res, next) {
+    try {
+      let data = await CourseList.findAll({
+        where: { UserId: req.user.id },
+        include: Course,
+      });
+      console.log(data);
+
+      res.status(200).json({ Course: data });
     } catch (error) {
       next(error);
     }
