@@ -20,10 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Password is required"
+          msg: "Name is required"
         },
         notEmpty: {
-          msg: "Password is required"
+          msg: "Name is required"
         },
       }
     },
@@ -31,7 +31,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        min: 5000,
+        min: {
+          args: 5000,
+          msg: "Minimum price is 5000"
+        },
         notNull: {
           msg: "Price is required"
         },
@@ -44,7 +47,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        min: [0],
+        min: {
+          args: [0],
+          msg: "Minimum stock is 0"
+        },
         notNull: {
           msg: "Stock is required"
         },
@@ -57,7 +63,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        min: [0],
+        min: {
+          args: 1,
+          msg: "Minimum weight is 1 gram"
+        },
         notNull: {
           msg: "Weight is required"
         },
