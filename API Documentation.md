@@ -12,6 +12,7 @@ List of available endpoints:
 - `PUT /profiles/edit`
 - `GET /admins/products/list`
 - `POST /admins/products/add`
+- `GET /admins/products/detail/:id`
 - `PUT /admins/products/edit/:id`
 - `PATCH /admins/products/status/:id`
 - `GET /admins/orders/list`
@@ -301,6 +302,15 @@ _Response (200 - OK)_
 }
 ```
 
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
 &nbsp;
 
 ## 8. POST /admins/products/add
@@ -362,9 +372,81 @@ _Response (400 - Bad Request)_
 }
 ```
 
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
 &nbsp;
 
-## 9. PUT /admins/products/edit/:id
+## 9. GET /admins/products/detail/:id
+
+Description:
+
+- Get admin product detail from db
+
+Request:
+
+- headers:
+
+```json
+{
+  "access_token": "string"
+}
+```
+
+- params:
+
+```json
+{
+  "id": "integer (required)"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+  "message": "Success GET Detail Product",
+  "data": {
+    "id": "integer",
+    "name": "string",
+    "price": "integer",
+    "stock": "integer",
+    "weight": "integer",
+    "imageUrl": "string",
+    "productStatus": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  }
+}
+```
+
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
+_Response (404 - Not Found)_
+
+```json
+{
+  "message": "Data not found",
+  "error": "Failed to read Food with id <id>"
+}
+```
+
+&nbsp;
+
+## 10. PUT /admins/products/edit/:id
 
 Description:
 
@@ -420,6 +502,15 @@ _Response (400 - Bad Request)_
 }
 ```
 
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
 _Response (404 - Not Found)_
 
 ```json
@@ -431,7 +522,7 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## 10. PATCH /admins/products/status/:id
+## 11. PATCH /admins/products/status/:id
 
 Description:
 
@@ -483,6 +574,15 @@ _Response (400 - Bad Request)_
 }
 ```
 
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
 _Response (404 - Not Found)_
 
 ```json
@@ -494,7 +594,7 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## 11. GET /admins/orders/list
+## 12. GET /admins/orders/list
 
 Description:
 
@@ -553,9 +653,18 @@ _Response (200 - OK)_
 }
 ```
 
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
 &nbsp;
 
-## 12. PATCH /admins/orders/status/:id
+## 13. PATCH /admins/orders/status/:id
 
 Description:
 
@@ -607,6 +716,15 @@ _Response (400 - Bad Request)_
 }
 ```
 
+_Response (403 - Forbidden)_
+
+```json
+{
+  "message": "Forbidden",
+  "error": "string"
+}
+```
+
 _Response (404 - Not Found)_
 
 ```json
@@ -618,7 +736,7 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## 13. GET /customers/products/list-active
+## 14. GET /customers/products/list-active
 
 Description:
 
@@ -658,7 +776,7 @@ _Response (200 - OK)_
 
 &nbsp;
 
-## 14. GET /customers/products/list-active-pagination
+## 15. GET /customers/products/list-active-pagination
 
 Description:
 
@@ -715,7 +833,7 @@ _Response (200 - OK)_
 
 &nbsp;
 
-## 15. GET /customers/products/detail/:id
+## 16. GET /customers/products/detail/:id
 
 Description:
 
@@ -770,7 +888,7 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## 16. POST /customers/orders/add/:id
+## 17. POST /customers/orders/add/:id
 
 Description:
 
@@ -832,7 +950,7 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## 17. GET /customers/orders/cart
+## 18. GET /customers/orders/cart
 
 Description:
 
@@ -891,7 +1009,7 @@ _Response (403 - Forbidden)_
 
 &nbsp;
 
-## 18. DELETE /customers/orders/delete/:id
+## 19. DELETE /customers/orders/delete/:id
 
 Description:
 
@@ -948,7 +1066,7 @@ OR
 
 &nbsp;
 
-## 19. GET /customers/orders/list
+## 20. GET /customers/orders/list
 
 Description:
 
@@ -1007,7 +1125,7 @@ _Response (403 - Forbidden)_
 
 &nbsp;
 
-## 20. POST /midtrans/snap-token
+## 21. POST /midtrans/snap-token
 
 Description:
 
@@ -1045,7 +1163,7 @@ _Response (201 - Created)_
 
 &nbsp;
 
-## 21. PATCH /midtrans/change-cart-to-payed
+## 22. PATCH /midtrans/change-cart-to-payed
 
 Description:
 

@@ -9,6 +9,9 @@ router.get('/products/list', ProductController.adminListProduct)
 // Add New Product Admin
 router.post('/products/add', ProductController.adminAddProduct)
 
+// Show Product Detail
+router.get('/products/detail/:id', ProductController.adminDetailProduct)
+
 // Edit Product, Product ID from params
 router.put('/products/edit/:id', ProductController.adminEditProduct)
 
