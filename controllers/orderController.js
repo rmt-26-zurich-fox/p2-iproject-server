@@ -10,7 +10,10 @@ class OrderController {
                 include: ['Profile', 'Product'],
                 order: [
                     ['createdAt', 'DESC']
-                ]
+                ],
+                where: {
+                    [Op.or]: [{ orderStatus: "Payed" }, { orderStatus: "Done" }]
+                }
             })
 
             res.status(200).json({
