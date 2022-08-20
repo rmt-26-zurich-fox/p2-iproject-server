@@ -103,6 +103,23 @@ class ProductController {
         }
     }
 
+    static async adminDetailProduct(req, res, next) {
+        try {
+            const productId = req.params.id;
+
+            const data = await Product.findByPk(productId)
+
+            if (!data) throw { code: 404, error: `Failed to read Food with id ${productId}` };
+
+            res.status(200).json({
+                message: "Success GET Detail Product",
+                data
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
     // ---=== Customer Route ===---
     // Customer List Product - Newest Product - Active only
     static async customerListProduct(req, res, next) {
