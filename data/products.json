@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Ice Cake",
+    "price": 125000,
+    "stock": 17,
+    "weight": 2500,
+    "imageUrl": "https://chelsweets.com/wp-content/uploads/2015/08/11856649_123174704700722_2002071373_n.jpg"
+  },
+  {
+    "name": "Salamander Cake",
+    "price": 150000,
+    "stock": 16,
+    "weight": 3200,
+    "imageUrl": "https://pic.cakesdecor.com/l/zyccciywifbgvxvkgjmu.jpg"
+  },
+  {
+    "name": "Horse Cake",
+    "price": 350000,
+    "stock": 13,
+    "weight": 4000,
+    "imageUrl": "https://i.pinimg.com/originals/56/f4/0a/56f40ad75f13b9d89e1b91cd3282211e.jpg"
+  },
+  {
+    "name": "Mini Cake",
+    "price": 12500,
+    "stock": 22,
+    "weight": 600,
+    "imageUrl": "https://th.bing.com/th/id/R.90efa3fd62472e5ef604098195a5c151?rik=ORHYsXlmKnxlRw&riu=http%3a%2f%2fjessicaburns.com%2fwp-content%2fuploads%2f2016%2f02%2fIMG_1023.jpg&ehk=8Q8wXDkYZZkXlJrTtDNtDLeqP68B4BKoG4x690UZJxQ%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "name": "Extra Cake",
+    "price": 125000,
+    "stock": 18,
+    "weight": 1600,
+    "imageUrl": "https://th.bing.com/th/id/R.cadd0d10b2b8cae3bb9f85a93f7ff33c?rik=cVl1KDfnljAoXg&riu=http%3a%2f%2famazingcakes.ie%2fwp-content%2fgallery%2fwedding-cakes%2fIMG_4384-Copy-1.JPG&ehk=LhO3z4DcvjmC8O4da5NjE3uDiaOKjYmEY%2fz5NqLQcgs%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "name": "Frozen Cake",
+    "price": 250000,
+    "stock": 18,
+    "weight": 1700,
+    "imageUrl": "https://i.pinimg.com/originals/22/27/b8/2227b8431aaaa37e5d9535ecda327f47.jpg"
+  },
+  {
+    "name": "Volcano Cake",
+    "price": 225000,
+    "stock": 14,
+    "weight": 1900,
+    "imageUrl": "https://i.pinimg.com/originals/c5/dc/b7/c5dcb7898a920ae9bd64bec0368248d2.jpg"
+  },
+  {
+    "name": "Forest Cake",
+    "price": 165000,
+    "stock": 16,
+    "weight": 1900,
+    "imageUrl": "https://live.staticflickr.com/4555/26906332589_681e603cbf_b.jpg"
+  },
+  {
+    "name": "Sea Cake",
+    "price": 180000,
+    "stock": 21,
+    "weight": 2450,
+    "imageUrl": "https://th.bing.com/th/id/OIP.QdK12qQ7cv9-v-weNsdYQQHaHB?pid=ImgDet&rs=1"
+  }
+]
